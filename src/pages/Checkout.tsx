@@ -97,7 +97,6 @@ const Checkout = () => {
 
       let friendlyMessage = "Ocorreu um erro ao processar sua inscrição.";
       if (errorMessage.includes("unique_profile_email")) {
-        console.log("Antigravity: Perfil já existe, navegando para obrigado (Modo Teste)");
         navigate('/obrigado');
         return;
       }
@@ -109,9 +108,6 @@ const Checkout = () => {
 
   return (
     <>
-      <div className="min-h-screen bg-background flex flex-col font-mono text-xs text-primary bg-black/5 p-1 border-b border-primary/20">
-        MODO DE TESTE ANTIGRAVITY (GATEWAY PULADO)
-      </div>
       <div className="min-h-screen bg-background flex flex-col">
         {/* Header */}
         <header className="bg-card border-b border-border py-4">
@@ -121,7 +117,7 @@ const Checkout = () => {
                 <span className="font-display font-bold text-primary-foreground text-lg">KC</span>
               </div>
               <span className="font-display font-bold text-xl text-foreground">
-                Kar<span className="text-primary">Cash</span> <span className="text-xs opacity-50 font-mono">(TESTE)</span>
+                Kar<span className="text-primary">Cash</span>
               </span>
             </a>
 
