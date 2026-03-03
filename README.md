@@ -16,12 +16,11 @@ Este projeto foi construído com uma stack moderna e performática, preparada pa
 -   **[Framer Motion](https://www.framer.com/motion/)**: Animações fluidas.
 -   **[React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/)**: Formulários e validação robusta.
 
-### Backend & Infraestrutura (Evolução em curso)
--   **[Vercel Postgres (Neon)](https://neon.tech/)**: Banco de dados PostgreSQL Serverless de alta performance.
--   **[Prisma ORM](https://www.prisma.io/)**: Type-safe database client para garantir integridade dos dados.
--   **[Node.js + Fastify](https://www.fastify.io/)**: Framework de API ultrarrápido para suportar o futuro marketplace.
--   **[Resend](https://resend.com/)**: Serviço de e-mail transacional.
--   **[Supabase](https://supabase.com/)**: Utilizado inicialmente para Auth e Database (migrando lógica para a API dedicada).
+### Backend & Infraestrutura
+-   **[Supabase](https://supabase.com/)**: Gerenciamento de banco de dados (`profiles`, `subscriptions`, `seller_leads`) e lógica de negócio via **Stored Procedures (RPC)** para garantir atomicidade.
+-   **[Resend](https://resend.com/)**: Serviço de e-mail transacional para envio de boas-vindas e **notificações em tempo real para a equipe de vendas**.
+-   **[Vercel Serverless](https://vercel.com/docs/functions)**: Funções em Node.js para processamento de e-mails e webhooks.
+-   **[Google Tag Manager (GTM)](https://tagmanager.google.com/)**: Hub centralizado para gestão de tags de marketing (Meta Pixel, Google Ads, etc).
 
 ## 🏗️ Arquitetura do Projeto
 
@@ -29,22 +28,23 @@ O projeto segue uma arquitetura limpa e desacoplada para garantir escalabilidade
 
 ```
 /
-├── api/                  # Serverless Functions & API Routes
+├── api/                  # Serverless Functions (E-mail, Webhooks)
+├── scripts/              # Utilitários de teste e manutenção (Database, Resend)
 ├── src/
-│   ├── assets/           # Imagens e dados reais dos carros
-│   ├── components/       # Componentes React reutilizáveis (Hero, SellerLead, etc)
-│   ├── pages/            # Páginas (Index, SellCar, Checkout, Success)
-│   ├── repositories/     # Camada de acesso a dados
-│   ├── services/         # Camada de serviços externos (API)
-│   └── lib/              # Configurações (DB Client, Utils)
+│   ├── assets/           # Ativos visuais e dados de modelos reais
+│   ├── components/       # Componentes de UI (Header, Pricing, SellerLead)
+│   ├── pages/            # Rotas da aplicação (Home, Checkout, Vender, Sucesso)
+│   ├── repositories/     # Camada de abstração de dados (Supabase/Rest)
+│   ├── services/         # Serviços de API e integrações externas
+│   └── lib/              # Configurações de clientes (Supabase, etc)
 ```
 
 ## 🌟 Diferenciais e Funcionalidades
 
 -   **Fluxo de Conversão AIDA:** Landing Page estruturada psicologicamente para guiar o usuário da Atenção à Ação.
--   **3 Formas de Lucrar:** Segmentação clara para Afiliados, Dropshippers e Investidores de Elite.
--   **Captação de Estoque Profissional:** Página `/vender` dedicada para aquisição de veículos avariados diretamente com leads qualificados.
--   **Checkout Transparente:** Integração com Guru para máxima segurança e conversão no pagamento.
+-   **Tracking Profissional:** Integração via Google Tag Manager para escalabilidade de tráfego pago (Meta/Google).
+-   **Automação de Leads:** Disparo imediato de e-mails para a equipe de vendas com Nome, E-mail e WhatsApp do lead.
+-   **Segurança & Integridade:** Uso de RPC no Supabase para garantir que usuários só sejam criados com assinaturas vinculadas.
 
 ## ⚙️ Como Executar o Projeto Localmente
 
@@ -52,19 +52,19 @@ O projeto segue uma arquitetura limpa e desacoplada para garantir escalabilidade
 
 1.  **Clone e Instale:**
     ```bash
-    git clone https://github.com/claudiojas/karcash-vip-access.git
-    cd karcash-vip-access
+    git clone https://github.com/guskinegocios/karcash-vip-lp.git
+    cd karcash-vip-lp
     npm install
     ```
 
 2.  **Configure as Variáveis de Ambiente:**
-    Crie um arquivo `.env` na raiz seguindo o modelo das ferramentas (Supabase/Neon/Resend).
+    Crie um arquivo `.env` na raiz seguindo o modelo (ver `.env.example`). Certifique-se de configurar a `RESEND_API_KEY` e as chaves do Supabase.
 
 3.  **Rodar Frontend (Vite):**
     ```bash
     npm run dev
     ```
-    *Acesse em `http://localhost:5173`.*
+    *Acesse em `http://localhost:8080` (porta padrão configurada).*
 
 ## 🧠 Estratégia de Copywriting (Gatilhos Mentais)
 
@@ -76,4 +76,4 @@ A Landing Page foi otimizada com gatilhos mentais para alta conversão:
 -   **Cards de Ofertas:** Utiliza *Ancoragem de Preço* e *Especifidade* (Lucro Exato).
 
 ---
-*Atualizado em 02/03/2026 por Gemi (Desenvolvedora Senior & Strategista).*
+*Atualizado em 03/03/2026 por Gemi (Desenvolvedora Senior & Estrategista).*

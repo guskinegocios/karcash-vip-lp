@@ -1,5 +1,26 @@
 # Histórico de Progresso - KarCash VIP
 
+## 📅 03/03/2026 - Integração de Dados & Marketing (GTM + Resend + Supabase)
+### Foco: Rastreabilidade, Automação e Notificações em Tempo Real
+
+Concluímos a ponte entre o frontend e a inteligência de vendas, garantindo que cada lead seja rastreado e a equipe notificada instantaneamente.
+
+### ✅ Entregas
+1.  **Marketing & Tracking (Google Tag Manager)**:
+    -   Integração do contêiner `GTM-MCCNVWX2`.
+    -   LP preparada para escalabilidade de tags (Meta Pixel, Google Ads, TikTok) via GTM sem necessidade de novas alterações no código.
+2.  **Automação de E-mails (Resend)**:
+    -   Configuração de disparos transacionais para o cliente.
+    -   **Notificação VIP p/ Equipe**: Implementação de disparo automático para `guskinegocios@gmail.com` contendo Nome, E-mail e WhatsApp de cada novo lead.
+3.  **Inteligência de Dados (Supabase)**:
+    -   Uso de **Stored Procedures (RPC)**: Criação da função `create_profile_and_subscription` para garantir que o banco mantenha a integridade entre perfis e assinaturas.
+    -   Políticas de RLS configuradas para segurança da API.
+4.  **Localização & SEO**:
+    -   Ajuste de linguagem global da LP para `pt-br`.
+    -   Otimização de metatags.
+
+---
+
 ## 📅 02/03/2026 - Sprint de Escala e Infraestrutura
 ### Foco: Conversão Máxima e Ecossistema de Geração de Renda
 
