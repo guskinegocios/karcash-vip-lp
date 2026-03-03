@@ -67,7 +67,7 @@ const SellCar = () => {
                         email: data.email,
                         whatsapp: data.whatsapp,
                         car_model: data.carModel,
-                        car_year: data.carYear,
+                        car_year: parseInt(data.carYear), // Converte para INTEGER conforme o novo SQL
                         description: data.description,
                         status: "pending"
                     }
