@@ -81,7 +81,8 @@ const Checkout = () => {
           },
           body: JSON.stringify({
             email: values.email,
-            name: values.name
+            name: values.name,
+            phone: values.phone
           }),
         });
       } catch (emailError) {

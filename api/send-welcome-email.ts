@@ -15,7 +15,7 @@ export default async function handler(
     }
 
     try {
-        const { email, name } = request.body;
+        const { email, name, phone } = request.body;
 
         // Validação básica
         if (!email || !name) {
@@ -45,7 +45,7 @@ export default async function handler(
                         <div style="background-color: #f9f9f9; border-left: 4px solid #00ff00; padding: 15px; margin: 25px 0;">
                             <p style="margin: 0; font-weight: 500;"><strong>Nome:</strong> ${name}</p>
                             <p style="margin: 0; font-weight: 500;"><strong>E-mail:</strong> ${email}</p>
-                            <p style="margin: 5px 0 0 0; font-size: 14px; color: #666;">Este é um e-mail de teste. Sistema de feedback funcionando corretamente.</p>
+                            <p style="margin: 5px 0 0 0; font-weight: 500;"><strong>WhatsApp:</strong> ${phone || 'Não informado'}</p>
                         </div>
                         
                         <p>Agradecemos a confiança!</p>
