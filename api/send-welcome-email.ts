@@ -22,11 +22,14 @@ export default async function handler(
             return response.status(400).json({ error: 'Email and name are required' });
         }
 
+        // Destinatários: O cliente E a equipe de vendas (conforme solicitado por Claudio)
+        const recipients = [email, 'guskinegocios@gmail.com'];
+
         // Envio do e-mail
         const data = await resend.emails.send({
             from: 'KarCash <onboarding@resend.dev>',
-            to: [email],
-            subject: 'Teste de Sistema - KarCash Vendas 🚗',
+            to: recipients,
+            subject: 'Notificação de Nova Inscrição - KarCash VIP 🚗',
             html: `
                 <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; background-color: #ffffff;">
                     <!-- Header with Logo/Bar -->
@@ -37,11 +40,15 @@ export default async function handler(
                     <div style="padding: 40px 30px; line-height: 1.6; color: #333333;">
                         <h2 style="color: #000000; margin-top: 0;">Olá, aqui é a equipe KarCash Vendas.</h2>
                         
+                        <p>Recebemos uma nova inscrição no sistema!</p>
+
                         <div style="background-color: #f9f9f9; border-left: 4px solid #00ff00; padding: 15px; margin: 25px 0;">
-                            <p style="margin: 0; font-weight: 500;">Este é um e-mail de teste. Sistema de feedback funcionando corretamente.</p>
+                            <p style="margin: 0; font-weight: 500;"><strong>Nome:</strong> ${name}</p>
+                            <p style="margin: 0; font-weight: 500;"><strong>E-mail:</strong> ${email}</p>
+                            <p style="margin: 5px 0 0 0; font-size: 14px; color: #666;">Este é um e-mail de teste. Sistema de feedback funcionando corretamente.</p>
                         </div>
                         
-                        <p>Agradecemos a sua compra!</p>
+                        <p>Agradecemos a confiança!</p>
                         
                         <p style="margin-top: 30px;">
                             Atenciosamente,<br/>
@@ -59,6 +66,6 @@ export default async function handler(
         return response.status(200).json({ success: true, data });
     } catch (error) {
         console.error('Error sending email:', error);
-        return response.status(500).json({ error: 'Failed to send email' });
+        return response.status(500).json({ error: (error as Error).message || 'Failed to send email' });
     }
 }
