@@ -43,6 +43,7 @@ type SellerFormValues = z.infer<typeof sellerSchema>;
 const SellCar = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
+    const [submittedData, setSubmittedData] = useState<SellerFormValues | null>(null);
 
     const form = useForm<SellerFormValues>({
         resolver: zodResolver(sellerSchema),
@@ -75,6 +76,7 @@ const SellCar = () => {
 
             if (error) throw error;
 
+            setSubmittedData(data);
             setIsSuccess(true);
             toast.success("Proposta enviada com sucesso!");
         } catch (error) {
@@ -85,7 +87,17 @@ const SellCar = () => {
         }
     };
 
-    if (isSuccess) {
+    if (isSuccess && submittedData) {
+        const whatsappMessage = encodeURIComponent(
+            `Olá KarCash! Gostaria de uma avaliação prioritária para o meu veículo:\n\n` +
+            `*Nome:* ${submittedData.name}\n` +
+            `*Carro:* ${submittedData.carModel} ${submittedData.carYear}\n` +
+            `*WhatsApp:* ${submittedData.whatsapp}\n` +
+            `*Descrição:* ${submittedData.description}`
+        );
+
+        const whatsappNumber = "5511999999999"; // TODO: Substituir pelo número real da KarCash
+
         return (
             <div className="min-h-[60vh] flex items-center justify-center container mx-auto px-4 py-20">
                 <motion.div
@@ -98,11 +110,26 @@ const SellCar = () => {
                     </div>
                     <h1 className="text-3xl font-display font-bold text-foreground">Proposta Enviada!</h1>
                     <p className="text-muted-foreground text-lg">
-                        Recebemos seus dados. Nossa equipe de especialistas fará uma pré-avaliação e entrará em contato via WhatsApp em até 24 horas.
+                        Recebemos seus dados em nosso sistema. Deseja acelerar sua avaliação falando agora com um especialista?
                     </p>
-                    <Link to="/">
-                        <button className="btn-primary-cta w-full mt-4">VOLTAR PARA A HOME</button>
-                    </Link>
+
+                    <div className="space-y-3">
+                        <a
+                            href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn-primary-cta w-full py-4 flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20ba5a] border-none"
+                        >
+                            <MessageSquare className="w-5 h-5" />
+                            FALAR NO WHATSAPP AGORA
+                        </a>
+
+                        <Link to="/" className="block">
+                            <button className="w-full py-3 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                                VOLTAR PARA A HOME
+                            </button>
+                        </Link>
+                    </div>
                 </motion.div>
             </div>
         );
