@@ -76,6 +76,29 @@ const SellCar = () => {
 
             if (error) throw error;
 
+            // Envia e-mail de notificação
+            try {
+                await fetch('/api/send-welcome-email', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: data.email,
+                        name: data.name,
+                        phone: data.whatsapp,
+                        type: 'oferta_venda',
+                        carDetails: {
+                            model: data.carModel,
+                            year: data.carYear,
+                            description: data.description
+                        }
+                    }),
+                });
+            } catch (emailError) {
+                console.warn('Erro ao enviar e-mail de notificação:', emailError);
+            }
+
             setSubmittedData(data);
             setIsSuccess(true);
             toast.success("Proposta enviada com sucesso!");

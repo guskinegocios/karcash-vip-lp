@@ -78,39 +78,43 @@ export default async function handler(
         const whatsappLink = "https://chat.whatsapp.com/GURU_VIP_GROUP";
 
         await resend.emails.send({
-            from: 'KarCash <onboarding@resend.dev>',
+            from: 'KarCash <vendas@karcash.com.br>',
             to: [email],
             subject: 'Confirmação de Sistema - KarCash Vendas 🚀',
             html: `
-                <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; background-color: #ffffff;">
-                    <!-- Header with Logo/Bar -->
-                    <div style="background-color: #000000; padding: 20px; text-align: center; border-bottom: 4px solid #00ff00;">
-                        <img src="https://karcash-vip-lp.vercel.app/logo_karcash.webp" alt="KarCash" style="max-width: 180px; height: auto;" />
+                <div style="font-family: 'Inter', 'Segoe UI', Helvetica, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e5e7eb; border-radius: 16px; overflow: hidden; background-color: #ffffff; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);">
+                    <!-- Header with Logo -->
+                    <div style="background-color: #030712; padding: 32px 20px; text-align: center; border-bottom: 4px solid #00ff00;">
+                        <img src="https://karcash-vip-lp.vercel.app/logo_karcash.webp" alt="KarCash" style="max-width: 200px; height: auto; filter: drop-shadow(0 0 8px rgba(0, 255, 0, 0.3));" />
                     </div>
                     
-                    <div style="padding: 40px 30px; line-height: 1.6; color: #333333;">
-                        <h2 style="color: #000000; margin-top: 0;">Olá, aqui é a equipe KarCash Vendas.</h2>
+                    <div style="padding: 48px 40px; line-height: 1.6; color: #1f2937;">
+                        <h1 style="color: #111827; margin-top: 0; font-size: 24px; font-weight: 800; letter-spacing: -0.025em; text-align: center;">Bem-vindo ao KarCash VIP! 🚀</h1>
                         
-                        <div style="background-color: #f9f9f9; border-left: 4px solid #00ff00; padding: 15px; margin: 25px 0;">
-                            <p style="margin: 0; font-weight: 500;">Este é um e-mail de teste. Sistema de feedback funcionando corretamente.</p>
+                        <p style="font-size: 16px; color: #4b5563; text-align: center; margin-bottom: 32px;">Seu pagamento foi aprovado e seu acesso exclusivo já está liberado.</p>
+
+                        <div style="background-color: #f9fafb; border: 1px solid #f3f4f6; border-left: 5px solid #00ff00; border-radius: 12px; padding: 24px; margin: 32px 0; text-align: center;">
+                            <p style="margin: 0; font-weight: 500; color: #111827;">Estamos felizes em ter você conosco! Clique no botão abaixo para entrar na nossa comunidade privada.</p>
                         </div>
                         
-                        <p>Agradecemos a sua compra!</p>
-                        
-                        <div style="text-align: center; margin: 30px 0;">
-                            <a href="https://chat.whatsapp.com/GURU_VIP_GROUP" style="background-color: #00ff00; color: #000000; padding: 15px 30px; text-decoration: none; font-weight: bold; border-radius: 50px; display: inline-block;">
+                        <div style="text-align: center; margin: 40px 0;">
+                            <a href="${whatsappLink}" style="background-color: #00ff00; color: #000000; padding: 18px 36px; text-decoration: none; font-weight: 800; border-radius: 12px; display: inline-block; font-size: 16px; box-shadow: 0 4px 6px -1px rgba(0, 255, 0, 0.2); transition: transform 0.2s;">
                                 ACESSAR GRUPO VIP AGORA 📲
                             </a>
                         </div>
                         
-                        <p style="margin-top: 30px;">
-                            Atenciosamente,<br/>
-                            <strong>Equipe KarCash Vendas</strong>
+                        <p style="text-align: center; font-size: 14px; color: #6b7280; margin-top: 24px;">
+                            Caso tenha qualquer dúvida, basta responder a este e-mail ou falar com nosso suporte.
                         </p>
+
+                        <div style="margin-top: 48px; padding-top: 24px; border-top: 1px solid #f3f4f6; text-align: center;">
+                            <p style="margin: 0; color: #111827; font-weight: 700; font-size: 16px;">Equipe KarCash Vendas</p>
+                        </div>
                     </div>
                     
-                    <div style="background-color: #f4f4f4; padding: 15px; text-align: center; font-size: 12px; color: #666666;">
-                         © ${new Date().getFullYear()} KarCash - Todos os direitos reservados.
+                    <div style="background-color: #f9fafb; padding: 20px; text-align: center; font-size: 12px; color: #9ca3af; border-top: 1px solid #f3f4f6;">
+                        © ${new Date().getFullYear()} KarCash • O seu marketplace de oportunidades automotivas.<br/>
+                        Todos os direitos reservados.
                     </div>
                 </div>
             `,
