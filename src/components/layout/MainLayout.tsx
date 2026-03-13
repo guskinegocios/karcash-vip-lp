@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 
 const MainLayout = () => {
   const location = useLocation();
-  const isVenderPage = location.pathname === '/vender';
+  const hideFooter = location.pathname === '/vender' || location.pathname === '/checkout';
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -12,7 +12,7 @@ const MainLayout = () => {
       <main className="flex-1">
         <Outlet />
       </main>
-      {!isVenderPage && <Footer />}
+      {!hideFooter && <Footer />}
     </div>
   );
 };
