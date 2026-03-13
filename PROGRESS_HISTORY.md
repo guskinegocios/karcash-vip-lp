@@ -1,5 +1,26 @@
 # Histórico de Progresso - KarCash VIP
 
+## 📅 13/03/2026 - Otimização de E-mails & Refinamento Premium
+### Foco: Deliverabilidade, Branding e UX
+
+Corrigimos falhas sistêmicas no envio de e-mails e elevamos a percepção de marca através de um novo sistema de notificações visuais de alta performance.
+
+### ✅ Entregas
+1.  **Novo Fluxo de Notificação de Vendas**:
+    -   Integração total do formulário `/vender` com a API de e-mail.
+    -   Agora, cada lead de venda gera uma notificação instantânea para o cliente e para a equipe interna com os detalhes do veículo.
+2.  **Branding e Identidade Visual nos E-mails**:
+    -   Design "High-Ticket" implementado em todos os e-mails transacionais.
+    -   Uso de cores da marca (Verde Neon + Dark Navy), tipografia moderna e integração do logotipo oficial.
+    -   E-mails otimizados para leitura móvel e conversão.
+3.  **Infraestrutura de E-mail (Deliverabilidade)**:
+    -   Migração completa para o domínio verificado `karcash.com.br` no Resend.
+    -   Fim das restrições de "onboarding domain", garantindo que os e-mails cheguem na caixa de entrada dos clientes.
+4.  **Ajustes de UX/UI**:
+    -   Limpeza visual na página de agradecimento (`/obrigado`), removendo o rodapé para focar 100% na mensagem de sucesso e conversão.
+
+---
+
 ## 📅 03/03/2026 - Integração de Dados & Marketing (GTM + Resend + Supabase)
 ### Foco: Rastreabilidade, Automação e Notificações em Tempo Real
 

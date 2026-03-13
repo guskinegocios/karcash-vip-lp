@@ -43,6 +43,7 @@ O projeto segue uma arquitetura limpa e desacoplada para garantir escalabilidade
 
 -   **Fluxo de Conversão AIDA:** Landing Page estruturada psicologicamente para guiar o usuário da Atenção à Ação.
 -   **Tracking Profissional:** Integração via Google Tag Manager para escalabilidade de tráfego pago (Meta/Google).
+-   **Sistema de E-mail Premium:** Notificações automáticas e personalizadas com design de alta conversão para novos leads e vendas.
 -   **Automação de Leads:** Disparo imediato de e-mails para a equipe de vendas com Nome, E-mail e WhatsApp do lead.
 -   **Segurança & Integridade:** Uso de RPC no Supabase para garantir que usuários só sejam criados com assinaturas vinculadas.
 
@@ -76,4 +77,4 @@ A Landing Page foi otimizada com gatilhos mentais para alta conversão:
 -   **Cards de Ofertas:** Utiliza *Ancoragem de Preço* e *Especifidade* (Lucro Exato).
 
 ---
-*Atualizado em 03/03/2026 por Gemi (Desenvolvedora Senior & Estrategista).*
+*Atualizado em 13/03/2026 por Antigravity (IA Coding Expert & Partner).*
