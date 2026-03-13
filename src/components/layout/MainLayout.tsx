@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 
 const MainLayout = () => {
   const location = useLocation();
-  const hideFooter = location.pathname === '/vender' || location.pathname === '/checkout';
+  const hideFooter = location.pathname === '/vender' || location.pathname === '/checkout' || location.pathname === '/obrigado';
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
