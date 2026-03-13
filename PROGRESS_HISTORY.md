@@ -18,6 +18,9 @@ Corrigimos falhas sistêmicas no envio de e-mails e elevamos a percepção de ma
     -   Fim das restrições de "onboarding domain", garantindo que os e-mails cheguem na caixa de entrada dos clientes.
 4.  **Ajustes de UX/UI**:
     -   Limpeza visual na página de agradecimento (`/obrigado`), removendo o rodapé para focar 100% na mensagem de sucesso e conversão.
+5.  **Refinamento de Marca nos E-mails**:
+    -   Atualização do logotipo para uma versão de alta qualidade e fundo transparente (`logo_karcash-removebg_1.webp`).
+    -   Substituição do link do site pelo link oficial do **Instagram** (`@karcashmotors`) para aumentar o engajamento social.
 
 ---
 

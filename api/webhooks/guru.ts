@@ -85,7 +85,7 @@ export default async function handler(
                 <div style="font-family: 'Inter', 'Segoe UI', Helvetica, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e5e7eb; border-radius: 16px; overflow: hidden; background-color: #ffffff; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);">
                     <!-- Header with Logo -->
                     <div style="background-color: #030712; padding: 32px 20px; text-align: center; border-bottom: 4px solid #00ff00;">
-                        <img src="https://karcash-vip-lp.vercel.app/logo_karcash.webp" alt="KarCash" style="max-width: 200px; height: auto; filter: drop-shadow(0 0 8px rgba(0, 255, 0, 0.3));" />
+                        <img src="https://karcash-vip-lp.vercel.app/src/assets/logo_karcash-removebg_1.webp" alt="KarCash" style="max-width: 200px; height: auto; filter: drop-shadow(0 0 8px rgba(0, 255, 0, 0.3));" />
                     </div>
                     
                     <div style="padding: 48px 40px; line-height: 1.6; color: #1f2937;">
@@ -109,6 +109,9 @@ export default async function handler(
 
                         <div style="margin-top: 48px; padding-top: 24px; border-top: 1px solid #f3f4f6; text-align: center;">
                             <p style="margin: 0; color: #111827; font-weight: 700; font-size: 16px;">Equipe KarCash Vendas</p>
+                            <div style="margin-top: 12px;">
+                                <a href="https://www.instagram.com/karcashmotors/" style="color: #00ff00; text-decoration: none; font-weight: 600; font-size: 14px;">Visite nosso Instagram</a>
+                            </div>
                         </div>
                     </div>
                     
