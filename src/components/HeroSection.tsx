@@ -27,7 +27,7 @@ export const HeroSection = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.1 }}
                             >
-                                Lucre até 50% em Carros que <span className="text-secondary">Ninguém Mais</span> Tem Acesso.
+                                Acesse as ofertas que as concessionárias escondem e lucre até <span className="text-secondary">R$ 20 mil</span> por carro.
                             </motion.h1>
 
                             <motion.p
@@ -37,7 +37,7 @@ export const HeroSection = () => {
                                 transition={{ duration: 0.6, delay: 0.2 }}
                             >
                                 A única comunidade que entrega carros <strong>Sem Leilão e Sem Sinistro</strong> com margem real.
-                                Enquanto a multidão disputa sucata, você acessa a mercadoria invisível.
+                                Não precisa de CNPJ e o acesso é imediato.
                             </motion.p>
 
                             <motion.div
@@ -51,11 +51,11 @@ export const HeroSection = () => {
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
                                     >
-                                        QUERO VER OS LOTES DISPONÍVEIS AGORA
+                                        QUERO ACESSO VIP
                                     </motion.button>
                                 </a>
                                 <p className="text-muted-foreground text-sm mt-4">
-                                    ⚠️ Apenas 100 vagas nesta abertura • Cancela quando quiser
+                                    ⚠️ Acesso liberado imediatamente após validação
                                 </p>
                             </motion.div>
                         </div>

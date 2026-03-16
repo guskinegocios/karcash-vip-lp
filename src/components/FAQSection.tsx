@@ -7,34 +7,19 @@ import {
 
 const faqs = [
   {
-    question: "Como funciona o acesso ao grupo VIP?",
+    question: "Posso cancelar?",
     answer:
-      "Após a confirmação do pagamento, você receberá automaticamente o link de acesso ao nosso grupo exclusivo no WhatsApp. Lá, você terá acesso a mais de 10 ofertas diárias de carros com valores até 50% abaixo da tabela FIPE.",
+      "Sim! Sem burocracia. Você pode cancelar a qualquer momento. Não existe fidelidade ou multa.",
   },
   {
-    question: "Os carros são revisados e documentados?",
-    answer:
-      "Sim! Todas as ofertas passam por uma curadoria rigorosa. Trabalhamos apenas com veículos sem pendências financeiras, documentação em dia, e histórico verificado. Você negocia diretamente com o vendedor.",
-  },
-  {
-    question: "Posso financiar os veículos?",
-    answer:
-      "Com certeza! A maioria dos carros disponíveis são financiáveis por qualquer banco. Você negocia as condições diretamente, sem intermediários.",
-  },
-  {
-    question: "Preciso de CNPJ para comprar?",
+    question: "Preciso de CNPJ?",
     answer:
       "Não! Você pode adquirir os veículos como pessoa física. Nosso grupo é aberto tanto para investidores individuais quanto para revendedores.",
   },
   {
-    question: "Como cancelo minha assinatura?",
+    question: "Como recebo o acesso?",
     answer:
-      "Simples! Sem burocracia. Você pode cancelar a qualquer momento diretamente pelo WhatsApp ou e-mail. Não existe fidelidade ou multa.",
-  },
-  {
-    question: "Quantas ofertas recebo por dia?",
-    answer:
-      "Em média, enviamos 10 ofertas por dia, totalizando mais de 300 oportunidades por mês. Cada oferta é selecionada com margens de lucro entre 20% e 50%.",
+      "Após a confirmação do pagamento, você receberá automaticamente o link de acesso ao nosso grupo exclusivo no WhatsApp.",
   },
 ];
 

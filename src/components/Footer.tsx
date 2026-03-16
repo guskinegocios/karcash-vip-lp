@@ -69,6 +69,13 @@ export const Footer = () => {
             </div>
           </div>
 
+          {/* Disclaimer */}
+          <div className="mt-12 text-center max-w-4xl mx-auto">
+            <p className="text-xs text-muted-foreground/60 leading-relaxed">
+              <strong>Atenção:</strong> A KarCash atua exclusivamente como uma plataforma de tecnologia e inteligência de mercado, fornecendo informações sobre oportunidades automotivas. Não vendemos carros, não intermediamos pagamentos de veículos e não nos responsabilizamos pelas condições reais dos lotes ou pelas negociações de compra e venda realizadas diretamente entre os membros e as concessionárias/lojas.
+            </p>
+          </div>
+
           {/* Bottom Divider & Manage Subscription Link */}
           <div className="mt-10 pt-6 border-t border-border/50 flex justify-center">
             <button
