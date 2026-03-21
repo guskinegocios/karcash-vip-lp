@@ -7,19 +7,19 @@ import {
 
 const faqs = [
   {
-    question: "Posso cancelar?",
+    question: "De onde vêm esses carros?",
     answer:
-      "Sim! Sem burocracia. Você pode cancelar a qualquer momento. Não existe fidelidade ou multa.",
+      "São mercadorias raras captadas diretamente, que não passaram por leilões públicos, garantindo exclusividade total e margem de revenda superior.",
   },
   {
-    question: "Preciso de CNPJ?",
+    question: "O carro é fácil de vender?",
     answer:
-      "Não! Você pode adquirir os veículos como pessoa física. Nosso grupo é aberto tanto para investidores individuais quanto para revendedores.",
+      "Sim. Sem apontamentos na cautelar (leilão, sinistro ou média monta), a aceitação em lojistas e para clientes particulares é imediata e pelo valor cheio de mercado.",
   },
   {
-    question: "Como recebo o acesso?",
+    question: "Como garanto meu acesso?",
     answer:
-      "Após a confirmação do pagamento, você receberá automaticamente o link de acesso ao nosso grupo exclusivo no WhatsApp.",
+      "Nossa oferta é limitada por dia para garantir a qualidade das oportunidades. O acesso é destinado a investidores e empreendedores que buscam escala no retorno sobre o capital.",
   },
 ];
 

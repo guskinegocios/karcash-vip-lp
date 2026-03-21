@@ -1,72 +1,62 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300..900;1,300..900&family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* KarCash Design System - Bold, Aggressive, Conversion-Focused */
+/* KarCash Design System - High Conversion & Premium */
 
 
 @layer base {
   :root {
     /* Core Brand Colors - KarCash Visual Identity */
-    --background: 176 80% 9%;
-    /* --background: 105 83% 5.5%; */
-    /* Quase preto para o fundo */
-    --foreground: 0 0% 98%;
-    /* Branco para textos */
+    --background: 150 11% 3%; /* #080A09 */
+    --foreground: 0 0% 97%;  /* #F7F7F7 */
 
-    --card: 0 0% 5%;
-    /* Cinza escuro para cards */
-    --card-foreground: 0 0% 98%;
+    --card: 105 50% 4%;      /* #071601 */
+    --card-foreground: 0 0% 97%;
 
-    --popover: 0 0% 5%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 105 50% 4%;
+    --popover-foreground: 0 0% 97%;
 
     /* Verde Limão - Cor Primária */
-    /* --primary: 105 100% 50%; */
-    --primary: 71 100% 62%;
-    /* #7CFC00 - Verde Limão Brilhante */
-    --primary-foreground: 0 0% 5%;
-    /* Preto para texto em botões primários */
+    --primary: 69 97% 55%;   /* #DBFC1D */
+    --primary-foreground: 150 11% 3%;
 
-    /* Azul Petróleo / Verde Escuro - Cor Secundária/Destaque */
-    --secondary: 175 50% 30%;
-    /* #26736A */
-    --secondary-foreground: 0 0% 98%;
+    /* Verde Musgo - Bordas e Divisores */
+    --secondary: 105 10% 24%; /* #394236 */
+    --secondary-foreground: 0 0% 97%;
 
     /* Cores de UI */
     --muted: 0 0% 15%;
     --muted-foreground: 0 0% 60%;
 
-    --accent: 105 100% 50%;
-    /* Verde Limão como cor de destaque */
-    --accent-foreground: 0 0% 5%;
+    --accent: 69 97% 55%;
+    --accent-foreground: 150 11% 3%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 10%;
-    --input: 0 0% 10%;
-    --ring: 105 100% 50%;
+    --border: 105 10% 24%; /* #394236 */
+    --input: 105 10% 24%;
+    --ring: 69 97% 55%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem; /* Cantos levemente arredondados */
 
     /* button CTA */
     --btn-secondary-cta: #FF5E00;
-    /* Laranja Vibrante */
 
     /* Gradients */
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 8%) 0%, hsl(0 0% 3%) 100%);
-    --gradient-cta-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(105 100% 40%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(105 50% 6%) 0%, hsl(105 50% 2%) 100%);
+    --gradient-cta-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, #a8cc12 100%);
 
     /* Shadows */
 
-    --shadow-card: 0 25px 50px -12px hsl(0 0% 0% / 0.6);
-    --shadow-elevated: 0 20px 40px -15px hsl(0 0% 0% / 0.5);
+    --shadow-card: 0 25px 50px -12px hsl(0 0% 0% / 0.8);
+    --shadow-elevated: 0 20px 40px -15px hsl(0 0% 0% / 0.7);
 
     /* Typography */
-    --font-display: 'Space Grotesk', sans-serif;
-    --font-body: 'Inter', sans-serif;
+    --font-display: 'Ramsey', 'Space Grotesk', sans-serif;
+    --font-body: 'Montserrat', 'Inter', sans-serif;
   }
 }
 
@@ -82,6 +72,9 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-body);
+    font-size: 18px;
+    letter-spacing: -0.02em;
+    -webkit-font-smoothing: antialiased;
   }
 
   h1,
@@ -91,6 +84,17 @@
   h5,
   h6 {
     font-family: var(--font-display);
+    line-height: 1.1;
+    font-weight: 700;
+    @apply uppercase;
+  }
+
+  h1 {
+    @apply text-[36px] md:text-[64px];
+  }
+
+  h2 {
+    @apply text-[32px] md:text-[48px];
   }
 }
 

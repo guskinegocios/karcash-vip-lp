@@ -1,47 +1,44 @@
 import { HeroSection } from "@/components/HeroSection";
-import { TrustBar } from "@/components/TrustBar";
-import { ShowcaseSection } from "@/components/ShowcaseSection";
-import { Journey } from "@/components/Journey";
+import { AuthorityBar } from "@/components/AuthorityBar";
 import { SocialProofSection } from "@/components/SocialProofSection";
-import { CheckoutOfferSection } from "@/components/CheckoutOfferSection";
-import { SellerLead } from "@/components/SellerLead";
-import { SellerLeadModal } from "@/components/SellerLeadModal";
+import { PainSection } from "@/components/PainSection";
+import { SolutionSection } from "@/components/SolutionSection";
+import { ScarcitySection } from "@/components/ScarcitySection";
 import { FAQSection } from "@/components/FAQSection";
+import { FinalCTA } from "@/components/FinalCTA";
+import { SellerLeadModal } from "@/components/SellerLeadModal";
 import { ScrollReveal } from "@/components/ScrollReveal";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-background">
       <SellerLeadModal />
 
-      {/* 1. Hero Section (O Gatilho) */}
+      {/* 1. HERO SECTION (High Impact) */}
       <HeroSection />
 
-      {/* 2. Trust Bar (Quebra de Objeção) */}
-      <TrustBar />
+      {/* 2. BARRA DE AUTORIDADE */}
+      <AuthorityBar />
 
-      {/* 3. Vitrine de Desejo (Showcase) */}
-      <ShowcaseSection />
-
-      {/* 4. How It Works (Educação) */}
-      <Journey />
-
-      {/* 5. Prova Social & Autoridade */}
+      {/* 2.5 PROVA SOCIAL / NÚMEROS (Social Proof) */}
       <SocialProofSection />
 
-      {/* 6. Checkout / Oferta Irresistível */}
-      <CheckoutOfferSection />
+      {/* 3. SEÇÃO DE DOR (O Problema) */}
+      <PainSection />
 
-      {/* Meta Secundária: Seller Lead */}
-      <SellerLead />
+      {/* 4. SEÇÃO DE SOLUÇÃO (Oceano Azul) */}
+      <SolutionSection />
 
-      {/* 7. FAQ (O Fechamento) */}
-      <section className="py-20 bg-background" id="faq">
+      {/* 5. SEÇÃO DE ESCASSEZ (Bloco de Destaque) */}
+      <ScarcitySection />
+
+      {/* 6. FAQ ESTRATÉGICO */}
+      <section className="py-[120px] bg-background" id="faq">
         <div className="container mx-auto px-4">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <h2 className="font-display font-bold text-3xl md:text-4xl text-foreground mb-4 uppercase">
-                AINDA TEM DÚVIDAS? <span className="text-primary">A GENTE RESPONDE!</span>
+              <h2 className="text-foreground mb-4">
+                AINDA TEM DÚVIDAS? <span className="text-primary italic">A GENTE RESPONDE.</span>
               </h2>
             </div>
           </ScrollReveal>
@@ -51,6 +48,9 @@ const Index = () => {
           </ScrollReveal>
         </div>
       </section>
+
+      {/* 7. FECHAMENTO (CTA FINAL) */}
+      <FinalCTA />
 
     </div>
   );
