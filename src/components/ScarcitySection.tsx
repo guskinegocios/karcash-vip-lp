@@ -27,10 +27,12 @@ export const ScarcitySection = () => {
 
                                 <div className="space-y-4">
                                     <h2 className="text-4xl md:text-5xl text-foreground uppercase leading-[1.1] font-black">
-                                        Restam apenas <span className="text-primary italic">10 licenças</span> ativas para hoje.
+                                        Não é <span className="text-primary italic">escalável.</span><br />
+                                        E esse é o ponto.
                                     </h2>
-                                    <p className="text-foreground/50 text-base normal-case font-body tracking-tight leading-relaxed max-w-sm">
-                                        Filtramos apenas o topo 1% do mercado premium. O volume de ativos é fisicamente limitado pela nossa curadoria manual.
+                                    <p className="text-foreground/70 text-base md:text-lg normal-case font-medium tracking-tight leading-relaxed max-w-sm">
+                                        Trabalhamos com um volume limitado de oportunidades. <strong className="text-primary">Apenas 10 veículos por dia</strong>, em média. 
+                                        Quem entra primeiro, escolhe melhor.
                                     </p>
                                 </div>
 
@@ -47,9 +49,9 @@ export const ScarcitySection = () => {
                                         </div>
                                     </div>
                                     <div className="space-y-3">
-                                        <div className="flex justify-between items-end">
-                                            <span className="text-[10px] font-bold text-foreground/60 uppercase">Licenças Disponíveis</span>
-                                            <span className="text-xl font-bold text-primary tracking-tighter">10 / 450</span>
+                                        <div className="space-y-3 pb-2">
+                                            <span className="text-[10px] font-bold text-foreground/60 uppercase">Oportunidades Hoje</span>
+                                            <span className="text-xl font-bold text-primary tracking-tighter">10 VEÍCULOS RARS</span>
                                         </div>
                                         <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
                                             <motion.div 
@@ -74,25 +76,33 @@ export const ScarcitySection = () => {
                             </div>
 
                             {/* Right Column: Contrast Urgency */}
-                            <div className="lg:w-1/2 flex flex-col items-center lg:items-end text-center lg:text-right space-y-8">
-                                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary border border-primary/20 mb-4 animate-bounce">
-                                    <Zap className="w-8 h-8" />
+                            {/* Right Column: Who it is for */}
+                            <div className="lg:w-1/2 flex flex-col space-y-6 text-left border-l border-white/5 pl-0 lg:pl-12">
+                                <div>
+                                    <h4 className="text-primary font-black text-xs tracking-widest uppercase mb-4 italic">ESSE ACESSO É PARA QUEM:</h4>
+                                    <ul className="space-y-2 text-sm text-foreground/80">
+                                        <li>✓ Quer lucrar com compra e revenda de veículos</li>
+                                        <li>✓ Já tem ou consegue levantar capital para operar</li>
+                                        <li>✓ Busca previsibilidade, não aposta</li>
+                                    </ul>
                                 </div>
-                                <div className="space-y-4">
-                                    <p className="text-2xl md:text-3xl text-foreground font-black uppercase tracking-tighter leading-tight italic">
-                                        "Oportunidades raras não esperam quem tem medo de agir."
-                                    </p>
-                                    <p className="text-primary font-bold text-xs tracking-[0.3em] uppercase">
-                                        — Gustavo, KarCash Founder
-                                    </p>
+                                <div className="opacity-50">
+                                    <h4 className="text-destructive font-bold text-[10px] tracking-widest uppercase mb-4">NÃO É PARA QUEM:</h4>
+                                    <ul className="space-y-2 text-xs text-foreground/60 line-through decoration-destructive/50">
+                                        <li>✗ Procura dinheiro fácil</li>
+                                        <li>✗ Não entende o básico de compra e venda</li>
+                                        <li>✗ Não está disposto a agir rápido</li>
+                                    </ul>
                                 </div>
                                 
-                                <a 
-                                    href="/checkout"
-                                    className="bg-primary text-background px-8 py-4 rounded-full text-sm font-black uppercase tracking-[0.2em] shadow-[0_0_30px_rgba(219,252,29,0.3)] hover:scale-105 transition-transform cursor-pointer"
-                                >
-                                    Garantir meu lugar agora
-                                </a>
+                                <div className="pt-4">
+                                    <a 
+                                        href="#checkout"
+                                        className="btn-primary-cta w-full py-4 text-center block"
+                                    >
+                                        Garantir meu acesso agora
+                                    </a>
+                                </div>
                             </div>
 
                             {/* Corner Accents */}

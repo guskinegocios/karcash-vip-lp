@@ -17,18 +17,24 @@ export const PainSection = () => {
                                 <AlertTriangle className="w-3 h-3" />
                                 Alerta de Risco
                             </div>
-                            <h2 className="mb-8 text-foreground leading-[1.1]">
-                                O Leilão Comum é o <span className="text-destructive italic">Cemitério</span> do seu Lucro.
+                            <h2 className="mb-8 text-foreground leading-[1.1] text-3xl md:text-5xl font-black uppercase">
+                                <span className="text-primary italic block mb-2">O leilão parece barato.</span>
+                                Mas cobra no final.
                             </h2>
-                            <div className="space-y-6 text-foreground/70 text-lg leading-relaxed normal-case">
+                            <div className="space-y-6 text-foreground/70 text-lg md:text-xl leading-relaxed normal-case font-medium">
                                 <p>
-                                    No mercado tradicional, o carimbo de <strong className="text-foreground">"Histórico de Leilão"</strong> é uma sentença de morte para a sua margem de revenda.
+                                    Você compra mais barato... <strong className="text-foreground">Mas também vende mais barato.</strong>
                                 </p>
                                 <p>
-                                    Você investe capital, tempo e energia, mas o mercado te pune implacavelmente com desvalorizações de <strong className="text-destructive font-bold underline decoration-2 underline-offset-4">30% abaixo da Fipe</strong>.
+                                    O carimbo de <strong className="text-destructive font-bold underline decoration-2 underline-offset-4">"Histórico de Leilão"</strong> na cautelar é uma sentença de morte para o seu giro de capital.
                                 </p>
-                                <p className="text-foreground/90 font-medium">
-                                    Até quando você vai aceitar trabalhar para alimentar o lucro dos pátios, enquanto seu patrimônio evapora em cada negociação?
+                                <div className="space-y-3 bg-white/5 p-6 rounded-xl border border-white/5">
+                                    <p className="flex items-center gap-2 text-sm text-foreground/80"><XCircle className="w-4 h-4 text-destructive" /> Histórico de leilão na cautelar</p>
+                                    <p className="flex items-center gap-2 text-sm text-foreground/80"><XCircle className="w-4 h-4 text-destructive" /> Sinistro/Média Monta registrado</p>
+                                    <p className="flex items-center gap-2 text-sm text-foreground/80"><XCircle className="w-4 h-4 text-destructive" /> Desvalorização de até 30%</p>
+                                </div>
+                                <p className="text-primary font-bold">
+                                    Resultado: margem comprimida e estoque parado.
                                 </p>
                             </div>
                         </div>

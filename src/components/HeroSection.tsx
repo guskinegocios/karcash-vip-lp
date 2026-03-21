@@ -21,22 +21,23 @@ export const HeroSection = () => {
                     </motion.div>
 
                     <motion.h1
-                        className="mb-4 md:mb-8 text-[28px] md:text-[64px] leading-[1.1]"
+                        className="mb-4 md:mb-8 text-[32px] md:text-[72px] leading-[1.05] font-black tracking-tight"
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
-                        Até quando você vai aceitar perder <span className="text-primary italic">30% do seu lucro</span> para o histórico de leilão?
+                        OS MELHORES CARROS <br className="hidden md:block" />
+                        <span className="text-primary italic">NÃO ESTÃO</span> NO LEILÃO.
                     </motion.h1>
 
                     <motion.p
-                        className="text-base md:text-xl text-foreground/80 mb-6 md:mb-12 max-w-3xl mx-auto normal-case leading-relaxed px-2 md:px-0"
+                        className="text-base md:text-2xl text-foreground/90 mb-6 md:mb-12 max-w-3xl mx-auto normal-case leading-relaxed px-2 md:px-0 font-medium"
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.4 }}
                     >
-                        Pare de disputar "restos" em pátios lotados. <strong className="text-foreground">Tenha acesso exclusivo a veículos raros</strong>, 
-                        recuperados com margem de 100% da Tabela Fipe e sem nenhuma restrição na cautelar.
+                        Eles são negociados antes. <strong>Sem histórico, sem sinistro</strong> — e com margem cheia de FIPE. 
+                        Tenha acesso a veículos que não aparecem para o público comum e lucre como quem já entende o jogo.
                     </motion.p>
 
                     <motion.div
@@ -47,20 +48,18 @@ export const HeroSection = () => {
                     >
                         <a href="/checkout" className="w-full md:w-auto">
                             <motion.button
-                                className="btn-primary-cta w-full md:w-auto px-10 py-4 md:py-5 text-lg md:text-xl group flex items-center justify-center gap-3"
+                                className="btn-primary-cta w-full md:w-auto px-10 py-4 md:py-6 text-xl md:text-2xl group flex items-center justify-center gap-3 pulse-glow"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                             >
-                                QUERO MEU ACESSO EXCLUSIVO
+                                QUERO ACESSAR OPORTUNIDADES REAIS AGORA
                                 <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
                             </motion.button>
                         </a>
                         
-                        <div className="flex flex-col md:flex-row items-center justify-center gap-x-8 gap-y-1.5 text-foreground/40 text-[10px] md:text-xs font-bold tracking-widest uppercase">
-                            <span className="flex items-center gap-2">✓ CAUTELAR 100% APROVADA</span>
-                            <span className="flex items-center gap-2">✓ SEM RESTRIÇÃO DE LEILÃO</span>
-                            <span className="flex items-center gap-2">✓ MARGEM DE CONCESSIONÁRIA</span>
-                        </div>
+                        <p className="text-primary text-sm md:text-base font-bold italic tracking-wide">
+                            🚀 Disponibilizamos em média 10 veículos por dia para toda a base
+                        </p>
                     </motion.div>
                 </div>
             </div>

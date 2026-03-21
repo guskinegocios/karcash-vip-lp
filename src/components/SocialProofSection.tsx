@@ -6,36 +6,36 @@ import { TrendingUp, Clock, ShieldCheck, Zap, Quote, CheckCircle2 } from "lucide
 export const SocialProofSection = () => {
     const stats = [
         { 
-            value: 22.4, 
+            value: 100, 
             suffix: "%", 
-            label: "Margem Média de Lucro", 
-            description: "Rentabilidade real sobre o capital investido.",
+            label: "Valor de FIPE", 
+            description: "Veículos sem restrições, prontos para margem cheia.",
             icon: TrendingUp,
-            trend: "+3.2%"
+            trend: "Full"
         },
         { 
             value: 14, 
             suffix: " Dias", 
-            label: "Giro Médio de Estoque", 
-            description: "Liquidez rápida para reinvestimento ágil.",
+            label: "Giro de Estoque", 
+            description: "Liquidez máxima por não carregar marca de leilão.",
             icon: Clock,
             trend: "Fast"
         },
         { 
             value: 100, 
             suffix: "%", 
-            label: "Cautelar Aprovada", 
-            description: "Zero restrições. Transparência total.",
+            label: "Livre de Leilão", 
+            description: "Zero histórico na cautelar. Zero sinistro.",
             icon: ShieldCheck,
             trend: "Safe"
         },
         { 
-            value: 450, 
-            suffix: "+", 
-            label: "Ofertas Mensais", 
-            description: "Fluxo constante de oportunidades raras.",
+            value: 10, 
+            suffix: "", 
+            label: "Ofertas Diárias", 
+            description: "Volume controlado para manter a exclusividade.",
             icon: Zap,
-            trend: "Active",
+            trend: "Rare",
             live: true
         },
     ];
@@ -78,13 +78,13 @@ export const SocialProofSection = () => {
                     <div className="text-center mb-20">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold tracking-widest mb-6 uppercase">
                             <Zap className="w-3 h-3" />
-                            Market Intelligence Dashboard
+                            Acesso Premium: Informação Privilegiada
                         </div>
-                        <h2 className="text-foreground mb-6 leading-tight max-w-4xl mx-auto uppercase">
-                            Inteligência de Mercado que gera <span className="text-primary italic">Alpha Real.</span>
+                        <h2 className="text-foreground mb-6 leading-tight max-w-4xl mx-auto uppercase text-3xl md:text-5xl font-black">
+                            Domine o mercado com <span className="text-primary italic">Vantagem Real.</span>
                         </h2>
-                        <p className="text-foreground/60 text-lg max-w-2xl mx-auto normal-case leading-relaxed">
-                            Não operamos com "sorte". Operamos com dados e curadoria no topo da cadeia de suprimentos automotivos.
+                        <p className="text-foreground/60 text-lg max-w-2xl mx-auto normal-case leading-relaxed font-medium">
+                            Não é sorte, não é aposta. É o acesso direto ao canal de escoamento que as concessionárias não abrem para o público.
                         </p>
                     </div>
                 </ScrollReveal>
