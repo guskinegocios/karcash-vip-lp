@@ -1,4 +1,5 @@
 import { ScrollReveal } from "./ScrollReveal";
+import { motion } from "framer-motion";
 
 export const ScarcitySection = () => {
   return (
@@ -8,7 +9,19 @@ export const ScarcitySection = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <ScrollReveal>
-          <div className="max-w-4xl mx-auto bg-background/40 backdrop-blur-sm border border-secondary/30 rounded-[2.5rem] p-8 md:p-16 text-center">
+          <div className="max-w-4xl mx-auto bg-background/40 backdrop-blur-sm border border-secondary/30 rounded-[2.5rem] p-8 md:p-16 text-center relative">
+            
+            {/* Floating Scarcity Badge */}
+            <motion.div 
+              className="absolute -top-6 left-1/2 -translate-x-1/2 px-6 py-2 bg-primary/20 border border-primary/40 rounded-full shadow-[0_0_20px_rgba(219,252,29,0.2)]"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <span className="text-primary font-bold text-sm tracking-[0.2em] uppercase">
+                APENAS 10 VAGAS
+              </span>
+            </motion.div>
+
             <h2 className="text-foreground mb-6">
               Apenas <span className="text-primary italic">10 oportunidades</span> por dia.
             </h2>
