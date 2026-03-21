@@ -1,51 +1,137 @@
 import { motion } from "framer-motion";
 import { ScrollReveal } from "./ScrollReveal";
+import { AlertTriangle, XCircle, TrendingDown, FileText } from "lucide-react";
 
 export const PainSection = () => {
-  return (
-    <section className="py-[120px] bg-background overflow-hidden">
-      <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-[32px] items-center">
-          {/* Left Column: Copy */}
-          <ScrollReveal>
-            <div>
-              <h2 className="mb-8 text-foreground">
-                O Leilão Comum é o <span className="text-primary">Cemitério</span> do seu Lucro.
-              </h2>
-              <div className="space-y-6 text-foreground/80">
-                <p>
-                  No mercado tradicional, o carimbo de <strong className="text-foreground">"Sinistro"</strong> ou <strong className="text-foreground">"Média Monta"</strong> faz seu dinheiro evaporar.
-                </p>
-                <p>
-                  Você trabalha, recupera o carro, investe tempo e energia, mas o mercado te pune implacavelmente com vendas de <strong className="text-primary">20% a 30% abaixo da Tabela Fipe</strong>.
-                </p>
-                <p>
-                  Até quando você vai aceitar trabalhar para alimentar o lucro das seguradoras e pátios de leilão, enquanto sua margem desaparece no histórico do veículo?
-                </p>
-              </div>
-            </div>
-          </ScrollReveal>
+    return (
+        <section className="py-[120px] bg-background relative overflow-hidden">
+            {/* Background Glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-destructive/5 blur-[120px] rounded-full opacity-20" />
 
-          {/* Right Column: Visual Element */}
-          <ScrollReveal delay={0.2}>
-            <div className="relative aspect-video lg:aspect-square bg-card rounded-2xl border border-secondary/30 overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10" />
-              <div className="absolute inset-0 flex items-center justify-center p-8">
-                <div className="text-center">
-                  <div className="w-24 h-24 mb-6 mx-auto rounded-full bg-destructive/10 border border-destructive/20 flex items-center justify-center">
-                     <span className="text-4xl text-destructive font-bold select-none">✕</span>
-                  </div>
-                  <p className="text-2xl font-display font-bold text-destructive uppercase tracking-widest mb-2">Histórico de Leilão</p>
-                  <p className="text-foreground/60 max-w-xs mx-auto text-sm">O carimbo que destrói a confiança do seu comprador e sepulta sua margem de lucro.</p>
+            <div className="container mx-auto px-4 relative z-10">
+                <div className="grid lg:grid-cols-2 gap-[64px] items-center">
+                    {/* Left Column: Copy */}
+                    <ScrollReveal>
+                        <div className="max-w-xl">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-destructive/10 border border-destructive/20 text-destructive text-xs font-bold tracking-widest mb-6 uppercase">
+                                <AlertTriangle className="w-3 h-3" />
+                                Alerta de Risco
+                            </div>
+                            <h2 className="mb-8 text-foreground leading-[1.1]">
+                                O Leilão Comum é o <span className="text-destructive italic">Cemitério</span> do seu Lucro.
+                            </h2>
+                            <div className="space-y-6 text-foreground/70 text-lg leading-relaxed normal-case">
+                                <p>
+                                    No mercado tradicional, o carimbo de <strong className="text-foreground">"Histórico de Leilão"</strong> é uma sentença de morte para a sua margem de revenda.
+                                </p>
+                                <p>
+                                    Você investe capital, tempo e energia, mas o mercado te pune implacavelmente com desvalorizações de <strong className="text-destructive font-bold underline decoration-2 underline-offset-4">30% abaixo da Fipe</strong>.
+                                </p>
+                                <p className="text-foreground/90 font-medium">
+                                    Até quando você vai aceitar trabalhar para alimentar o lucro dos pátios, enquanto seu patrimônio evapora em cada negociação?
+                                </p>
+                            </div>
+                        </div>
+                    </ScrollReveal>
+
+                    {/* Right Column: Visual Element "Elite Auditor Report" */}
+                    <ScrollReveal delay={0.2}>
+                        <div className="relative group">
+                            {/* Decorative Outer Glow */}
+                            <div className="absolute inset-0 bg-destructive/20 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                            
+                            <div className="relative bg-[#0A0C0B] border border-white/5 rounded-2xl overflow-hidden shadow-2xl">
+                                {/* Header of the Report */}
+                                <div className="bg-white/5 px-6 py-4 border-b border-white/10 flex items-center justify-between">
+                                    <div className="flex items-center gap-2">
+                                        <FileText className="w-4 h-4 text-foreground/40" />
+                                        <span className="text-[10px] font-bold tracking-widest text-foreground/40 uppercase">Relatório de Auditoria v4.2</span>
+                                    </div>
+                                    <div className="flex gap-1">
+                                        <div className="w-2 h-2 rounded-full bg-destructive/40" />
+                                        <div className="w-2 h-2 rounded-full bg-yellow-500/40" />
+                                        <div className="w-2 h-2 rounded-full bg-green-500/40" />
+                                    </div>
+                                </div>
+
+                                {/* Body of the Report */}
+                                <div className="p-8 space-y-6">
+                                    <div className="space-y-4">
+                                        <div className="flex justify-between items-end border-b border-white/5 pb-2">
+                                            <span className="text-xs text-foreground/40 uppercase font-bold">Identificação</span>
+                                            <span className="text-sm font-mono text-foreground/80">SUV PREMIUM 2024</span>
+                                        </div>
+                                        <div className="flex justify-between items-end border-b border-white/5 pb-2">
+                                            <span className="text-xs text-foreground/40 uppercase font-bold">Valor Fipe</span>
+                                            <span className="text-sm font-mono text-foreground/80">R$ 184.500,00</span>
+                                        </div>
+                                    </div>
+
+                                    {/* The Red Audit Entry */}
+                                    <div className="bg-destructive/5 border border-destructive/20 rounded-xl p-4 relative overflow-hidden">
+                                        <div className="flex items-center gap-4 relative z-10">
+                                            <div className="w-10 h-10 rounded-lg bg-destructive/20 flex items-center justify-center">
+                                                <TrendingDown className="w-5 h-5 text-destructive" />
+                                            </div>
+                                            <div>
+                                                <p className="text-[10px] font-bold text-destructive uppercase tracking-widest mb-1">Anomalia de Mercado Detectada</p>
+                                                <p className="text-base font-bold text-foreground italic">HISTÓRICO DE LEILÃO (SINISTRO)</p>
+                                            </div>
+                                        </div>
+                                        <div className="mt-4 flex items-center justify-between relative z-10">
+                                            <span className="text-xs text-foreground/60 uppercase">Impacto no Lucro:</span>
+                                            <span className="text-xl font-bold text-destructive">- R$ 55.350,00</span>
+                                        </div>
+                                        
+                                        {/* Background Scanline animation */}
+                                        <motion.div 
+                                            className="absolute inset-0 bg-destructive/5"
+                                            animate={{ opacity: [0.3, 0.6, 0.3] }}
+                                            transition={{ duration: 2, repeat: Infinity }}
+                                        />
+                                    </div>
+
+                                    {/* The "DENIED" Stamp */}
+                                    <div className="flex justify-center pt-4">
+                                        <motion.div
+                                            initial={{ scale: 2, opacity: 0, rotate: -15 }}
+                                            animate={{ scale: 1, opacity: 1, rotate: -15 }}
+                                            transition={{ 
+                                                type: "spring",
+                                                stiffness: 260,
+                                                damping: 20,
+                                                delay: 1
+                                            }}
+                                            className="px-8 py-3 border-4 border-destructive text-destructive font-black text-3xl uppercase tracking-tighter opacity-80"
+                                            style={{ borderRadius: '4px' }}
+                                        >
+                                            REJEITADO
+                                        </motion.div>
+                                    </div>
+                                </div>
+
+                                {/* Footer details */}
+                                <div className="bg-white/5 px-6 py-3 text-[9px] font-mono text-foreground/30 flex justify-between">
+                                    <span>HASH: 8f2a9c...1e4b</span>
+                                    <span>MARKET_CONFIDENCE: 22%</span>
+                                </div>
+                            </div>
+
+                            {/* Floating Tooltip */}
+                            <motion.div 
+                                className="absolute -right-4 -bottom-4 bg-primary text-primary-foreground p-4 rounded-xl shadow-2xl max-w-[180px] z-20"
+                                animate={{ y: [0, -10, 0] }}
+                                transition={{ duration: 4, repeat: Infinity }}
+                            >
+                                <div className="flex items-start gap-3">
+                                    <XCircle className="w-5 h-5 flex-shrink-0" />
+                                    <p className="text-xs font-bold leading-tight">OCULTAR ISSO NÃO É MAIS POSSÍVEL NO MERCADO RARO.</p>
+                                </div>
+                            </motion.div>
+                        </div>
+                    </ScrollReveal>
                 </div>
-              </div>
-              {/* Abstract decorative elements */}
-              <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-destructive/5 rounded-full blur-3xl" />
-              <div className="absolute -top-10 -left-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl opacity-20" />
             </div>
-          </ScrollReveal>
-        </div>
-      </div>
-    </section>
-  );
+        </section>
+    );
 };

@@ -5,6 +5,7 @@ interface AnimatedCounterProps {
   duration?: number;
   prefix?: string;
   suffix?: string;
+  decimals?: number;
   className?: string;
 }
 
@@ -13,6 +14,7 @@ export const AnimatedCounter = ({
   duration = 2000,
   prefix = "",
   suffix = "",
+  decimals = 0,
   className = "",
 }: AnimatedCounterProps) => {
   const [count, setCount] = useState(0);
@@ -48,7 +50,7 @@ export const AnimatedCounter = ({
       
       // Easing function for smooth animation
       const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-      const currentValue = Math.floor(startValue + (end - startValue) * easeOutQuart);
+      const currentValue = startValue + (end - startValue) * easeOutQuart;
       
       setCount(currentValue);
 
@@ -61,7 +63,10 @@ export const AnimatedCounter = ({
   }, [isVisible, end, duration]);
 
   const formatNumber = (num: number) => {
-    return num.toLocaleString("pt-BR");
+    return num.toLocaleString("pt-BR", {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals,
+    });
   };
 
   return (

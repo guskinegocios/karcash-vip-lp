@@ -159,7 +159,7 @@ const SellCar = () => {
     }
 
     return (
-        <div className="min-h-screen pt-24 pb-20">
+        <div className="py-20">
             <div className="container mx-auto px-4">
                 <ScrollReveal>
                     <div className="max-w-5xl mx-auto">
