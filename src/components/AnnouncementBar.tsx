@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export const AnnouncementBar = () => {
   return (
-    <div className="bg-primary text-primary-foreground py-2 px-4 text-center relative z-[60] overflow-hidden">
+    <a href="/checkout" className="block bg-primary text-primary-foreground py-2 px-4 text-center relative z-[60] overflow-hidden hover:bg-primary/90 transition-colors">
       <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -13,6 +13,6 @@ export const AnnouncementBar = () => {
           🔥 OPORTUNIDADE ÚNICA: Apenas 10 veículos raros disponíveis hoje. Oferta exclusiva para membros.
         </span>
       </motion.div>
-    </div>
+    </a>
   );
 };

@@ -87,9 +87,12 @@ export const ScarcitySection = () => {
                                     </p>
                                 </div>
                                 
-                                <div className="bg-primary text-background px-8 py-4 rounded-full text-sm font-black uppercase tracking-[0.2em] shadow-[0_0_30px_rgba(219,252,29,0.3)] hover:scale-105 transition-transform cursor-pointer">
+                                <a 
+                                    href="/checkout"
+                                    className="bg-primary text-background px-8 py-4 rounded-full text-sm font-black uppercase tracking-[0.2em] shadow-[0_0_30px_rgba(219,252,29,0.3)] hover:scale-105 transition-transform cursor-pointer"
+                                >
                                     Garantir meu lugar agora
-                                </div>
+                                </a>
                             </div>
 
                             {/* Corner Accents */}

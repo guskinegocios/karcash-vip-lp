@@ -45,7 +45,7 @@ export const HeroSection = () => {
                         transition={{ duration: 0.8, delay: 0.6 }}
                         className="flex flex-col items-center gap-4 md:gap-6"
                     >
-                        <a href="#solucao" className="w-full md:w-auto">
+                        <a href="/checkout" className="w-full md:w-auto">
                             <motion.button
                                 className="btn-primary-cta w-full md:w-auto px-10 py-4 md:py-5 text-lg md:text-xl group flex items-center justify-center gap-3"
                                 whileHover={{ scale: 1.05 }}

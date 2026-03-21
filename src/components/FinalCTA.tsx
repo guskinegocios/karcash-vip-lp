@@ -16,14 +16,14 @@ export const FinalCTA = () => {
             </p>
             
             <div className="flex flex-col items-center gap-6">
-              <motion.button
-                className="btn-primary-cta w-full md:w-auto px-12 py-6 text-xl"
+              <motion.a
+                href="/checkout"
+                className="btn-primary-cta w-full md:w-auto px-12 py-6 text-xl text-center"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => window.open('https://wa.me/your-link-here', '_blank')}
               >
-                FALAR COM O ESTRATEGISTA KARCASH
-              </motion.button>
+                QUERO MEU ACESSO VIP AGORA
+              </motion.a>
               
               <div className="flex items-center gap-2 text-foreground/50 text-sm italic">
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
