@@ -15,18 +15,26 @@ const Success = () => {
           </div>
 
           <h1 className="font-display font-bold text-4xl md:text-5xl text-foreground mb-4">
-            Parabéns! Sua vaga na lista VIP está garantida!
+            Seja bem-vindo ao Clube VIP!
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground mb-8">
-            Fique de olho no seu e-mail! Enviaremos todas as informações sobre o 
-            lançamento e como garantir seu acesso exclusivo assim que as vagas 
-            forem abertas.
+            Seu pagamento foi confirmado. Agora, o passo final é solicitar o acesso 
+            ao nosso perfil exclusivo no Instagram onde as ofertas são postadas diariamente.
           </p>
 
-          <div className="flex flex-col items-center gap-4">
-            <p className="text-sm text-muted-foreground">
-              Um e-mail de confirmação com mais detalhes foi enviado para você. <br/> (Verifique sua caixa de spam e promoções)
+          <div className="flex flex-col items-center gap-6">
+            <a 
+              href={`https://instagram.com/${import.meta.env.VITE_INSTAGRAM_VIP_HANDLE?.replace('@', '')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary-cta py-4 px-8 rounded-xl font-display font-bold text-lg inline-flex items-center gap-2"
+            >
+              SOLICITAR ACESSO AO {import.meta.env.VITE_INSTAGRAM_VIP_HANDLE}
+            </a>
+
+            <p className="text-sm text-muted-foreground max-w-md">
+              <span className="font-bold text-primary">Importante:</span> Nossa tecnologia (Lastlink) identificará seu pagamento e aprovará sua solicitação automaticamente em instantes.
             </p>
           </div>
         </motion.div>

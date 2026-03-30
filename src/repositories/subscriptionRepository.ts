@@ -4,18 +4,33 @@ interface CreateSubscriptionParams {
     name: string;
     email: string;
     phone: string;
+    utm_source?: string;
+    utm_medium?: string;
+    utm_campaign?: string;
+    utm_content?: string;
+    utm_term?: string;
+    referrer?: string;
 }
 
 const subscriptionRepository = {
     /**
      * Chama a RPC do Supabase para criar perfil e assinatura.
-     * @param params Dados do usuário (nome, email, telefone)
+     * @param params Dados do usuário (nome, email, telefone + UTMs)
      */
-    createSubscription: async ({ name, email, phone }: CreateSubscriptionParams) => {
+    createSubscription: async ({ 
+        name, email, phone, 
+        utm_source, utm_medium, utm_campaign, utm_content, utm_term, referrer 
+    }: CreateSubscriptionParams) => {
         const { data, error } = await supabase.rpc('create_profile_and_subscription', {
             user_name: name,
             user_email: email,
             user_phone: phone,
+            u_source: utm_source,
+            u_medium: utm_medium,
+            u_campaign: utm_campaign,
+            u_content: utm_content,
+            u_term: utm_term,
+            u_referrer: referrer
         });
 
         if (error) {

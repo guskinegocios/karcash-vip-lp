@@ -7,8 +7,8 @@ import * as z from "zod";
 // import { supabase } from "@/lib/supabaseClient"; // Removido: agora usamos o repository
 import subscriptionRepository from "@/repositories/subscriptionRepository"; // Importa o repository
 import { toast } from 'sonner'; // Importa o sistema de toasts
-import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Importa useNavigate
+import { useState, useEffect } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom"; // Importa hooks do router
 import api from "@/services/api"; // Importa o serviço de API
 
 
@@ -45,7 +45,52 @@ const Checkout = () => {
   });
 
   const { isValid } = form.formState;
-  const navigate = useNavigate(); // Inicializa useNavigate
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+
+  // Captura as UTMs da URL ou do localStorage (persistência)
+  const getUtms = () => {
+    // 1. Tenta pegar da URL primeiro (mais recente)
+    const urlUtms = {
+      utm_source: searchParams.get("utm_source"),
+      utm_medium: searchParams.get("utm_medium"),
+      utm_campaign: searchParams.get("utm_campaign"),
+      utm_content: searchParams.get("utm_content"),
+      utm_term: searchParams.get("utm_term"),
+    };
+
+    if (urlUtms.utm_source) return { ...urlUtms, referrer: document.referrer || "" };
+
+    // 2. Se não tiver na URL, tenta pegar do localStorage
+    try {
+      const savedUtms = localStorage.getItem("karcash_utms");
+      if (savedUtms) {
+        const parsed = JSON.parse(savedUtms);
+        // Opcional: Validar se as UTMs não são muito antigas (ex: > 30 dias)
+        return {
+          utm_source: parsed.utm_source || "",
+          utm_medium: parsed.utm_medium || "",
+          utm_campaign: parsed.utm_campaign || "",
+          utm_content: parsed.utm_content || "",
+          utm_term: parsed.utm_term || "",
+          referrer: document.referrer || ""
+        };
+      }
+    } catch (e) {
+      console.warn("Erro ao ler UTMs do localStorage", e);
+    }
+
+    return {
+      utm_source: "",
+      utm_medium: "",
+      utm_campaign: "",
+      utm_content: "",
+      utm_term: "",
+      referrer: document.referrer || ""
+    };
+  };
+
+  const utms = getUtms();
 
   const formatPhone = (value: string) => {
     if (!value) return value;
@@ -68,6 +113,7 @@ const Checkout = () => {
         name: values.name,
         email: values.email,
         phone: values.phone.replace(/\D/g, ''),
+        ...utms
       });
 
       // 2. Dispara o E-mail de Teste via nossa API interna
@@ -89,8 +135,15 @@ const Checkout = () => {
         console.warn('Aviso: Não foi possível disparar o e-mail localmente (esperado fora da Vercel).', emailError);
       }
 
-      // 3. Vai direto para a tela de agradecimento (Pula o Guru)
-      navigate('/obrigado');
+      // 3. Redireciona para o checkout do Lastlink
+      const checkoutUrl = import.meta.env.VITE_LASTLINK_CHECKOUT_URL;
+      
+      if (checkoutUrl) {
+        window.location.href = checkoutUrl;
+      } else {
+        // Fallback caso a URL não esteja configurada
+        navigate('/obrigado');
+      }
 
     } catch (error) {
       console.error('Erro ao salvar no Supabase:', error);

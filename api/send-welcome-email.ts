@@ -27,9 +27,9 @@ export default async function handler(
         // Destinatários: O cliente E a equipe de vendas
         const recipients = [email, 'guskinegocios@gmail.com'];
 
-        let subject = 'Notificação de Nova Inscrição - KarCash VIP 🚗';
-        let title = 'Olá, aqui é a equipe KarCash Vendas.';
-        let message = 'Recebemos uma nova inscrição no sistema!';
+        let subject = 'Suas oportunidades VIP estão quase liberadas! 🚗';
+        let title = 'Bem-vindo ao Clube KarCash VIP!';
+        let message = 'Seu cadastro foi recebido com sucesso. Agora você está a um passo das melhores oportunidades do mercado.';
         let extraInfo = '';
 
         if (type === 'oferta_venda') {
@@ -72,16 +72,14 @@ export default async function handler(
                             </div>
                         </div>
                         
-                        <div style="text-align: center; margin-top: 40px;">
-                            <p style="margin-bottom: 8px; font-weight: 600; color: #111827;">Agradecemos a confiança!</p>
-                            <p style="margin-top: 0; color: #6b7280; font-size: 14px;">Em breve um especialista entrará em contato.</p>
+                        <div style="text-align: center; margin-top: 40px; padding: 30px; background-color: #030712; border-radius: 12px; color: #ffffff;">
+                            <p style="margin-bottom: 20px; font-weight: 700; font-size: 18px;">Passo Final Obrigatório:</p>
+                            <a href="https://www.instagram.com/${process.env.VITE_INSTAGRAM_VIP_HANDLE?.replace('@', '')}/" style="background-color: #00ff00; color: #030712; text-decoration: none; font-weight: 800; font-size: 16px; padding: 16px 32px; border-radius: 8px; display: inline-block;">SOLICITAR ACESSO AO PERFIL VIP</a>
+                            <p style="margin-top: 20px; color: #9ca3af; font-size: 13px;">Nossa tecnologia (Lastlink) aprovará sua entrada automaticamente após a confirmação do pagamento.</p>
                         </div>
                         
                         <div style="margin-top: 48px; padding-top: 24px; border-top: 1px solid #f3f4f6; text-align: center;">
                             <p style="margin: 0; color: #111827; font-weight: 700; font-size: 16px;">Equipe KarCash Vendas</p>
-                            <div style="margin-top: 12px;">
-                                <a href="https://www.instagram.com/karcashmotors/" style="color: #00ff00; text-decoration: none; font-weight: 600; font-size: 14px;">Visite nosso Instagram</a>
-                            </div>
                         </div>
                     </div>
                     
