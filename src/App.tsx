@@ -11,7 +11,7 @@ import NotFound from "./pages/NotFound";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
 import SellCar from "./pages/SellCar";
-
+import VipProfile from "./pages/VipProfile";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +28,7 @@ const App = () => (
             <Route path="/obrigado" element={<Success />} />
             <Route path="/vender" element={<SellCar />} />
           </Route>
+          <Route path="/form" element={<VipProfile />} />
           <Route path="/termos" element={<Terms />} />
           <Route path="/privacidade" element={<Privacy />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

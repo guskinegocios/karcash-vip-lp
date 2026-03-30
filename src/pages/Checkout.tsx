@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Shield, Lock, Check } from "lucide-react";
+import { Shield, Lock, Check, Instagram } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -30,6 +30,7 @@ const formSchema = z.object({
   phone: z.string().refine((val) => val.replace(/\D/g, '').length >= 10, {
     message: "O telefone deve ter pelo menos 10 dígitos.",
   }),
+  instagram: z.string().min(3, { message: "O @ deve ter pelo menos 3 caracteres." }).optional().or(z.literal("")),
 });
 
 const Checkout = () => {
@@ -41,6 +42,7 @@ const Checkout = () => {
       name: "",
       email: "",
       phone: "",
+      instagram: "",
     },
   });
 
@@ -113,6 +115,7 @@ const Checkout = () => {
         name: values.name,
         email: values.email,
         phone: values.phone.replace(/\D/g, ''),
+        instagram: values.instagram,
         ...utms
       });
 
@@ -135,11 +138,32 @@ const Checkout = () => {
         console.warn('Aviso: Não foi possível disparar o e-mail localmente (esperado fora da Vercel).', emailError);
       }
 
-      // 3. Redireciona para o checkout do Lastlink
-      const checkoutUrl = import.meta.env.VITE_LASTLINK_CHECKOUT_URL;
+      // 3. Salva dados temporários para a página de sucesso (auto-preenchimento do perfil)
+      localStorage.setItem('karcash_last_buyer', JSON.stringify({
+        name: values.name,
+        email: values.email
+      }));
+
+      // 4. Redireciona para o checkout do Cakto com autopreenchimento
+      const baseUrl = import.meta.env.VITE_CAKTO_CHECKOUT_URL;
       
-      if (checkoutUrl) {
-        window.location.href = checkoutUrl;
+      if (baseUrl) {
+        // Constrói a URL final com parâmetros para autopreenchimento e UTMs
+        const checkoutUrl = new URL(baseUrl);
+        
+        // Dados do cliente para o Cakto
+        checkoutUrl.searchParams.set("name", values.name);
+        checkoutUrl.searchParams.set("email", values.email);
+        checkoutUrl.searchParams.set("phone", values.phone.replace(/\D/g, ''));
+        
+        // Repassa as UTMs capturadas para o gateway
+        if (utms.utm_source) checkoutUrl.searchParams.set("utm_source", utms.utm_source);
+        if (utms.utm_medium) checkoutUrl.searchParams.set("utm_medium", utms.utm_medium);
+        if (utms.utm_campaign) checkoutUrl.searchParams.set("utm_campaign", utms.utm_campaign);
+        if (utms.utm_content) checkoutUrl.searchParams.set("utm_content", utms.utm_content);
+        if (utms.utm_term) checkoutUrl.searchParams.set("utm_term", utms.utm_term);
+        
+        window.location.href = checkoutUrl.toString();
       } else {
         // Fallback caso a URL não esteja configurada
         navigate('/obrigado');
@@ -260,6 +284,32 @@ const Checkout = () => {
                           className="bg-input border-border text-foreground placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                           disabled={isLoading}
                         />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="instagram"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-foreground mb-2 block">Instagram (@usuario)</FormLabel>
+                      <FormControl>
+                        <div className="relative">
+                            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground text-sm">@</span>
+                            <Input
+                                placeholder="usuario"
+                                {...field}
+                                onChange={(e) => {
+                                    const val = e.target.value.replace(/^@/, '');
+                                    field.onChange(val);
+                                }}
+                                className="bg-input border-border text-foreground placeholder:text-muted-foreground pl-7 focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                                disabled={isLoading}
+                            />
+                        </div>
                       </FormControl>
                       <FormMessage />
                     </FormItem>

@@ -73,9 +73,15 @@ export default async function handler(
                         </div>
                         
                         <div style="text-align: center; margin-top: 40px; padding: 30px; background-color: #030712; border-radius: 12px; color: #ffffff;">
-                            <p style="margin-bottom: 20px; font-weight: 700; font-size: 18px;">Passo Final Obrigatório:</p>
-                            <a href="https://www.instagram.com/${process.env.VITE_INSTAGRAM_VIP_HANDLE?.replace('@', '')}/" style="background-color: #00ff00; color: #030712; text-decoration: none; font-weight: 800; font-size: 16px; padding: 16px 32px; border-radius: 8px; display: inline-block;">SOLICITAR ACESSO AO PERFIL VIP</a>
-                            <p style="margin-top: 20px; color: #9ca3af; font-size: 13px;">Nossa tecnologia (Lastlink) aprovará sua entrada automaticamente após a confirmação do pagamento.</p>
+                            <p style="margin-bottom: 20px; font-weight: 700; font-size: 18px;">Passo 1: Acesso ao Instagram:</p>
+                            <a href="https://www.instagram.com/${(process.env.VITE_INSTAGRAM_VIP_HANDLE || '@karcash_vip').replace('@', '')}/" style="background-color: #00ff00; color: #030712; text-decoration: none; font-weight: 800; font-size: 16px; padding: 16px 32px; border-radius: 8px; display: inline-block;">SOLICITAR ACESSO AO PERFIL VIP</a>
+                            <p style="margin-top: 20px; color: #9ca3af; font-size: 13px;">Nossa tecnologia secundária aprovará sua entrada automaticamente após a confirmação do pagamento.</p>
+                        </div>
+
+                        <div style="text-align: center; margin-top: 24px; padding: 30px; border: 2px dashed #e5e7eb; border-radius: 12px;">
+                            <p style="margin-bottom: 10px; font-weight: 700; font-size: 16px; color: #111827;">Passo 2: Personalize suas Ofertas</p>
+                            <p style="margin-bottom: 20px; color: #6b7280; font-size: 14px;">Nos ajude a melhorar nossa entrega. Leva somente 1 minutinho.</p>
+                            <a href="https://karcash.com.br/form?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}" style="background-color: #f3f4f6; color: #111827; text-decoration: none; font-weight: 700; font-size: 15px; padding: 12px 24px; border-radius: 8px; border: 1px solid #d1d5db; display: inline-block;">COMPLETAR MEU PERFIL (1 MIN)</a>
                         </div>
                         
                         <div style="margin-top: 48px; padding-top: 24px; border-top: 1px solid #f3f4f6; text-align: center;">

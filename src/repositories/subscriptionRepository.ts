@@ -4,6 +4,7 @@ interface CreateSubscriptionParams {
     name: string;
     email: string;
     phone: string;
+    instagram?: string;
     utm_source?: string;
     utm_medium?: string;
     utm_campaign?: string;
@@ -18,13 +19,14 @@ const subscriptionRepository = {
      * @param params Dados do usuário (nome, email, telefone + UTMs)
      */
     createSubscription: async ({ 
-        name, email, phone, 
+        name, email, phone, instagram,
         utm_source, utm_medium, utm_campaign, utm_content, utm_term, referrer 
     }: CreateSubscriptionParams) => {
         const { data, error } = await supabase.rpc('create_profile_and_subscription', {
             user_name: name,
             user_email: email,
             user_phone: phone,
+            user_instagram: instagram,
             u_source: utm_source,
             u_medium: utm_medium,
             u_campaign: utm_campaign,
@@ -38,6 +40,29 @@ const subscriptionRepository = {
         }
 
         return data;
+    },
+
+    /**
+     * Atualiza os dados de qualificação VIP do usuário.
+     * @param email E-mail do usuário
+     * @param data Dados de qualificação
+     */
+    updateProfileVip: async (email: string, data: any) => {
+        const { error } = await supabase.rpc('update_profile_vip', {
+            user_email: email,
+            u_age_range: data.age_range,
+            u_region: data.region,
+            u_income_level: data.income_level,
+            u_experience_level: data.experience_level,
+            u_main_fear: data.main_fear,
+            u_main_interest: data.main_interest
+        });
+
+        if (error) {
+            throw error;
+        }
+
+        return true;
     },
 
     /**
