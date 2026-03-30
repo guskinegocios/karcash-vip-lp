@@ -8,7 +8,7 @@ export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   // Hide buttons on checkout and success pages
-  const hideButtons = location.pathname === '/checkout' || location.pathname === '/obrigado';
+  const hideButtons = location.pathname === '/checkout' || location.pathname === '/congratulations';
 
   return (
     <header className="sticky top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">

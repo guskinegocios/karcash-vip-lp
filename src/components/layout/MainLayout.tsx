@@ -7,7 +7,7 @@ import { Footer } from "@/components/Footer";
 const MainLayout = () => {
   const location = useLocation();
   const [searchParams] = useSearchParams();
-  const hideFooter = location.pathname === '/vender' || location.pathname === '/checkout' || location.pathname === '/obrigado';
+  const hideFooter = location.pathname === '/vender' || location.pathname === '/checkout' || location.pathname === '/congratulations';
 
   // Persistência Global de UTMs
   useEffect(() => {

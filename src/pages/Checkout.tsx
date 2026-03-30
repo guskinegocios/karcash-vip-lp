@@ -166,7 +166,7 @@ const Checkout = () => {
         window.location.href = checkoutUrl.toString();
       } else {
         // Fallback caso a URL não esteja configurada
-        navigate('/obrigado');
+        navigate('/congratulations');
       }
 
     } catch (error) {
@@ -175,7 +175,7 @@ const Checkout = () => {
 
       let friendlyMessage = "Ocorreu um erro ao processar sua inscrição.";
       if (errorMessage.includes("unique_profile_email")) {
-        navigate('/obrigado');
+        navigate('/congratulations');
         return;
       }
 
