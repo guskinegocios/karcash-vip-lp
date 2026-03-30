@@ -3,6 +3,7 @@ import { Outlet, useLocation, useSearchParams } from "react-router-dom";
 import { Header } from "@/components/Header";
 import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { Footer } from "@/components/Footer";
+import { trackMetaEvent } from "@/utils/track";
 
 const MainLayout = () => {
   const location = useLocation();
@@ -11,6 +12,9 @@ const MainLayout = () => {
 
   // Persistência Global de UTMs
   useEffect(() => {
+    // Dispara PageView em todas as trocas de rota
+    trackMetaEvent({ eventName: 'PageView' });
+
     const utmSource = searchParams.get("utm_source");
     if (utmSource) {
       const utms = {

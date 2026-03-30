@@ -8,8 +8,15 @@ import { FAQSection } from "@/components/FAQSection";
 import { FinalCTA } from "@/components/FinalCTA";
 import { SellerLeadModal } from "@/components/SellerLeadModal";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { useEffect } from "react";
+import { trackMetaEvent } from "@/utils/track";
 
 const Index = () => {
+  useEffect(() => {
+    // Alvo focado na Landing Page principal
+    trackMetaEvent({ eventName: 'ViewContent' });
+  }, []);
+
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-background">
       <SellerLeadModal />

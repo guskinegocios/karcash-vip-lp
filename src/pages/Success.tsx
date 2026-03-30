@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Check, ClipboardList } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { trackMetaEvent } from "@/utils/track";
 
 const Success = () => {
   const [buyer, setBuyer] = useState<{ name: string; email: string } | null>(null);
@@ -10,7 +11,14 @@ const Success = () => {
     const saved = localStorage.getItem('karcash_last_buyer');
     if (saved) {
       try {
-        setBuyer(JSON.parse(saved));
+        const parsed = JSON.parse(saved);
+        setBuyer(parsed);
+        
+        // Track the Lead conversion!
+        trackMetaEvent({
+          eventName: 'Lead',
+          userData: { email: parsed.email }
+        });
       } catch (e) {
         console.error("Erro ao ler dados do comprador", e);
       }

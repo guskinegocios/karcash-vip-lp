@@ -10,6 +10,7 @@ import { toast } from 'sonner'; // Importa o sistema de toasts
 import { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom"; // Importa hooks do router
 import api from "@/services/api"; // Importa o serviço de API
+import { trackMetaEvent } from "@/utils/track";
 
 
 import { Button } from "@/components/ui/button";
@@ -117,6 +118,12 @@ const Checkout = () => {
         phone: values.phone.replace(/\D/g, ''),
         instagram: values.instagram,
         ...utms
+      });
+
+      // 1.5 Dispara o rastreamento do Facebook para InitiateCheckout
+      trackMetaEvent({
+        eventName: 'InitiateCheckout',
+        userData: { email: values.email, phone: values.phone }
       });
 
       // 2. Dispara o E-mail de Teste via nossa API interna
