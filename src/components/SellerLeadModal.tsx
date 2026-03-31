@@ -42,7 +42,7 @@ export const SellerLeadModal = () => {
                                 Acesse nossa página de avaliação e receba uma oferta em até 24h.
                             </p>
 
-                            <Link to="/vender" onClick={() => setIsOpen(false)}>
+                            <Link to="/sell" onClick={() => setIsOpen(false)}>
                                 <motion.button
                                     className="btn-primary-cta text-sm md:text-base flex items-center justify-center gap-2 group px-6 py-3 w-full sm:w-auto"
                                     whileHover={{ scale: 1.05 }}

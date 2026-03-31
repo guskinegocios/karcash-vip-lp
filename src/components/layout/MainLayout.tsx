@@ -8,7 +8,7 @@ import { trackMetaEvent } from "@/utils/track";
 const MainLayout = () => {
   const location = useLocation();
   const [searchParams] = useSearchParams();
-  const hideFooter = location.pathname === '/vender' || location.pathname === '/checkout' || location.pathname === '/congratulations';
+  const hideFooter = location.pathname === '/sell' || location.pathname === '/checkout' || location.pathname === '/congratulations';
 
   // Persistência Global de UTMs
   useEffect(() => {
