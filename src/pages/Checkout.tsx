@@ -196,7 +196,7 @@ const Checkout = () => {
   }
 
   return (
-    <div className="py-8 md:py-12" ref={formContainerRef}>
+    <div className="pt-8 pb-[40vh] md:py-12 md:pb-12" ref={formContainerRef}>
       <div className="container mx-auto px-4 max-w-lg">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -163,7 +163,7 @@ const SellCar = () => {
     }
 
     return (
-        <div className="py-20">
+        <div className="pt-20 pb-[40vh] md:py-20 md:pb-20">
             <div className="container mx-auto px-4">
                 <ScrollReveal>
                     <div className="max-w-5xl mx-auto">

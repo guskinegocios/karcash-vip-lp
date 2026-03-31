@@ -88,7 +88,7 @@ const VipProfile = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] flex flex-col items-center py-8 md:py-16 px-4" ref={formContainerRef}>
+    <div className="min-h-screen bg-[#0a0a0a] flex flex-col items-center pt-8 pb-[40vh] md:py-16 md:pb-16 px-4" ref={formContainerRef}>
       {/* Google Form Style Container */}
       <div className="max-w-2xl w-full">
         {/* Top Header Link */}
