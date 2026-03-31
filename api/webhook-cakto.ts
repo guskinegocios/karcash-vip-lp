@@ -18,6 +18,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const payload = req.body;
     console.log('[CAKTO WEBHOOK] Payload recebido:', JSON.stringify(payload, null, 2));
 
+    // ==== VALIDAÇÃO DE SEGURANÇA (O "SELO DE CERA" ANTI-FRAUDE) ====
+    const expectedSecret = process.env.CAKTO_WEBHOOK_SECRET;
+    if (expectedSecret && payload.secret !== expectedSecret) {
+      console.error('🚨 [CAKTO WEBHOOK] ALERTA DE SEGURANÇA: Chave secreta inválida ou acesso não autorizado! Bloqueando intruso.');
+      return res.status(401).json({ error: 'Unauthorized: Invalid webhook secret' });
+    }
+
     // A API da Cakto envia o tipo de evento no campo event_id (ex: 'subscription_canceled')
     const eventType = payload.event_id || payload.event;
 
