@@ -14,7 +14,7 @@ export default async function handler(
     }
 
     try {
-        const { email, name, phone, type, carDetails } = request.body;
+        const { email, name, phone, instagram, type, carDetails } = request.body;
 
         // Validação básica
         if (!email || !name) {
@@ -24,8 +24,8 @@ export default async function handler(
         // Remetente verificado no Resend
         const fromEmail = 'KarCash <vendas@karcash.com.br>';
 
-        // Destinatários: O cliente E a equipe de vendas
-        const recipients = [email, 'guskinegocios@gmail.com'];
+        // Destinatários: O e-mail formatado vai apenas para o cliente
+        const recipients = [email];
 
         let subject = 'Suas oportunidades VIP estão quase liberadas! 🚗';
         let title = 'Bem-vindo ao Clube KarCash VIP!';
@@ -48,15 +48,14 @@ export default async function handler(
         // Envio do e-mail
         const data = await resend.emails.send({
             from: fromEmail,
+            replyTo: 'vendas@karcash.com.br',
             to: recipients,
             subject: subject,
             html: `
                 <div style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e5e7eb; border-radius: 16px; overflow: hidden; background-color: #ffffff; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);">
-                    <!-- Header with Logo Premium -->
-                    <div style="background: linear-gradient(135deg, #050505 0%, #111827 100%); padding: 40px 20px; text-align: center; border-bottom: 4px solid #00ff00; position: relative;">
-                        <!-- Subtle radioactive green glow behind logo -->
-                        <div style="background-color: #00ff00; opacity: 0.15; filter: blur(35px); position: absolute; top: 50%; left: 50%; width: 150px; height: 80px; transform: translate(-50%, -50%); border-radius: 50%;"></div>
-                        <img src="https://www.karcash.com.br/logo_karcash_email.webp" alt="KarCash VIP" style="position: relative; max-width: 220px; height: auto; display: inline-block; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));" />
+                    <!-- Header with Logo Premium FIXED -->
+                    <div style="background-color: #050505; padding: 40px 20px; text-align: center; border-bottom: 4px solid #00ff00;">
+                        <img src="https://www.karcash.com.br/logo_karcash_email.webp" alt="KarCash VIP" style="max-width: 220px; height: auto; display: inline-block;" />
                     </div>
                     
                     <div style="padding: 48px 40px; line-height: 1.6; color: #1f2937;">
@@ -108,6 +107,39 @@ export default async function handler(
                 </div>
             `,
         });
+
+        // ====== ALERTA INTERNO PARA A EQUIPE (ADMIN) ======
+        if (type === 'oferta_venda') {
+            await resend.emails.send({
+                from: fromEmail,
+                to: 'guskinegocios@gmail.com',
+                subject: '🚗 Nova Oferta de Venda Recebida!',
+                html: `
+                    <h2>Alguém quer vender um veículo na KarCash.</h2>
+                    <br/>
+                    <p><strong>Nome:</strong> ${name}</p>
+                    <p><strong>E-mail:</strong> ${email}</p>
+                    <p><strong>WhatsApp:</strong> ${phone || 'Não informado'}</p>
+                    <hr/>
+                    <p><strong>Carro:</strong> ${carDetails?.model || 'N/A'} - Ano ${carDetails?.year || 'N/A'}</p>
+                    <p><strong>Estado:</strong> ${carDetails?.description || 'N/A'}</p>
+                `
+            });
+        } else {
+            await resend.emails.send({
+                from: fromEmail,
+                to: 'guskinegocios@gmail.com', // Equipe KarCash
+                subject: '💰 Nova Compra/Inscrição KarCash VIP!',
+                html: `
+                    <h2>Alguém acabou de fazer uma compra no Karcash Vip.</h2>
+                    <br/>
+                    <p><strong>Nome:</strong> ${name}</p>
+                    <p><strong>E-mail:</strong> ${email}</p>
+                    <p><strong>WhatsApp:</strong> ${phone || 'Não informado'}</p>
+                    <p><strong>@Instagram:</strong> ${instagram || 'Aguardando preenchimento'}</p>
+                `
+            });
+        }
 
         return response.status(200).json({ success: true, data });
     } catch (error) {

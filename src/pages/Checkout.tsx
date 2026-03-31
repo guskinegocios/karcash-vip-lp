@@ -130,25 +130,6 @@ const Checkout = () => {
         userData: { email: values.email, phone: values.phone }
       });
 
-      // 2. Dispara o E-mail de Teste via nossa API interna
-      // Nota: Em ambiente local (Vite), isso pode falhar se não estiver usando o Vercel Dev,
-      // mas deixamos pronto para o teste do Resend conforme solicitado.
-      try {
-        await fetch('/api/send-welcome-email', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            email: values.email,
-            name: values.name,
-            phone: values.phone
-          }),
-        });
-      } catch (emailError) {
-        console.warn('Aviso: Não foi possível disparar o e-mail localmente (esperado fora da Vercel).', emailError);
-      }
-
       // 3. Salva dados temporários para a página de sucesso (auto-preenchimento do perfil)
       localStorage.setItem('karcash_last_buyer', JSON.stringify({
         name: values.name,
