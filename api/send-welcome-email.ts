@@ -51,14 +51,16 @@ export default async function handler(
             to: recipients,
             subject: subject,
             html: `
-                <div style="font-family: 'Inter', 'Segoe UI', Helvetica, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e5e7eb; border-radius: 16px; overflow: hidden; background-color: #ffffff; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);">
-                    <!-- Header with Logo -->
-                    <div style="background-color: #030712; padding: 32px 20px; text-align: center; border-bottom: 4px solid #00ff00;">
-                        <img src="https://karcash-vip-lp.vercel.app/src/assets/logo_karcash-removebg_1.webp" alt="KarCash" style="max-width: 200px; height: auto; filter: drop-shadow(0 0 8px rgba(0, 255, 0, 0.3));" />
+                <div style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e5e7eb; border-radius: 16px; overflow: hidden; background-color: #ffffff; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);">
+                    <!-- Header with Logo Premium -->
+                    <div style="background: linear-gradient(135deg, #050505 0%, #111827 100%); padding: 40px 20px; text-align: center; border-bottom: 4px solid #00ff00; position: relative;">
+                        <!-- Subtle radioactive green glow behind logo -->
+                        <div style="background-color: #00ff00; opacity: 0.15; filter: blur(35px); position: absolute; top: 50%; left: 50%; width: 150px; height: 80px; transform: translate(-50%, -50%); border-radius: 50%;"></div>
+                        <img src="https://www.karcash.com.br/logo_karcash_email.webp" alt="KarCash VIP" style="position: relative; max-width: 220px; height: auto; display: inline-block; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));" />
                     </div>
                     
                     <div style="padding: 48px 40px; line-height: 1.6; color: #1f2937;">
-                        <h1 style="color: #111827; margin-top: 0; font-size: 24px; font-weight: 800; letter-spacing: -0.025em; text-align: center;">${title}</h1>
+                        <h1 style="color: #111827; margin-top: 0; font-size: 26px; font-weight: 800; letter-spacing: -0.03em; text-align: center;">${title}</h1>
                         
                         <p style="font-size: 16px; color: #4b5563; text-align: center; margin-bottom: 32px;">${message}</p>
 
@@ -72,16 +74,26 @@ export default async function handler(
                             </div>
                         </div>
                         
-                        <div style="text-align: center; margin-top: 40px; padding: 30px; background-color: #030712; border-radius: 12px; color: #ffffff;">
-                            <p style="margin-bottom: 20px; font-weight: 700; font-size: 18px;">Passo 1: Acesso ao Instagram:</p>
-                            <a href="https://www.instagram.com/${(process.env.VITE_INSTAGRAM_VIP_HANDLE || '@karcash_vip').replace('@', '')}/" style="background-color: #00ff00; color: #030712; text-decoration: none; font-weight: 800; font-size: 16px; padding: 16px 32px; border-radius: 8px; display: inline-block;">SOLICITAR ACESSO AO PERFIL VIP</a>
-                            <p style="margin-top: 20px; color: #9ca3af; font-size: 13px;">Nossa tecnologia secundária aprovará sua entrada automaticamente após a confirmação do pagamento.</p>
+                        <div style="text-align: center; margin-top: 40px; padding: 32px; background-color: #030712; border-radius: 12px; color: #ffffff; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);">
+                            <p style="margin-bottom: 15px; font-weight: 800; font-size: 22px; color: #00ff00; letter-spacing: -0.02em;">Acesso ao Instagram VIP</p>
+                            
+                            <p style="margin-bottom: 20px; color: #e5e7eb; font-size: 16px; text-align: left; line-height: 1.6;">
+                                Olá, seja bem-vindo(a)! Você está quase lá, mas ainda precisa de uma etapa importante:
+                            </p>
+                            
+                            <p style="margin-bottom: 30px; color: #d1d5db; font-size: 15px; text-align: left; line-height: 1.6;">
+                                Por favor, acesse o nosso Instagram VIP clicando no botão abaixo e clique em <strong>"Seguir"</strong> para solicitar a sua entrada. Nossa equipe irá conferir o status do seu pagamento e liberar o seu acesso VIP em <strong>até 2 horas</strong>.
+                            </p>
+                            
+                            <a href="https://www.instagram.com/karcashvip/" target="_blank" style="background-color: #00ff00; color: #030712; text-decoration: none; font-weight: 800; font-size: 16px; padding: 16px 32px; border-radius: 8px; display: inline-block; width: 80%; max-width: 300px; transition: transform 0.2s;">ACESSAR PERFIL VIP</a>
                         </div>
 
-                        <div style="text-align: center; margin-top: 24px; padding: 30px; border: 2px dashed #e5e7eb; border-radius: 12px;">
-                            <p style="margin-bottom: 10px; font-weight: 700; font-size: 16px; color: #111827;">Passo 2: Personalize suas Ofertas</p>
-                            <p style="margin-bottom: 20px; color: #6b7280; font-size: 14px;">Nos ajude a melhorar nossa entrega. Leva somente 1 minutinho.</p>
-                            <a href="https://karcash.com.br/form?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}" style="background-color: #f3f4f6; color: #111827; text-decoration: none; font-weight: 700; font-size: 15px; padding: 12px 24px; border-radius: 8px; border: 1px solid #d1d5db; display: inline-block;">COMPLETAR MEU PERFIL (1 MIN)</a>
+                        <div style="text-align: center; margin-top: 24px; padding: 32px; border: 1px solid #e5e7eb; border-radius: 12px; background-color: #f9fafb;">
+                            <p style="margin-bottom: 25px; color: #4b5563; font-size: 15px; line-height: 1.6;">
+                                Ah! E por favor, preencha o nosso formulário de perfil. Suas respostas são o que ajudam a KarCash a continuar evoluindo e trazendo melhores oportunidades para você! ❤️
+                            </p>
+                            
+                            <a href="https://www.karcash.com.br/form" target="_blank" style="background-color: #ffffff; color: #111827; text-decoration: none; font-weight: 700; font-size: 14px; padding: 14px 28px; border-radius: 8px; border: 1px solid #d1d5db; display: inline-block; box-shadow: 0 1px 2px rgba(0,0,0,0.05); transition: background-color 0.2s;">RESPONDER O FORMULÁRIO RÁPIDO</a>
                         </div>
                         
                         <div style="margin-top: 48px; padding-top: 24px; border-top: 1px solid #f3f4f6; text-align: center;">
