@@ -83,6 +83,23 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           console.error('[CAKTO WEBHOOK] Erro ao enviar e-mail de alerta:', emailError);
         }
       }
+    } 
+    // ==== LÓGICA DE PAGAMENTO APROVADO ====
+    else if (['subscription_active', 'subscription_created', 'payment_approved', 'purchase_approved'].includes(eventType)) {
+      console.log(`[CAKTO WEBHOOK] SUCESSO: Pagamento/Assinatura Aprovada para o e-mail: ${customerEmail}`);
+      
+      if (customerEmail && supabaseUrl && supabaseServiceKey) {
+        const { error } = await supabase
+          .from('subscriptions')
+          .update({ status: 'active', updated_at: new Date().toISOString() })
+          .eq('email', customerEmail);
+        
+        if (error) {
+          console.error('[CAKTO WEBHOOK] Erro ao ativar usuário no Supabase:', error);
+        } else {
+          console.log('[CAKTO WEBHOOK] Usuário ativado com sucesso no banco de dados!');
+        }
+      }
     }
 
     // Retorna 200 pro Cakto parar de reenviar o webhook
