@@ -7,8 +7,9 @@ import * as z from "zod";
 // import { supabase } from "@/lib/supabaseClient"; // Removido: agora usamos o repository
 import subscriptionRepository from "@/repositories/subscriptionRepository"; // Importa o repository
 import { toast } from 'sonner'; // Importa o sistema de toasts
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom"; // Importa hooks do router
+import { useScrollIntoView } from "@/hooks/useScrollIntoView"; // UX de Scroll Mobile
 import api from "@/services/api"; // Importa o serviço de API
 import { trackMetaEvent } from "@/utils/track";
 
@@ -35,6 +36,9 @@ const formSchema = z.object({
 });
 
 const Checkout = () => {
+  const formContainerRef = useRef<HTMLDivElement>(null);
+  useScrollIntoView(formContainerRef);
+
   const [isLoading, setIsLoading] = useState(false); // Estado de loading
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -192,7 +196,7 @@ const Checkout = () => {
   }
 
   return (
-    <div className="py-8 md:py-12">
+    <div className="py-8 md:py-12" ref={formContainerRef}>
       <div className="container mx-auto px-4 max-w-lg">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

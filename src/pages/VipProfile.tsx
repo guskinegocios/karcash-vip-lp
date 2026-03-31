@@ -1,12 +1,16 @@
 import { motion } from "framer-motion";
 import { Check, ArrowLeft, Send } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useNavigate, useSearchParams, Link } from "react-router-dom";
+import { useScrollIntoView } from "@/hooks/useScrollIntoView";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import subscriptionRepository from "@/repositories/subscriptionRepository";
 
 const VipProfile = () => {
+  const formContainerRef = useRef<HTMLDivElement>(null);
+  useScrollIntoView(formContainerRef);
+
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -84,7 +88,7 @@ const VipProfile = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] flex flex-col items-center py-8 md:py-16 px-4">
+    <div className="min-h-screen bg-[#0a0a0a] flex flex-col items-center py-8 md:py-16 px-4" ref={formContainerRef}>
       {/* Google Form Style Container */}
       <div className="max-w-2xl w-full">
         {/* Top Header Link */}

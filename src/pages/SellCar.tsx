@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
+import { useScrollIntoView } from "@/hooks/useScrollIntoView";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { motion } from "framer-motion";
@@ -41,6 +42,9 @@ const sellerSchema = z.object({
 type SellerFormValues = z.infer<typeof sellerSchema>;
 
 const SellCar = () => {
+    const formContainerRef = useRef<HTMLDivElement>(null);
+    useScrollIntoView(formContainerRef);
+
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
     const [submittedData, setSubmittedData] = useState<SellerFormValues | null>(null);
@@ -217,7 +221,7 @@ const SellCar = () => {
                             </div>
 
                             {/* Right Side: Form */}
-                            <div className="bg-card border border-white/10 rounded-3xl p-8 md:p-10 shadow-2xl relative overflow-hidden group">
+                            <div className="bg-card border border-white/10 rounded-3xl p-8 md:p-10 shadow-2xl relative overflow-hidden group" ref={formContainerRef}>
                                 {/* Decorative elements */}
                                 <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/5 blur-[60px] rounded-full group-hover:bg-primary/10 transition-colors" />
 
