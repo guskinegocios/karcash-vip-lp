@@ -1,10 +1,12 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
 import { createClient } from '@supabase/supabase-js';
+import { Resend } from 'resend';
 
-// Inicializa Supabase
+// Inicializa Supabase e Resend
 const supabaseUrl = process.env.VITE_SUPABASE_URL || '';
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
 const supabase = createClient(supabaseUrl, supabaseServiceKey);
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   // Webhooks geralmente são POST
@@ -36,11 +38,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       console.log(`[CAKTO WEBHOOK] ALERTA: Assinatura cancelada/falha para o e-mail: ${customerEmail}`);
 
       if (customerEmail && supabaseUrl && supabaseServiceKey) {
-        // Atualiza o perfil no banco para 'inativo' ou remove credenciais
-        const { error } = await supabase
-          .from('profiles') // ou 'subscriptions', dependendo do nome exato da sua tabela
-          .update({ vip_status: 'inactive', updated_at: new Date().toISOString() })
-          .eq('email', customerEmail);
+        // 1. Atualiza e RETORNA os dados do cliente (para pegarmos o @instagram dele)
+        const { data: userData, error } = await supabase
+          .from('subscriptions') // Tabela que guarda o contato inicial na landing page
+          .update({ status: 'cancelado', updated_at: new Date().toISOString() })
+          .eq('email', customerEmail)
+          .select('instagram, name')
+          .single();
         
         if (error) {
           console.error('[CAKTO WEBHOOK] Erro ao atualizar Supabase:', error);
@@ -48,7 +52,36 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           console.log('[CAKTO WEBHOOK] Supabase atualizado com sucesso. Status inativado.');
         }
 
-        // TODO: Aqui você poderia integrar com a API do Resend para mandar um e-mail para o Admin
+        const instaHandle = userData?.instagram || '[@NãoEncontrado - Busque pelo Nome]';
+        const clientName = userData?.name || 'Cliente';
+
+        // ==== Envio de Alerta para o Admin (Remover do Instagram) ====
+        try {
+          await resend.emails.send({
+            from: 'KarCash <vendas@karcash.com.br>',
+            to: 'guskinegocios@gmail.com', // E-mail da equipe interna KarCash
+            subject: `🚨 ALERTA VIP: Acesso Cancelado - ${instaHandle}`,
+            html: `
+              <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #ff0000; border-radius: 8px;">
+                <h2 style="color: #ff0000;">⚠️ REMOÇÃO DE ACESSO VIP EXIGIDA</h2>
+                <p>O sistema detectou um cancelamento, falha na recorrência ou estorno na Cakto.</p>
+                <hr/>
+                <p><strong>Evento Automático:</strong> ${eventType}</p>
+                <p><strong>Nome:</strong> ${clientName}</p>
+                <p><strong>E-mail:</strong> ${customerEmail}</p>
+                <p style="font-size: 18px;"><strong>Instagram do Cliente:</strong> <span style="background: #ffff00; font-weight: bold; padding: 2px 5px;">${instaHandle}</span></p>
+                <hr/>
+                <h3 style="color: #111827;">Ação Manual Necessária:</h3>
+                <p>1. Copie o @ do Instagram acima.</p>
+                <p>2. Abra a lista de <strong>Melhores Amigos (Close Friends)</strong> no Instagram do KarCash.</p>
+                <p>3. Cole na barra de busca e <strong>remova o acesso dele imediatamente</strong>.</p>
+              </div>
+            `
+          });
+          console.log('[CAKTO WEBHOOK] E-mail de alerta enviado para a equipe com o @instagram:', instaHandle);
+        } catch (emailError) {
+          console.error('[CAKTO WEBHOOK] Erro ao enviar e-mail de alerta:', emailError);
+        }
       }
     }
 
