@@ -30,6 +30,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
+    /* 
     const PIXEL_ID = process.env.VITE_META_PIXEL_ID;
     const ACCESS_TOKEN = process.env.META_ACCESS_TOKEN;
 
@@ -37,6 +38,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       console.error('Missing VITE_META_PIXEL_ID or META_ACCESS_TOKEN environment variables.');
       return res.status(500).json({ error: 'Server configuration error.' });
     }
+    */
+
+    const PIXEL_ID = process.env.VITE_META_PIXEL_ID || 'DISABLED';
+    const ACCESS_TOKEN = process.env.META_ACCESS_TOKEN || 'DISABLED';
 
     const {
       eventName,
@@ -90,7 +95,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const graphApiUrl = `https://graph.facebook.com/v19.0/${PIXEL_ID}/events?access_token=${ACCESS_TOKEN}`;
 
     // Execução assíncrona paralela (Promisses não interferem umas nas outras)
-    // 1. Enviar para a Meta
+    // 1. Enviar para a Meta (Temporariamente Desativado)
+    /* 
     const metaPromise = fetch(graphApiUrl, {
       method: 'POST',
       headers: {
@@ -98,6 +104,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       },
       body: JSON.stringify(payload)
     }).then(res => res.json());
+    */
+    const metaPromise = Promise.resolve({ success: true, message: 'Meta CAPI temporarily bypassed' });
 
     // 2. Salvar no Supabase (Nosso Banco Próprio via Service Role)
     const supabaseUrl = process.env.VITE_SUPABASE_URL;
@@ -143,9 +151,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(500).json({ success: false, error: 'Meta API call failed' });
     }
 
-    if (metaResult.status === 'fulfilled' && metaResult.value.error) {
-       console.error('Meta API Rejection:', metaResult.value.error);
-       return res.status(400).json({ success: false, error: metaResult.value.error });
+    if (metaResult.status === 'fulfilled' && (metaResult.value as any).error) {
+       console.error('Meta API Rejection:', (metaResult.value as any).error);
+       return res.status(400).json({ success: false, error: (metaResult.value as any).error });
     }
 
     return res.status(200).json({ success: true, message: 'Event successfully sent and logged.' });

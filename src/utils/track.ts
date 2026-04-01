@@ -52,10 +52,12 @@ export const trackMetaEvent = async ({ eventName, userData = {}, customData = {}
 
   console.log(`[Tracking] Disparando ${eventName} (ID: ${eventId})`);
 
-  // 2. Dispara pelo Frontend (Pixel do Navegador)
+  // 2. Dispara pelo Frontend (Pixel do Navegador - Temporariamente Desativado)
+  /* 
   if (typeof window !== 'undefined' && window.fbq) {
     window.fbq('track', eventName, finalCustomData, { eventID: eventId });
   }
+  */
 
   // 3. Dispara pelo Backend (NOSSA API Serverless)
   try {
@@ -77,7 +79,10 @@ export const trackMetaEvent = async ({ eventName, userData = {}, customData = {}
       },
       body: JSON.stringify(payload)
     }).catch(err => {
-      // Falhas no track não devem quebrar a aplicação
+      if (err.status === 'fulfilled' && (err.value as any).error) {
+       console.error('Meta API Rejection:', (err.value as any).error);
+       return { success: false, error: (err.value as any).error };
+      }
       console.error('[Tracking API] Erro invisível:', err);
     });
   } catch (error) {
