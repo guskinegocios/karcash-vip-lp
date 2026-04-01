@@ -118,7 +118,7 @@ const Checkout = () => {
       // 1. Salva no Supabase (Status Pendente)
       await subscriptionRepository.createSubscription({
         name: values.name,
-        email: values.email,
+        email: values.email.toLowerCase(),
         phone: values.phone.replace(/\D/g, ''),
         instagram: values.instagram,
         ...utms
