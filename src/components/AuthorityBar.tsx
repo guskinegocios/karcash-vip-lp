@@ -1,4 +1,3 @@
-import KarcashLogo from '@/assets/logo_karcash-removebg_1.webp';
 import { motion } from "framer-motion";
 
 export const AuthorityBar = () => {
@@ -12,7 +11,7 @@ export const AuthorityBar = () => {
             transition={{ duration: 0.8 }}
             className="hidden md:block"
           >
-            <img src={KarcashLogo} alt="KarCash Logo" className="h-8 md:h-10 w-auto grayscale brightness-200 opacity-30" />
+            <img src="https://yrgtjzgwuzyupvrtefwo.supabase.co/storage/v1/object/public/storageImagens/logo_karcash-removebg_1.webp" alt="KarCash Logo" className="h-8 md:h-10 w-auto grayscale brightness-200 opacity-30" />
           </motion.div>
 
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-6 md:gap-x-12">

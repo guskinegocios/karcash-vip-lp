@@ -120,7 +120,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 html: `
                     <div style="${mainContainerStyle}">
                         <div style="${headerStyle}">
-                            <img src="https://www.karcash.com.br/logo_karcash_email.webp" alt="KarCash VIP" style="max-width: 180px;" />
+                            <img src="https://yrgtjzgwuzyupvrtefwo.supabase.co/storage/v1/object/public/storageImagens/logo_karcash-removebg_1.webp" alt="KarCash VIP" style="max-width: 180px;" />
                         </div>
                         <div style="${bodyContentStyle}">
                             <h1 style="color: #111827; text-align: center; font-size: 26px; margin-top: 0; font-weight: 800; letter-spacing: -0.02em;">Acesso VIP Confirmado! 🎉</h1>
@@ -162,7 +162,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 html: `
                     <div style="${mainContainerStyle}">
                         <div style="${headerStyle}">
-                            <img src="https://www.karcash.com.br/logo_karcash_email.webp" alt="KarCash VIP" style="max-width: 140px;" />
+                            <img src="https://yrgtjzgwuzyupvrtefwo.supabase.co/storage/v1/object/public/storageImagens/logo_karcash-removebg_1.webp" alt="KarCash VIP" style="max-width: 140px;" />
                         </div>
                         <div style="padding: 24px;">
                             <h3 style="color: #059669; margin-top: 0;">💰 NOVA VENDA CONFIRMADA</h3>
@@ -190,7 +190,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 html: `
                     <div style="${mainContainerStyle}">
                         <div style="${headerStyle}">
-                            <img src="https://www.karcash.com.br/logo_karcash_email.webp" alt="KarCash VIP" style="max-width: 180px;" />
+                            <img src="https://yrgtjzgwuzyupvrtefwo.supabase.co/storage/v1/object/public/storageImagens/logo_karcash-removebg_1.webp" alt="KarCash VIP" style="max-width: 180px;" />
                         </div>
                         <div style="${bodyContentStyle}">
                             <h2 style="color: #ef4444; margin-top: 0;">⚠️ REMOÇÃO DE ACESSO EXIGIDA</h2>
@@ -213,7 +213,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 html: `
                     <div style="${mainContainerStyle}">
                         <div style="${headerStyle}">
-                            <img src="https://www.karcash.com.br/logo_karcash_email.webp" alt="KarCash VIP" style="max-width: 180px;" />
+                            <img src="https://yrgtjzgwuzyupvrtefwo.supabase.co/storage/v1/object/public/storageImagens/logo_karcash-removebg_1.webp" alt="KarCash VIP" style="max-width: 180px;" />
                         </div>
                         <div style="${bodyContentStyle}">
                             <h2 style="color: #111827; margin-top: 0;">Confirmação de Reembolso</h2>

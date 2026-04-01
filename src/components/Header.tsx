@@ -1,4 +1,3 @@
-import KarcashLogo from '@/assets/logo_karcash-removebg_1.webp';
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
@@ -15,7 +14,7 @@ export const Header = () => {
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
         <a href="/" className="flex items-center">
-          <img src={KarcashLogo} alt="KarCash Logo" className="h-10 w-auto" />
+          <img src="https://yrgtjzgwuzyupvrtefwo.supabase.co/storage/v1/object/public/storageImagens/logo_karcash-removebg_1.webp" alt="KarCash Logo" className="h-10 w-auto" />
         </a>
 
         {/* Desktop CTA - Conditional Rendering */}

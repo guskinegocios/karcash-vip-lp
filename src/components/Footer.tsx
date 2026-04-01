@@ -1,4 +1,3 @@
-import KarcashLogo from '@/assets/logo_karcash-removebg_1.webp';
 import { Instagram } from "lucide-react";
 
 export const Footer = () => {
@@ -10,7 +9,7 @@ export const Footer = () => {
           {/* Left - Logo & Tagline */}
           <div className="flex flex-col items-center md:items-start gap-4">
             <a href="/" className="flex items-center">
-              <img src={KarcashLogo} alt="KarCash Logo" className="h-10 w-auto" />
+              <img src="https://yrgtjzgwuzyupvrtefwo.supabase.co/storage/v1/object/public/storageImagens/logo_karcash-removebg_1.webp" alt="KarCash Logo" className="h-10 w-auto" />
             </a>
             <p className="text-muted-foreground text-sm text-center md:text-left">
               Transformando oportunidades em lucro real.
