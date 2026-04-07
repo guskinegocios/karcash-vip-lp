@@ -1,5 +1,6 @@
 import { HeroSection } from "@/components/HeroSection";
 import { AuthorityBar } from "@/components/AuthorityBar";
+import { ManifestoSection } from "@/components/ManifestoSection";
 import { SocialProofSection } from "@/components/SocialProofSection";
 import { PainSection } from "@/components/PainSection";
 import { SolutionSection } from "@/components/SolutionSection";
@@ -26,6 +27,9 @@ const Index = () => {
 
       {/* 2. BARRA DE AUTORIDADE */}
       <AuthorityBar />
+
+      {/* 2.2 MANIFESTO DE AUTORIDADE */}
+      <ManifestoSection />
 
       {/* 2.5 PROVA SOCIAL / NÚMEROS (Social Proof) */}
       <SocialProofSection />

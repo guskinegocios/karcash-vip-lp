@@ -36,8 +36,8 @@ export const HeroSection = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.4 }}
                     >
-                        Não vendemos carros. Entregamos a <strong>conexão direta</strong> com ativos invisíveis do mercado. 
-                        Veículos 100% livres de leilão, curados para garantir sua margem de FIPE cheia.
+                        Abra sua mente para o mercado que a concorrência desconhece. 
+                        Pare de brigar por carros de leilão e repasse e domine a <strong className="text-foreground">arrematação, reparação e revenda</strong> com lucros reais de R$ 20.000,00.
                     </motion.p>
 
                     <motion.div
