@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export const AuthorityBar = () => {
   return (
-    <section className="bg-background py-6 md:py-10 border-b border-white/5 relative z-10">
+    <section className="bg-background py-6 md:py-10 border-b border-border/40 relative z-10">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4">
           <motion.div
@@ -11,7 +11,7 @@ export const AuthorityBar = () => {
             transition={{ duration: 0.8 }}
             className="hidden md:block"
           >
-            <img src="https://yrgtjzgwuzyupvrtefwo.supabase.co/storage/v1/object/public/storageImagens/logo_karcash-removebg_1.webp" alt="KarCash Logo" className="h-8 md:h-10 w-auto grayscale brightness-200 opacity-30" />
+            <img src="https://yrgtjzgwuzyupvrtefwo.supabase.co/storage/v1/object/public/storageImagens/logo_karcash-removebg_1.webp" alt="KarCash Logo" className="h-8 md:h-10 w-auto opacity-40 hover:opacity-100 transition-opacity" />
           </motion.div>
 
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-6 md:gap-x-12">

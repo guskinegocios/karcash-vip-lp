@@ -46,9 +46,9 @@ export const PainSection = () => {
                             {/* Decorative Outer Glow */}
                             <div className="absolute inset-0 bg-destructive/20 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                             
-                            <div className="relative bg-[#0A0C0B] border border-white/5 rounded-2xl overflow-hidden shadow-2xl">
+                            <div className="relative bg-card border border-border rounded-2xl overflow-hidden shadow-xl">
                                 {/* Header of the Report */}
-                                <div className="bg-white/5 px-6 py-4 border-b border-white/10 flex items-center justify-between">
+                                <div className="bg-muted px-6 py-4 border-b border-border flex items-center justify-between">
                                     <div className="flex items-center gap-2">
                                         <FileText className="w-4 h-4 text-foreground/40" />
                                         <span className="text-[10px] font-bold tracking-widest text-foreground/40 uppercase">Relatório de Auditoria v4.2</span>
@@ -63,11 +63,11 @@ export const PainSection = () => {
                                 {/* Body of the Report */}
                                 <div className="p-8 space-y-6">
                                     <div className="space-y-4">
-                                        <div className="flex justify-between items-end border-b border-white/5 pb-2">
+                                        <div className="flex justify-between items-end border-b border-border pb-2">
                                             <span className="text-xs text-foreground/40 uppercase font-bold">Identificação</span>
                                             <span className="text-sm font-mono text-foreground/80">SUV PREMIUM 2024</span>
                                         </div>
-                                        <div className="flex justify-between items-end border-b border-white/5 pb-2">
+                                        <div className="flex justify-between items-end border-b border-border pb-2">
                                             <span className="text-xs text-foreground/40 uppercase font-bold">Valor Fipe</span>
                                             <span className="text-sm font-mono text-foreground/80">R$ 184.500,00</span>
                                         </div>
@@ -117,7 +117,7 @@ export const PainSection = () => {
                                 </div>
 
                                 {/* Footer details */}
-                                <div className="bg-white/5 px-6 py-3 text-[9px] font-mono text-foreground/30 flex justify-between">
+                                <div className="bg-muted px-6 py-3 text-[9px] font-mono text-foreground/30 flex justify-between">
                                     <span>HASH: 8f2a9c...1e4b</span>
                                     <span>MARKET_CONFIDENCE: 22%</span>
                                 </div>

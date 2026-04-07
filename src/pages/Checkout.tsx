@@ -185,38 +185,40 @@ const Checkout = () => {
           transition={{ duration: 0.5 }}
         >
           {/* Order Summary */}
-          <div className="card-elevated mb-8">
-            <h2 className="font-display font-bold text-lg text-foreground mb-4">
+          <div className="card-premium mb-8">
+            <h2 className="font-display font-black text-xl text-foreground mb-6 uppercase tracking-tight">
               Resumo do Pedido
             </h2>
 
-            <div className="flex items-center justify-between py-4 border-b border-border">
-              <div>
-                <p className="font-medium text-foreground">Assinatura Mensal VIP</p>
-                <p className="text-sm text-muted-foreground">Acesso ao grupo exclusivo</p>
+            <div className="space-y-4">
+              <div className="flex items-start justify-between py-4 border-b border-border/60">
+                <div>
+                  <p className="font-bold text-foreground">Assinatura Mensal VIP</p>
+                  <p className="text-sm text-muted-foreground">Acesso imediato ao portal e grupo exclusivo</p>
+                </div>
+                <div className="text-right">
+                  <p className="text-muted-foreground/60 line-through text-xs font-medium">R$ 499,94</p>
+                  <p className="font-display font-black text-2xl text-primary mt-1">R$ 49,94</p>
+                </div>
               </div>
-              <div className="text-right">
-                <p className="text-muted-foreground line-through text-sm">R$ 499,94</p>
-                <p className="font-display font-bold text-xl text-primary">R$ 49,94</p>
+
+              <div className="flex items-center justify-between pt-2">
+                <span className="font-bold text-foreground text-lg">Total do Investimento:</span>
+                <span className="font-display font-black text-3xl text-foreground">R$ 49,94</span>
               </div>
-            </div>
 
-            <div className="flex items-center justify-between pt-4">
-              <span className="font-medium text-foreground">Total:</span>
-              <span className="font-display font-bold text-2xl text-foreground">R$ 49,94</span>
-            </div>
-
-            <div className="mt-4 p-3 bg-primary/10 rounded-lg border border-primary/20">
-              <p className="text-sm text-primary font-medium text-center">
-                🔥 Você está economizando R$ 450,00 (90% OFF)
-              </p>
+              <div className="mt-6 p-4 bg-primary/5 rounded-2xl border border-primary/10">
+                <p className="text-sm text-primary font-black text-center uppercase tracking-widest">
+                  🏆 Economia VIP de R$ 450,00 Aplicada
+                </p>
+              </div>
             </div>
           </div>
 
           {/* Form */}
-          <div className="card-elevated">
-            <h2 className="font-display font-bold text-lg text-foreground mb-6">
-              Seus Dados
+          <div className="card-elevated shadow-xl border-border/40">
+            <h2 className="font-display font-black text-xl text-foreground mb-8 uppercase tracking-tight">
+              Informações Pessoais
             </h2>
 
             <Form {...form}>
@@ -226,12 +228,11 @@ const Checkout = () => {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-foreground mb-2 block">Nome Completo</FormLabel>
+                      <FormLabel className="text-xs font-black uppercase tracking-widest text-muted-foreground mb-3 block">Nome Completo</FormLabel>
                       <FormControl>
                         <Input
                           placeholder="Seu nome completo"
                           {...field}
-                          className="bg-input border-border text-foreground placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                           disabled={isLoading}
                         />
                       </FormControl>
@@ -244,13 +245,12 @@ const Checkout = () => {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-foreground mb-2 block">E-mail</FormLabel>
+                      <FormLabel className="text-xs font-black uppercase tracking-widest text-muted-foreground mb-3 block">E-mail</FormLabel>
                       <FormControl>
                         <Input
                           type="email"
                           placeholder="seu@email.com"
                           {...field}
-                          className="bg-input border-border text-foreground placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                           disabled={isLoading}
                         />
                       </FormControl>
@@ -263,7 +263,7 @@ const Checkout = () => {
                   name="phone"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-foreground mb-2 block">WhatsApp (com DDD)</FormLabel>
+                      <FormLabel className="text-xs font-black uppercase tracking-widest text-muted-foreground mb-3 block">WhatsApp (com DDD)</FormLabel>
                       <FormControl>
                         <Input
                           {...field}
@@ -273,7 +273,6 @@ const Checkout = () => {
                             const formatted = formatPhone(e.target.value);
                             field.onChange(formatted);
                           }}
-                          className="bg-input border-border text-foreground placeholder:text-muted-foreground focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                           disabled={isLoading}
                         />
                       </FormControl>
@@ -287,10 +286,10 @@ const Checkout = () => {
                   name="instagram"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-foreground mb-2 block">Instagram (@usuario)</FormLabel>
+                      <FormLabel className="text-xs font-black uppercase tracking-widest text-muted-foreground mb-3 block">Instagram (@usuario)</FormLabel>
                       <FormControl>
                         <div className="relative">
-                            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground text-sm">@</span>
+                            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground font-bold">@</span>
                             <Input
                                 placeholder="usuario"
                                 {...field}
@@ -298,7 +297,7 @@ const Checkout = () => {
                                     const val = e.target.value.replace(/^@/, '');
                                     field.onChange(val);
                                 }}
-                                className="bg-input border-border text-foreground placeholder:text-muted-foreground pl-7 focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                                className="pl-9"
                                 disabled={isLoading}
                             />
                         </div>

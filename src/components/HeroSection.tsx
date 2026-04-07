@@ -1,76 +1,96 @@
 import { motion } from "framer-motion";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Award, ShieldCheck, Zap } from "lucide-react";
 
 export const HeroSection = () => {
     return (
-        <section className="min-h-screen md:min-h-[90vh] flex items-center justify-center pt-28 md:pt-32 pb-16 md:pb-16 overflow-hidden bg-background relative uppercase">
-            {/* Background Gradient elements */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
+        <section className="relative min-h-[75vh] md:min-h-[80vh] flex items-start pt-20 md:pt-28 pb-16 overflow-hidden bg-background">
+            {/* Very Subtle Institutional Gradient */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary/5 blur-[160px] rounded-full -translate-y-1/2 opacity-30" />
             
             <div className="container mx-auto px-4 relative z-10">
-                <div className="max-w-5xl mx-auto text-center">
+                <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
+                    {/* Authority Tag */}
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
+                        initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
+                        className="inline-flex items-center gap-3 px-5 py-2.5 mb-8 text-[11px] font-black tracking-[0.25em] text-foreground/60 bg-secondary/80 backdrop-blur-md rounded-xl border border-border shadow-sm uppercase"
                     >
-                        <span className="inline-flex items-center gap-2 px-3 md:px-4 py-1 md:py-2 mb-4 md:mb-8 text-[10px] md:text-sm font-bold tracking-widest text-primary bg-primary/10 rounded-full border border-primary/20">
-                            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                            EXCLUSIVO PARA INVESTIDORES PREMIUM
-                        </span>
+                        <Zap className="w-4 h-4 text-primary animate-pulse" />
+                        Acesso Exclusivo para Investidores Premium
                     </motion.div>
 
                     <motion.h1
-                        className="mb-4 md:mb-8 text-[32px] md:text-[72px] leading-[1.05] font-black tracking-tight"
+                        className="mb-6 text-[36px] md:text-[64px] leading-[1.1] font-black tracking-tighter text-foreground uppercase"
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
-                        OS MELHORES CARROS <br className="hidden md:block" />
-                        <span className="text-primary italic">NÃO ESTÃO</span> NO LEILÃO.
+                        O ACESSO QUE O <br />
+                        MERCADO COMUM <br />
+                        <span className="text-primary italic">NÃO TEM.</span>
                     </motion.h1>
 
                     <motion.p
-                        className="text-base md:text-2xl text-foreground/90 mb-6 md:mb-12 max-w-3xl mx-auto normal-case leading-relaxed px-2 md:px-0 font-medium"
+                        className="text-base md:text-lg text-foreground/60 mb-10 max-w-xl leading-relaxed font-medium"
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.4 }}
                     >
-                        Eles são negociados antes. <strong>Sem histórico, sem sinistro</strong> — e com margem cheia de FIPE. 
-                        Tenha acesso a veículos que não aparecem para o público comum e lucre como quem já entende o jogo.
+                        Não vendemos carros. Entregamos a <strong>conexão direta</strong> com ativos invisíveis do mercado. 
+                        Veículos 100% livres de leilão, curados para garantir sua margem de FIPE cheia.
                     </motion.p>
 
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
+                        initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8, delay: 0.6 }}
-                        className="flex flex-col items-center gap-4 md:gap-6"
+                        className="flex flex-col items-center gap-10 w-full"
                     >
-                        <a href="/checkout" className="w-full md:w-auto">
+                        <a href="/checkout" className="w-full sm:w-auto">
                             <motion.button
-                                className="btn-primary-cta w-full md:w-auto px-10 py-4 md:py-6 text-xl md:text-2xl group flex items-center justify-center gap-3 pulse-glow"
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
+                                className="btn-primary-cta w-full sm:w-auto px-12 py-6 text-2xl group flex items-center justify-center gap-4 rounded-2xl shadow-[0_20px_50px_rgba(11,115,71,0.2)] hover:shadow-primary/30 transition-all"
+                                whileHover={{ scale: 1.02, y: -4 }}
+                                whileTap={{ scale: 0.98 }}
                             >
-                                QUERO ACESSAR OPORTUNIDADES REAIS AGORA
-                                <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                                QUERO ACESSO VIP AGORA
+                                <ChevronRight className="w-7 h-7 group-hover:translate-x-1.5 transition-transform duration-300" />
                             </motion.button>
                         </a>
                         
-                        <p className="text-primary text-sm md:text-base font-bold italic tracking-wide">
-                            🚀 Disponibilizamos em média 10 veículos por dia para toda a base
-                        </p>
+                        <div className="flex flex-col items-center gap-3">
+                            <div className="flex items-center gap-2.5 text-primary font-black text-sm italic border-b-2 border-primary/10 pb-2 tracking-widest uppercase">
+                                <ShieldCheck className="w-5 h-5" />
+                                FONTE DIRETA & RARA • PADRÃO PRIVATE
+                            </div>
+                            <p className="text-foreground/40 text-[10px] font-black tracking-[0.3em] uppercase">
+                                Apenas 10 vagas desbloqueadas por dia
+                            </p>
+                        </div>
+                    </motion.div>
+                    
+                    {/* Institutional Badge */}
+                    <motion.div 
+                        className="mt-20 pt-10 border-t border-border/50 flex justify-center gap-10 w-full max-w-lg"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 1, delay: 0.8 }}
+                    >
+                        <div className="flex items-center gap-3 text-foreground/30 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-700">
+                            <Award className="w-6 h-6" />
+                            <span className="text-[11px] font-black tracking-[0.4em] uppercase">Security Level Protocol</span>
+                        </div>
                     </motion.div>
                 </div>
             </div>
             
             {/* Scroll Indicator */}
             <motion.div 
-                className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30"
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
+                className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 opacity-30"
+                animate={{ y: [0, 12, 0] }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
             >
-                <div className="w-[2px] h-12 bg-gradient-to-b from-primary to-transparent" />
+                <div className="w-[1.5px] h-16 bg-gradient-to-b from-foreground to-transparent" />
             </motion.div>
         </section>
     );

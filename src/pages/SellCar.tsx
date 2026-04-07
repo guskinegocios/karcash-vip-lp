@@ -130,7 +130,7 @@ const SellCar = () => {
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="max-w-md w-full bg-card border border-primary/20 rounded-3xl p-10 text-center space-y-6 shadow-2xl shadow-primary/5"
+                    className="max-w-md w-full bg-card border border-border shadow-elevated rounded-[2.5rem] p-10 text-center space-y-6"
                 >
                     <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mx-auto">
                         <CheckCircle2 className="w-12 h-12 text-primary" />
@@ -204,42 +204,45 @@ const SellCar = () => {
                                     ))}
                                 </div>
 
-                                <div className="p-6 bg-card/30 border border-white/5 rounded-2xl">
-                                    <p className="text-sm text-muted-foreground italic">
-                                        "Vendi meu carro batido em menos de 48h. Recebi o valor justo e o processo foi extremamente transparente."
+                                <div className="p-8 bg-secondary/30 border border-border/60 rounded-3xl relative overflow-hidden">
+                                    <div className="absolute top-0 right-0 p-4 opacity-10">
+                                        <MessageSquare className="w-12 h-12 text-primary" />
+                                    </div>
+                                    <p className="text-foreground font-medium leading-relaxed italic relative z-10">
+                                        "Vendi meu carro batido em menos de 48h. Recebi o valor justo e o processo foi extremamente transparente. O atendimento da KarCash é diferenciado."
                                     </p>
-                                    <div className="mt-4 flex items-center gap-3">
-                                        <div className="w-10 h-10 rounded-full bg-primary/5 border border-primary/10 flex items-center justify-center">
-                                            <User className="w-5 h-5 text-primary/40" />
+                                    <div className="mt-6 flex items-center gap-4 relative z-10">
+                                        <div className="w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
+                                            <User className="w-6 h-6 text-primary" />
                                         </div>
                                         <div>
-                                            <p className="text-xs font-bold text-foreground">Marcelo S.</p>
-                                            <p className="text-[10px] text-muted-foreground italic">Vendeu um Civic 2021</p>
+                                            <p className="text-sm font-black text-foreground uppercase tracking-tight">Marcelo S.</p>
+                                            <p className="text-xs text-muted-foreground font-medium">Vendeu um Honda Civic 2021</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                             {/* Right Side: Form */}
-                            <div className="bg-card border border-white/10 rounded-3xl p-8 md:p-10 shadow-2xl relative overflow-hidden group" ref={formContainerRef}>
+                            <div className="card-premium shadow-2xl" ref={formContainerRef}>
                                 {/* Decorative elements */}
-                                <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/5 blur-[60px] rounded-full group-hover:bg-primary/10 transition-colors" />
+                                <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/5 blur-[80px] rounded-full group-hover:bg-primary/10 transition-colors" />
 
-                                <h2 className="text-2xl font-display font-bold text-foreground mb-8">Informações do Veículo</h2>
+                                <h2 className="text-2xl font-display font-black text-foreground mb-8 uppercase tracking-tight">Avaliação Gratuita</h2>
 
                                 <Form {...form}>
                                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                                        <div className="grid sm:grid-cols-2 gap-4">
+                                        <div className="grid sm:grid-cols-2 gap-6">
                                             <FormField
                                                 control={form.control}
                                                 name="name"
                                                 render={({ field }) => (
                                                     <FormItem>
-                                                        <FormLabel className="text-xs uppercase tracking-wider text-muted-foreground">Nome Completo</FormLabel>
+                                                        <FormLabel className="text-[10px] uppercase tracking-[0.2em] font-black text-muted-foreground mb-2 block">Nome Completo</FormLabel>
                                                         <FormControl>
                                                             <div className="relative">
-                                                                <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                                                                <Input placeholder="Seu nome" className="bg-background/50 pl-10 border-white/10" {...field} />
+                                                                <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60" />
+                                                                <Input placeholder="Seu nome" className="pl-11" {...field} />
                                                             </div>
                                                         </FormControl>
                                                         <FormMessage />
@@ -251,11 +254,11 @@ const SellCar = () => {
                                                 name="whatsapp"
                                                 render={({ field }) => (
                                                     <FormItem>
-                                                        <FormLabel className="text-xs uppercase tracking-wider text-muted-foreground">WhatsApp</FormLabel>
+                                                        <FormLabel className="text-[10px] uppercase tracking-[0.2em] font-black text-muted-foreground mb-2 block">WhatsApp</FormLabel>
                                                         <FormControl>
                                                             <div className="relative">
-                                                                <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                                                                <Input placeholder="(00) 00000-0000" className="bg-background/50 pl-10 border-white/10" {...field} />
+                                                                <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60" />
+                                                                <Input placeholder="(00) 00000-0000" className="pl-11" {...field} />
                                                             </div>
                                                         </FormControl>
                                                         <FormMessage />
@@ -269,11 +272,11 @@ const SellCar = () => {
                                             name="email"
                                             render={({ field }) => (
                                                 <FormItem>
-                                                    <FormLabel className="text-xs uppercase tracking-wider text-muted-foreground">E-mail para Contato</FormLabel>
+                                                    <FormLabel className="text-[10px] uppercase tracking-[0.2em] font-black text-muted-foreground mb-2 block">E-mail para Contato</FormLabel>
                                                     <FormControl>
                                                         <div className="relative">
-                                                            <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                                                            <Input placeholder="seu@email.com" className="bg-background/50 pl-10 border-white/10" {...field} />
+                                                            <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60" />
+                                                            <Input placeholder="seu@email.com" className="pl-11" {...field} />
                                                         </div>
                                                     </FormControl>
                                                     <FormMessage />
@@ -281,17 +284,17 @@ const SellCar = () => {
                                             )}
                                         />
 
-                                        <div className="grid sm:grid-cols-2 gap-4">
+                                        <div className="grid sm:grid-cols-2 gap-6">
                                             <FormField
                                                 control={form.control}
                                                 name="carModel"
                                                 render={({ field }) => (
                                                     <FormItem>
-                                                        <FormLabel className="text-xs uppercase tracking-wider text-muted-foreground">Modelo do Carro</FormLabel>
+                                                        <FormLabel className="text-[10px] uppercase tracking-[0.2em] font-black text-muted-foreground mb-2 block">Modelo do Carro</FormLabel>
                                                         <FormControl>
                                                             <div className="relative">
-                                                                <Car className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                                                                <Input placeholder="Ex: Onix, Corolla..." className="bg-background/50 pl-10 border-white/10" {...field} />
+                                                                <Car className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60" />
+                                                                <Input placeholder="Ex: Onix, Corolla..." className="pl-11" {...field} />
                                                             </div>
                                                         </FormControl>
                                                         <FormMessage />
@@ -303,11 +306,11 @@ const SellCar = () => {
                                                 name="carYear"
                                                 render={({ field }) => (
                                                     <FormItem>
-                                                        <FormLabel className="text-xs uppercase tracking-wider text-muted-foreground">Ano</FormLabel>
+                                                        <FormLabel className="text-[10px] uppercase tracking-[0.2em] font-black text-muted-foreground mb-2 block">Ano</FormLabel>
                                                         <FormControl>
                                                             <div className="relative">
-                                                                <CalendarIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                                                                <Input placeholder="Ex: 2020" className="bg-background/50 pl-10 border-white/10" {...field} />
+                                                                <CalendarIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60" />
+                                                                <Input placeholder="Ex: 2020" className="pl-11" {...field} />
                                                             </div>
                                                         </FormControl>
                                                         <FormMessage />
@@ -321,13 +324,13 @@ const SellCar = () => {
                                             name="description"
                                             render={({ field }) => (
                                                 <FormItem>
-                                                    <FormLabel className="text-xs uppercase tracking-wider text-muted-foreground">Descrição das Avarias</FormLabel>
+                                                    <FormLabel className="text-[10px] uppercase tracking-[0.2em] font-black text-muted-foreground mb-2 block">Descrição das Avarias</FormLabel>
                                                     <FormControl>
                                                         <div className="relative">
-                                                            <MessageSquare className="absolute left-3 top-3 w-4 h-4 text-muted-foreground" />
+                                                            <MessageSquare className="absolute left-4 top-4 w-4 h-4 text-muted-foreground/60" />
                                                             <Textarea
                                                                 placeholder="Conte-nos o estado atual do veículo..."
-                                                                className="bg-background/50 pl-10 min-h-[120px] border-white/10 resize-none pt-2"
+                                                                className="pl-11 min-h-[140px] pt-4"
                                                                 {...field}
                                                             />
                                                         </div>

@@ -22,43 +22,45 @@ const Success = () => {
   }, []);
 
   return (
-    <main className="flex-1 flex items-center justify-center py-12 md:py-24">
-      <div className="container mx-auto px-4 text-center max-w-2xl">
+    <main className="min-h-screen bg-background flex flex-col items-center justify-center py-12 md:py-24 px-4">
+      <div className="container mx-auto text-center max-w-2xl">
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
+          initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, type: "spring" }}
+          transition={{ duration: 0.5 }}
         >
-          <div className="w-24 h-24 bg-green-500/10 text-green-500 rounded-full mx-auto flex items-center justify-center mb-6">
+          <div className="w-24 h-24 bg-primary/10 text-primary rounded-full mx-auto flex items-center justify-center mb-10 shadow-lg shadow-primary/5">
             <Check className="w-12 h-12" />
           </div>
 
-          <h1 className="font-display font-bold text-4xl md:text-5xl text-foreground mb-4">
-            Seja bem-vindo ao Clube VIP!
+          <h1 className="font-display font-black text-4xl md:text-6xl text-foreground mb-6 uppercase tracking-tight">
+            Bem-vindo ao Elite VIP!
           </h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground mb-12">
-            Seu pagamento foi confirmado. Agora, siga os passos abaixo para começar a lucrar:
+          <p className="text-lg md:text-xl text-muted-foreground mb-16 font-medium max-w-xl mx-auto leading-relaxed">
+            Seu acesso foi processado com sucesso. Siga as instruções abaixo para começar a operar com nossa inteligência:
           </p>
 
-          <div className="grid gap-8 max-w-md mx-auto">
-            {/* Step 1: Instagram */}
-            <div className="bg-card p-8 rounded-2xl border border-border text-left relative overflow-hidden shadow-xl">
-               <div className="absolute top-0 left-0 w-1 h-full bg-primary" />
-               <h3 className="font-bold text-2xl mb-4 flex items-center gap-2">
-                 Solicitar Acesso ao Instagram
-               </h3>
-               <p className="text-muted-foreground mb-8 text-base">
-                 Nossa tecnologia identificará seu pagamento e aprovará sua solicitação automaticamente.
-               </p>
-               <a 
-                href={`https://instagram.com/${import.meta.env.VITE_INSTAGRAM_VIP_HANDLE?.replace('@', '')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary-cta py-4 px-6 rounded-xl font-display font-bold text-lg inline-flex items-center gap-2 w-full justify-center shadow-[0_0_20px_rgba(0,255,0,0.3)]"
-              >
-                SOLICITAR ACESSO AO {import.meta.env.VITE_INSTAGRAM_VIP_HANDLE}
-              </a>
+          <div className="max-w-md mx-auto">
+            {/* Step Card */}
+            <div className="card-premium text-left shadow-2xl relative overflow-hidden p-0">
+               <div className="h-2 w-full bg-primary" />
+               <div className="p-10">
+                <h3 className="font-display font-black text-2xl mb-4 uppercase tracking-tight">
+                  Acesso ao Portal VIP
+                </h3>
+                <p className="text-muted-foreground mb-10 text-base font-medium leading-relaxed">
+                  Nossa inteligência identificou seu pagamento. Clique no botão abaixo para solicitar entrada no grupo exclusivo.
+                </p>
+                <a 
+                  href={`https://instagram.com/${import.meta.env.VITE_INSTAGRAM_VIP_HANDLE?.replace('@', '')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary-cta w-full"
+                >
+                  SOLICITAR ACESSO AGORA
+                </a>
+               </div>
             </div>
           </div>
         </motion.div>

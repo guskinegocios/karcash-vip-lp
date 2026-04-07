@@ -94,14 +94,14 @@ export const SocialProofSection = () => {
                     {stats.map((stat, index) => (
                         <ScrollReveal key={index} delay={index * 0.1}>
                             <motion.div 
-                                className="group relative p-8 rounded-2xl bg-[#0A0C0B] border border-white/5 hover:border-primary/30 transition-all duration-500 overflow-hidden"
+                                className="group relative p-8 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-500 overflow-hidden shadow-sm hover:shadow-xl"
                                 whileHover={{ y: -5 }}
                             >
                                 {/* Stat Icon & Trend */}
                                 <div className="flex justify-between items-start mb-6">
                                     <div className="relative">
-                                        <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-500">
-                                            <stat.icon className="w-6 h-6 text-foreground/40 group-hover:text-primary transition-colors" />
+                                        <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center group-hover:bg-primary/10 transition-colors duration-500 border border-border/50">
+                                            <stat.icon className="w-6 h-6 text-foreground/30 group-hover:text-primary transition-colors" />
                                         </div>
                                         {stat.live && (
                                             <div className="absolute -top-1 -right-1 flex h-3 w-3">
@@ -114,7 +114,7 @@ export const SocialProofSection = () => {
                                         <span className="text-[10px] font-bold text-primary px-2 py-0.5 rounded-full bg-primary/10 border border-primary/20">
                                             {stat.trend}
                                         </span>
-                                        {stat.live && <span className="text-[8px] font-black text-primary/40 tracking-tighter uppercase">Live Feed</span>}
+                                        {stat.live && <span className="text-[8px] font-black text-primary/20 tracking-tighter uppercase">Live Feed</span>}
                                     </div>
                                 </div>
 
@@ -152,11 +152,11 @@ export const SocialProofSection = () => {
                             <p className="text-foreground/50 text-base mb-8 normal-case leading-relaxed italic">
                                 "O sucesso no mercado de repasse não é sobre quem grita mais alto, mas sobre quem tem acesso às informações certas antes de todo mundo."
                             </p>
-                            <div className="flex items-center gap-4 py-6 border-t border-white/5">
+                            <div className="flex items-center gap-4 py-6 border-t border-border">
                                 <div className="flex -space-x-3">
                                     {[1, 2, 3, 4].map(i => (
                                         <div key={i} className="w-10 h-10 rounded-full border-2 border-background bg-card flex items-center justify-center overflow-hidden">
-                                            <div className="w-full h-full bg-primary/10 flex items-center justify-center text-[10px] font-bold text-primary">{i}</div>
+                                            <div className="w-full h-full bg-primary/5 flex items-center justify-center text-[10px] font-bold text-primary">{i}</div>
                                         </div>
                                     ))}
                                 </div>
@@ -169,13 +169,13 @@ export const SocialProofSection = () => {
 
                     <div className="lg:col-span-2 grid md:grid-cols-2 gap-6 relative">
                         {/* Decorative Quote Icon behind */}
-                        <Quote className="absolute -top-12 -left-12 w-48 h-48 text-white/[0.02] -rotate-12 pointer-events-none" />
+                        <Quote className="absolute -top-12 -left-12 w-48 h-48 text-foreground/[0.03] -rotate-12 pointer-events-none" />
                         
                         {testimonials.map((item, idx) => (
                             <ScrollReveal key={idx} delay={idx * 0.15}>
-                                <div className={`p-8 rounded-2xl bg-card/40 border border-white/5 hover:border-white/10 transition-all ${idx === 1 ? 'md:translate-y-8' : ''}`}>
+                                <div className={`p-8 rounded-2xl bg-card border border-border hover:border-primary/10 transition-all shadow-sm ${idx === 1 ? 'md:translate-y-8' : ''}`}>
                                     <div className="flex items-center gap-4 mb-6">
-                                        <div className="w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary font-bold">
+                                        <div className="w-12 h-12 rounded-full bg-primary/5 border border-primary/10 flex items-center justify-center text-primary font-bold">
                                             {item.initial}
                                         </div>
                                         <div>
@@ -183,12 +183,12 @@ export const SocialProofSection = () => {
                                                 <p className="font-bold text-sm text-foreground uppercase tracking-wider">{item.name}</p>
                                                 <CheckCircle2 className="w-3 h-3 text-primary" />
                                             </div>
-                                            <p className="text-[10px] text-foreground/40 font-bold uppercase tracking-tight">
+                                            <p className="text-[10px] text-foreground/40 italic leading-relaxed pt-4 font-medium uppercase tracking-[0.2em]">
                                                 {item.role} • {item.time}
                                             </p>
                                         </div>
                                     </div>
-                                    <p className="text-foreground/70 text-sm leading-relaxed italic normal-case border-l-2 border-primary/30 pl-4">
+                                    <p className="text-foreground/70 text-sm leading-relaxed italic normal-case border-l-2 border-primary/20 pl-4">
                                         "{item.content}"
                                     </p>
                                 </div>

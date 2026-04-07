@@ -1,28 +1,26 @@
 import { Link } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 
 const Terms = () => {
     return (
         <div className="min-h-screen bg-background text-foreground pt-24 pb-12">
             <div className="container mx-auto px-4 max-w-3xl">
-                <div className="mb-8 md:mb-12 text-center">
-                    <h1 className="text-3xl md:text-5xl font-bold mb-4 font-display bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+                <div className="mb-12 text-center">
+                    <h1 className="text-4xl md:text-6xl font-display font-black mb-4 uppercase tracking-tight text-foreground">
                         Termos de Uso
                     </h1>
-                    <div className="h-1 w-20 bg-primary mx-auto rounded-full" />
-                    <p className="mt-4 text-muted-foreground text-sm">
-                        Documento registrado para fins de prova de autoria e integridade.
-                    </p>
+                    <div className="h-1.5 w-24 bg-primary mx-auto rounded-full shadow-sm" />
                 </div>
 
-                <div className="bg-card/50 backdrop-blur-sm border border-white/5 rounded-2xl p-6 md:p-10 shadow-xl">
-                    <div className="prose prose-invert prose-lg max-w-none prose-headings:font-display prose-headings:text-primary prose-p:text-muted-foreground">
-                        <p className="text-sm text-muted-foreground mb-8 uppercase tracking-wider font-semibold border-b border-white/5 pb-4">
-                            Última atualização: {new Date().getFullYear()}
+                <div className="card-premium shadow-2xl">
+                    <div className="prose prose-lg max-w-none prose-headings:font-display prose-headings:text-foreground prose-headings:uppercase prose-headings:tracking-tight prose-p:text-muted-foreground prose-li:text-muted-foreground">
+                        <p className="text-[10px] text-muted-foreground/60 mb-10 uppercase tracking-[0.3em] font-black border-b border-border pb-6">
+                            Última atualização: {new Date().getFullYear()} • KarCash VIP Technology
                         </p>
 
                         <div className="space-y-8">
                             <section>
-                                <h3 className="text-xl font-bold text-white mb-4">1. Definições e Aceitação</h3>
+                                <h3 className="text-xl font-black mb-4">1. Definições e Aceitação</h3>
                                 <p>
                                     Estes Termos de Uso ("Termos") regem a relação entre você ("Usuário") e a plataforma **KarCash**. Ao acessar, adquirir membros VIP ou utilizar nossos serviços ("Serviços"), o Usuário declara ter lido, compreendido e aceito integralmente as cláusulas aqui dispostas.
                                 </p>
@@ -32,7 +30,7 @@ const Terms = () => {
                             </section>
 
                             <section>
-                                <h3 className="text-xl font-bold text-white mb-4">2. Natureza dos Serviços (Curadoria)</h3>
+                                <h3 className="text-xl font-black mb-4">2. Natureza dos Serviços (Curadoria)</h3>
                                 <p>
                                     O KarCash atua exclusivamente como uma **plataforma de inteligência e curadoria de informações automotivas**.
                                 </p>
@@ -47,11 +45,11 @@ const Terms = () => {
                             </section>
 
                             <section>
-                                <h3 className="text-xl font-bold text-white mb-4">3. Acesso e Propriedade Intelectual</h3>
+                                <h3 className="text-xl font-black mb-4">3. Acesso e Propriedade Intelectual</h3>
                                 <p>
                                     O acesso à área de membros ("VIP") é pessoal, intransferível e licenciado temporariamente.
                                 </p>
-                                <p className="mt-2">
+                                <p className="mt-2 text-sm">
                                     <strong>Proibições expressas:</strong>
                                     <ul className="list-disc pl-4 mt-2 space-y-1 text-base">
                                         <li>Compartilhar login e senha com terceiros (rateio);</li>
@@ -65,63 +63,57 @@ const Terms = () => {
                             </section>
 
                             <section>
-                                <h3 className="text-xl font-bold text-white mb-4">4. Isenção de Responsabilidade (Disclaimer)</h3>
+                                <h3 className="text-xl font-black mb-4">4. Isenção de Responsabilidade</h3>
                                 <p>
-                                    Embora e KarCash utilize rigorosos critérios de seleção (verificação de base de dados, histórico de seguradora), a decisão final de compra é de responsabilidade exclusiva do Usuário.
+                                    Embora o KarCash utilize rigorosos critérios de seleção, a decisão final de compra é de responsabilidade exclusiva do Usuário.
                                 </p>
-                                <div className="bg-white/5 p-4 rounded-lg mt-2 text-sm">
-                                    <p><strong>A KARCASH NÃO SE RESPONSABILIZA POR:</strong></p>
-                                    <ul className="list-disc pl-4 mt-2 space-y-1">
+                                <div className="bg-primary/5 p-6 rounded-2xl border border-primary/10 mt-4 text-sm">
+                                    <p className="font-black text-primary uppercase tracking-widest mb-3">A KarCash não se responsabiliza por:</p>
+                                    <ul className="list-disc pl-4 space-y-2 text-muted-foreground font-medium">
                                         <li>Vícios ocultos mecânicos não detectáveis em análise documental;</li>
                                         <li>Alterações no estado do veículo após a data da nossa curadoria;</li>
-                                        <li>Inadimplência ou desistência por parte do vendedor original do veículo.</li>
+                                        <li>Inadimplência ou desistência por parte do vendedor original.</li>
                                     </ul>
                                 </div>
-                                <p className="mt-2 text-sm italic">
-                                    Recomendamos que todo Usuário realize vistoria presencial ou cautelar independente antes de efetivar qualquer pagamento ao vendedor do veículo.
-                                </p>
                             </section>
 
                             <section>
-                                <h3 className="text-xl font-bold text-white mb-4">5. Política de Cancelamento e Arrependimento</h3>
+                                <h3 className="text-xl font-black mb-4">5. Política de Cancelamento</h3>
                                 <p>
-                                    Em conformidade com o Art. 49 do Código de Defesa do Consumidor (CDC), o Usuário possui o prazo de 7 (sete) dias corridos para exercer o direito de arrependimento sobre a assinatura do serviço de informações.
+                                    Em conformidade com o Art. 49 do CDC, o Usuário possui o prazo de 7 (sete) dias corridos para exercer o direito de arrependimento.
                                 </p>
 
-                                <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-4 mt-4 text-sm text-red-200">
-                                    <strong>⚠️ Cláusula Anti-Abuso (Proteção à Boa-Fé):</strong>
-                                    <p className="mt-2">
-                                        O download massivo (<em>bulk gathering</em>) ou consumo integral da base de dados no período de 7 dias, seguido de pedido de cancelamento, será interpretado como <strong>Abuso de Direito (Art. 187 CC)</strong> e enriquecimento sem causa.
-                                    </p>
-                                    <p className="mt-2">
-                                        Nestas situações, a KarCash reserva-se o direito de contestar o reembolso e banir o Usuário permanentemente da plataforma por violação da boa-fé objetiva contratual.
+                                <div className="bg-red-500/5 border border-red-500/10 rounded-2xl p-6 mt-6 text-sm text-foreground">
+                                    <strong className="text-red-600 uppercase tracking-widest font-black">⚠️ Cláusula Anti-Abuso:</strong>
+                                    <p className="mt-3 text-muted-foreground font-medium">
+                                        O download massivo ou consumo integral da base de dados no período de 7 dias, seguido de pedido de cancelamento, será interpretado como Abuso de Direito (Art. 187 CC). Nestas situações, reservamos o direito de contestar o reembolso.
                                     </p>
                                 </div>
                             </section>
 
                             <section>
-                                <h3 className="text-xl font-bold text-white mb-4">6. Alterações e Foro</h3>
+                                <h3 className="text-xl font-black mb-4">6. Alterações e Foro</h3>
                                 <p>
-                                    A KarCash reserva-se o direito de alterar estes termos a qualquer momento, notificando os usuários ativos. Fica eleito o foro da Comarca de São Paulo/SP para dirimir quaisquer dúvidas oriundas deste contrato, renunciando a qualquer outro por mais privilegiado que seja.
+                                    Fica eleito o foro da Comarca de São Paulo/SP para dirimir quaisquer dúvidas oriundas deste contrato.
                                 </p>
                             </section>
                         </div>
                     </div>
 
                     {/* Navigation Buttons */}
-                    <div className="mt-12 flex flex-col md:flex-row items-center justify-between gap-4 pt-8 border-t border-white/5">
-                        <a
-                            href="/"
-                            className="text-muted-foreground hover:text-white transition-colors flex items-center gap-2 group"
+                    <div className="mt-16 flex flex-col md:flex-row items-center justify-between gap-6 pt-10 border-t border-border">
+                        <Link
+                            to="/"
+                            className="text-muted-foreground hover:text-primary transition-all font-black text-[10px] uppercase tracking-[0.2em] flex items-center gap-2 group"
                         >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:-translate-x-1 transition-transform"><path d="m15 18-6-6 6-6" /></svg>
+                            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                             Voltar ao Início
-                        </a>
+                        </Link>
 
-                        <div className="flex gap-6">
-                            <a href="/privacidade" className="text-muted-foreground hover:text-white transition-colors">
+                        <div className="flex gap-8">
+                            <Link to="/privacidade" className="text-muted-foreground hover:text-primary transition-all font-black text-[10px] uppercase tracking-[0.2em]">
                                 Política de Privacidade
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
