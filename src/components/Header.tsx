@@ -13,11 +13,11 @@ export const Header = () => {
     <header className="sticky top-0 left-0 right-0 z-50 bg-[#05100B] border-b border-white/5 shadow-2xl">
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
         {/* Logo */}
-        <a href="/" className="flex items-center group">
+        <a href="/" className="flex items-center">
           <img 
-            src="https://yrgtjzgwuzyupvrtefwo.supabase.co/storage/v1/object/public/storageImagens/logo_karcash-removebg_1.webp" 
+            src="/logo_karcash.webp" 
             alt="KarCash Logo" 
-            className="h-10 w-auto brightness-0 invert transition-all duration-300 group-hover:scale-105" 
+            className="h-10 w-auto" 
           />
         </a>
 

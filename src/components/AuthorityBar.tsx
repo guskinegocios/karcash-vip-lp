@@ -11,7 +11,7 @@ export const AuthorityBar = () => {
             transition={{ duration: 0.8 }}
             className="hidden md:block"
           >
-            <img src="https://yrgtjzgwuzyupvrtefwo.supabase.co/storage/v1/object/public/storageImagens/logo_karcash-removebg_1.webp" alt="KarCash Logo" className="h-8 md:h-10 w-auto opacity-40 hover:opacity-100 transition-opacity" />
+            <img src="/logo_karcash.webp" alt="KarCash Logo" className="h-8 md:h-10 w-auto" />
           </motion.div>
 
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-6 md:gap-x-12">
