@@ -21,14 +21,13 @@ export const HeroSection = () => {
                     </motion.div>
 
                     <motion.h1
-                        className="mb-4 text-[32px] md:text-[54px] leading-[1.1] font-black tracking-tighter text-foreground uppercase"
+                        className="mb-4 text-[24px] md:text-[36px] leading-[1.2] font-black tracking-tighter text-foreground uppercase"
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
-                        O ACESSO QUE O <br />
-                        MERCADO COMUM <br />
-                        <span className="text-primary italic">NÃO TEM.</span>
+                        QUER GANHAR <span className="text-primary italic">R$20.000,00</span> EM 10 DIAS? <br />
+                        AQUI NÓS TE <span className="text-primary italic">PROVAMOS</span> COMO ISSO É POSSÍVEL!
                     </motion.h1>
 
                     <motion.p
