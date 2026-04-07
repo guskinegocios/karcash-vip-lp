@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export const AuthorityBar = () => {
   return (
-    <section className="bg-background py-6 md:py-10 border-b border-border/40 relative z-10">
+    <section className="bg-background py-4 md:py-6 border-b border-border/40 relative z-10">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4">
           <motion.div
