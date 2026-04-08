@@ -1,27 +1,16 @@
 import { motion } from "framer-motion";
-import { ChevronRight, Award, ShieldCheck, Zap } from "lucide-react";
+import { ChevronRight, Award } from "lucide-react";
 
 export const HeroSection = () => {
     return (
-        <section className="relative min-h-0 flex items-start pt-12 md:pt-16 pb-8 overflow-hidden bg-background">
+        <section className="relative min-h-0 flex items-start pt-16 md:pt-24 pb-12 overflow-hidden bg-background">
             {/* Very Subtle Institutional Gradient */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary/5 blur-[160px] rounded-full -translate-y-1/2 opacity-30" />
             
             <div className="container mx-auto px-4 relative z-10">
                 <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
-                    {/* Authority Tag */}
-                    <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        className="inline-flex items-center gap-3 px-4 py-2 mb-6 text-[11px] font-black tracking-[0.25em] text-foreground/60 bg-secondary/80 backdrop-blur-md rounded-xl border border-border shadow-sm uppercase"
-                    >
-                        <Zap className="w-4 h-4 text-primary animate-pulse" />
-                        Acesso Exclusivo para Investidores Premium
-                    </motion.div>
-
                     <motion.h1
-                        className="mb-4 text-[24px] md:text-[36px] leading-[1.2] font-black tracking-tighter text-foreground uppercase"
+                        className="mb-6 text-[32px] md:text-[48px] leading-[1.1] font-black tracking-tighter text-foreground uppercase"
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
@@ -31,13 +20,13 @@ export const HeroSection = () => {
                     </motion.h1>
 
                     <motion.p
-                        className="text-base md:text-lg text-foreground/60 mb-6 max-w-xl leading-relaxed font-medium"
+                        className="text-base md:text-lg text-foreground/60 mb-6 max-w-2xl leading-relaxed font-medium"
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.4 }}
                     >
-                        Abra sua mente para o mercado que a concorrência desconhece. 
-                        Pare de brigar por carros de leilão e repasse e domine a <strong className="text-foreground">arrematação, reparação e revenda</strong> com lucros reais de R$ 20.000,00.
+                        Se você é uma pessoa inteligente, que dá valor para o seu dinheiro, e está procurando um negócio com <span className="text-foreground font-bold">lucros reais e sem enganação?</span><br />
+                        Finalmente encontrou a oportunidade da sua vida!
                     </motion.p>
 
                     <motion.div
@@ -56,16 +45,6 @@ export const HeroSection = () => {
                                 <ChevronRight className="w-6 h-6 group-hover:translate-x-1.5 transition-transform duration-300" />
                             </motion.button>
                         </a>
-                        
-                        <div className="flex flex-col items-center gap-2">
-                            <div className="flex items-center gap-2.5 text-primary font-black text-xs italic border-b-2 border-primary/10 pb-1 tracking-widest uppercase">
-                                <ShieldCheck className="w-4 h-4" />
-                                FONTE DIRETA & RARA • PADRÃO PRIVATE
-                            </div>
-                            <p className="text-foreground/40 text-[9px] font-black tracking-[0.3em] uppercase">
-                                Apenas 10 vagas desbloqueadas por dia
-                            </p>
-                        </div>
                     </motion.div>
                     
                     {/* Institutional Badge */}
@@ -75,7 +54,7 @@ export const HeroSection = () => {
                         animate={{ opacity: 1 }}
                         transition={{ duration: 1, delay: 0.8 }}
                     >
-                        <div className="flex items-center gap-3 text-foreground/30 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-700">
+                        <div className="flex items-center gap-3 text-primary transition-all duration-700">
                             <Award className="w-5 h-5" />
                             <span className="text-[10px] font-black tracking-[0.4em] uppercase">Security Level Protocol</span>
                         </div>

@@ -4,15 +4,15 @@ import { Quote, Play, Shield } from "lucide-react";
 
 export const ManifestoSection = () => {
     return (
-        <section className="py-24 bg-background relative overflow-hidden">
+        <section id="manifesto" className="pt-8 pb-24 bg-secondary/10 border-t border-border/20 relative overflow-hidden">
             {/* Background Accent */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2 opacity-20" />
             
             <div className="container mx-auto px-4 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
                     
                     {/* Left side: Editorial text */}
-                    <div className="order-2 lg:order-1">
+                    <div className="order-2 lg:order-1 max-w-2xl">
                         <ScrollReveal>
                             <div className="flex justify-start mb-8">
                                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
