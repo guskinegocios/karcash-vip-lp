@@ -11,7 +11,7 @@ const adsData = [
     fipe: "281.700,00",
     karcash: "200.000,00",
     profit: "81.700,00",
-    image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&q=80&w=600"
+    image: "/anuncios/bmw-removebg.png"
   },
   {
     brand: "FIAT",
@@ -21,7 +21,7 @@ const adsData = [
     fipe: "53.462,00",
     karcash: "27.998,00",
     profit: "25.464,00",
-    image: "https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&q=80&w=600" // Generic subcompact replacement
+    image: "/anuncios/FIAT_MOBI_LIKE.png"
   },
   {
     brand: "HYUNDAI",
@@ -31,7 +31,7 @@ const adsData = [
     fipe: "96.735,00",
     karcash: "49.999,00",
     profit: "46.736,00",
-    image: "https://images.unsplash.com/photo-1629897143924-d2eab3aedb2b?auto=format&fit=crop&q=80&w=600"
+    image: "/anuncios/HYUNDAI_HB20_TGDI.png"
   },
   {
     brand: "NISSAN",
@@ -41,7 +41,7 @@ const adsData = [
     fipe: "104.142,00",
     karcash: "59.100,00",
     profit: "45.000,00",
-    image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&q=80&w=600"
+    image: "/anuncios/NISSAN_KICKS_SENSE.png"
   },
   {
     brand: "RENAULT",
@@ -51,67 +51,60 @@ const adsData = [
     fipe: "106.326,00",
     karcash: "51.200,00",
     profit: "55.126,00",
-    image: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&q=80&w=600"
+    image: "/anuncios/RENAULT_KANGOO_ADVANCE.png"
   }
 ];
 
 const AdCard = ({ data }: { data: typeof adsData[0] }) => {
   return (
-    <div className="flex-shrink-0 w-[280px] md:w-[320px] aspect-[4/5] bg-[#0A120E] border border-white/10 rounded-2xl overflow-hidden relative flex flex-col group hover:border-primary/50 transition-colors duration-300">
-      {/* Background Graphic Pattern */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-         <div className="absolute top-0 right-0 w-48 h-48 bg-primary rounded-full blur-[80px]" />
-         <svg className="absolute bottom-0 left-0 w-full h-1/2 text-primary" viewBox="0 0 100 100" preserveAspectRatio="none">
-             <polygon fill="currentColor" points="0,100 100,0 100,100" opacity="0.3" />
-             <polygon fill="currentColor" points="0,100 50,20 100,100" opacity="0.5" />
-         </svg>
-      </div>
-
+    <div 
+      className="flex-shrink-0 w-[280px] md:w-[320px] aspect-[4/5] rounded-[2rem] overflow-hidden relative flex flex-col group transition-all duration-500 shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-white/10 hover:border-white/20 hover:shadow-[0_30px_50px_rgba(0,0,0,0.6)]"
+      style={{ backgroundImage: "url('/anuncios/bgCard.jpg')", backgroundSize: "cover", backgroundPosition: "center" }}
+    >
       {/* Header - Logo */}
-      <div className="pt-5 pb-2 px-5 flex justify-center relative z-10">
-        <Logo variant="light" h={24} />
+      <div className="pt-3 pb-0 px-5 flex justify-center relative z-10 drop-shadow-xl">
+        <img src="/logo_karcash.webp" alt="Karcash Logo" className="h-[18px] object-contain" />
       </div>
 
-      {/* Content */}
-      <div className="px-5 flex-1 flex flex-col relative z-10 mt-2">
+      {/* Glassmorphic Information Plate */}
+      <div className="mx-4 mt-1 p-4 rounded-2xl bg-black/40 backdrop-blur-md border border-white/10 shadow-2xl relative z-20 flex flex-col gap-3 transition-colors duration-300 group-hover:bg-black/50">
         
-        <div className="flex justify-between items-start mb-4">
-            {/* Vehicle Info */}
-            <div className="flex flex-col max-w-[55%]">
-                <span className="text-primary font-black text-lg leading-tight uppercase">{data.brand}</span>
-                <span className="text-white font-bold text-sm leading-tight uppercase">{data.model}</span>
-                <span className="text-white/50 font-medium text-[9px] uppercase mt-1 tracking-wider">{data.details}</span>
-                <span className="text-primary font-bold text-sm mt-1">{data.year}</span>
-            </div>
-
-            {/* Profit Margin Info */}
-            <div className="flex flex-col items-end gap-1.5 min-w-[40%]">
-                <div className="bg-[#1A2520] border border-white/5 rounded px-2 py-1 flex justify-between items-center w-full">
-                    <span className="text-[8px] text-white/50 uppercase tracking-widest leading-none">FIPE</span>
-                    <span className="text-[10px] text-white font-bold line-through leading-none">{data.fipe}</span>
-                </div>
-                <div className="bg-[#1A2520] border border-white/5 rounded px-2 py-1 flex justify-between items-center w-full">
-                    <span className="text-[8px] text-white/50 uppercase tracking-widest leading-none">KARCASH</span>
-                    <span className="text-[10px] text-white font-bold leading-none">{data.karcash}</span>
-                </div>
-                <div className="bg-primary shadow-[0_0_15px_rgba(11,115,71,0.4)] rounded px-2 py-1.5 flex justify-between items-center w-full mt-1">
-                    <span className="text-[9px] text-[#05100B] uppercase font-black tracking-wider leading-none">LUCRO</span>
-                    <span className="text-xs text-[#05100B] font-black leading-none">+{data.profit}</span>
-                </div>
-            </div>
+        {/* Car Name & Year */}
+        <div className="flex flex-col">
+            <span className="text-white/60 font-bold text-[10px] tracking-widest uppercase mb-0.5">{data.brand} • {data.year}</span>
+            <span className="text-white font-black text-xl md:text-2xl uppercase leading-none drop-shadow-md">{data.model}</span>
+            <span className="text-white/40 font-medium text-[9px] uppercase mt-1 tracking-wider">{data.details}</span>
         </div>
 
+        {/* Financials Grid */}
+        <div className="grid grid-cols-[1.2fr_1fr] gap-3 mt-1 pt-3 border-t border-white/10">
+            {/* FIPE & Karcash */}
+            <div className="flex flex-col gap-1.5 border-r border-white/10 pr-3">
+                <div className="flex justify-between items-end">
+                    <span className="text-[9px] text-white/50 font-bold tracking-wider">FIPE</span>
+                    <span className="text-[10px] text-white/40 line-through font-bold">R$ {data.fipe}</span>
+                </div>
+                <div className="flex justify-between items-end">
+                    <span className="text-[9px] text-white/90 font-bold tracking-wider">VIP</span>
+                    <span className="text-[13px] text-white font-black drop-shadow-md">R$ {data.karcash}</span>
+                </div>
+            </div>
+
+            {/* Profit Margin */}
+            <div className="flex flex-col justify-center">
+                <span className="text-[9px] text-[#DBFC1D]/80 font-bold tracking-wider uppercase mb-0.5">Lucro na Revenda</span>
+                <span className="text-lg md:text-xl text-[#DBFC1D] font-black leading-none drop-shadow-[0_0_12px_rgba(219,252,29,0.2)]">+{data.profit}</span>
+            </div>
+        </div>
       </div>
 
-      {/* Vehicle Image */}
-      <div className="h-40 w-full relative z-20 mt-auto px-4 pb-4">
-          <div className="w-full h-full rounded-xl overflow-hidden border border-white/10 shadow-xl bg-black">
-              <img 
-                src={data.image} 
-                alt={`${data.brand} ${data.model}`} 
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-              />
-          </div>
+      {/* 3D Vehicle Image */}
+      <div className="flex-1 w-full relative z-20 flex items-end justify-center px-4 pb-4 pointer-events-none mt-auto">
+          <img 
+            src={data.image} 
+            alt={`${data.brand} ${data.model}`} 
+            className="w-[115%] max-h-[170px] md:max-h-[200px] object-contain object-bottom -translate-y-2 drop-shadow-[0_30px_30px_rgba(0,0,0,0.9)]"
+          />
       </div>
     </div>
   );
@@ -122,7 +115,7 @@ export const AdsShowcaseSection = () => {
     const doubledData = [...adsData, ...adsData, ...adsData];
 
     return (
-        <section className="py-10 lg:py-20 bg-background border-y border-border/20 overflow-hidden relative">
+        <section className="pt-2 pb-10 lg:pt-4 lg:pb-20 bg-background border-y border-border/20 overflow-hidden relative">
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2 opacity-20 pointer-events-none" />
 
             <div className="container mx-auto px-4 mb-10 relative z-10 text-center">

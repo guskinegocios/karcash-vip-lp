@@ -6,7 +6,7 @@ import { CtaButton } from "./CtaButton";
 
 export const ManifestoSection = () => {
     return (
-        <section id="manifesto" className="pt-8 pb-24 bg-secondary/10 border-t border-border/20 relative overflow-hidden">
+        <section id="manifesto" className="pt-8 pb-10 bg-secondary/10 border-t border-border/20 relative overflow-hidden">
             {/* Background Accent */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2 opacity-20" />
             
@@ -125,7 +125,7 @@ export const ManifestoSection = () => {
                 </div>
 
                 {/* Secondary CTA */}
-                <div className="mt-16">
+                <div className="mt-8">
                     <ScrollReveal delay={0.4}>
                         <CtaButton />
                     </ScrollReveal>
