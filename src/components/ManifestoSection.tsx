@@ -12,7 +12,7 @@ export const ManifestoSection = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20 items-center">
                     
                     {/* Left side: Editorial text */}
-                    <div className="order-2 lg:order-1 max-w-2xl">
+                    <div className="max-w-2xl">
                         <ScrollReveal>
                             <div className="flex justify-start mb-8">
                                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
@@ -55,7 +55,7 @@ export const ManifestoSection = () => {
                     </div>
 
                     {/* Right side: Media / Video Mockup */}
-                    <div className="order-1 lg:order-2">
+                    <div>
                         <ScrollReveal delay={0.2}>
                             <div className="relative group">
                                 {/* Glass Border Effect */}
