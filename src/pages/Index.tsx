@@ -11,6 +11,7 @@ import { SellerLeadModal } from "@/components/SellerLeadModal";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { useEffect } from "react";
 import { trackMetaEvent } from "@/utils/track";
+import { AdsShowcaseSection } from "@/components/AdsShowcaseSection";
 
 const Index = () => {
   useEffect(() => {
@@ -30,6 +31,11 @@ const Index = () => {
 
       {/* 2.2 MANIFESTO DE AUTORIDADE */}
       <ManifestoSection />
+
+      {/* 2.1 SHOWCASE DE ANÚNCIOS (Margens Reais) - Desktop */}
+      <div className="hidden lg:block">
+        <AdsShowcaseSection />
+      </div>
 
       {/* 2.5 PROVA SOCIAL / NÚMEROS (Social Proof) */}
       <SocialProofSection />

@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { ScrollReveal } from "./ScrollReveal";
 import { Quote, Play, Shield } from "lucide-react";
+import { AdsShowcaseSection } from "./AdsShowcaseSection";
+import { CtaButton } from "./CtaButton";
 
 export const ManifestoSection = () => {
     return (
@@ -52,6 +54,11 @@ export const ManifestoSection = () => {
                                 </div>
                             </div>
                         </ScrollReveal>
+                    </div>
+
+                    {/* Mobile Only: Ads Carousel inserted between Text and Video */}
+                    <div className="block lg:hidden w-screen relative -ml-4 pb-8">
+                        <AdsShowcaseSection />
                     </div>
 
                     {/* Right side: Media / Video Mockup */}
@@ -115,6 +122,13 @@ export const ManifestoSection = () => {
                         </ScrollReveal>
                     </div>
 
+                </div>
+
+                {/* Secondary CTA */}
+                <div className="mt-16">
+                    <ScrollReveal delay={0.4}>
+                        <CtaButton />
+                    </ScrollReveal>
                 </div>
             </div>
         </section>

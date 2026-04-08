@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ChevronRight, Award } from "lucide-react";
+import { CtaButton } from "./CtaButton";
 
 export const HeroSection = () => {
     return (
@@ -35,16 +36,7 @@ export const HeroSection = () => {
                         transition={{ duration: 0.8, delay: 0.6 }}
                         className="flex flex-col items-center gap-6 w-full"
                     >
-                        <a href="/checkout" className="w-full sm:w-auto">
-                            <motion.button
-                                className="btn-primary-cta w-full sm:w-auto px-10 py-4 text-xl group flex items-center justify-center gap-4 rounded-2xl shadow-[0_20px_50px_rgba(11,115,71,0.2)] hover:shadow-primary/30 transition-all"
-                                whileHover={{ scale: 1.02, y: -4 }}
-                                whileTap={{ scale: 0.98 }}
-                            >
-                                QUERO ACESSO VIP AGORA
-                                <ChevronRight className="w-6 h-6 group-hover:translate-x-1.5 transition-transform duration-300" />
-                            </motion.button>
-                        </a>
+                        <CtaButton />
                     </motion.div>
                     
                     {/* Institutional Badge */}
