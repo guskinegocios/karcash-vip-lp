@@ -14,7 +14,7 @@ interface VIPOpportunityModalProps {
 export const VIPOpportunityModal = ({ isOpen, setIsOpen }: VIPOpportunityModalProps) => {
     return (
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
-            <DialogContent className="sm:max-w-4xl p-0 overflow-hidden bg-transparent border-none shadow-none max-h-[95vh] overflow-y-auto scrollbar-hide">
+            <DialogContent className="sm:max-w-4xl p-0 overflow-hidden md:overflow-visible bg-transparent border-none shadow-none max-h-[95vh] md:max-h-none overflow-y-auto md:overflow-y-visible scrollbar-hide">
                 <div className="rounded-2xl md:rounded-[40px] border border-primary/30 bg-background/95 backdrop-blur-xl p-5 md:p-10 relative overflow-hidden w-full shadow-2xl my-4">
                     {/* Background Decorative Elements */}
                     <div className="absolute -top-40 -right-40 w-96 h-96 bg-primary/20 blur-[100px] rounded-full pointer-events-none" />
