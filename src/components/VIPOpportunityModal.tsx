@@ -40,12 +40,18 @@ export const VIPOpportunityModal = ({ isOpen, setIsOpen }: VIPOpportunityModalPr
                                     <UserPlus className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                                 </div>
                                 <h3 className="font-bold text-lg md:text-xl mb-2 md:mb-3">Afiliado VIP</h3>
-                                <p className="text-[11px] md:text-xs text-muted-foreground mb-3 md:mb-4 flex-grow">
+                                <p className="text-[11px] md:text-xs text-muted-foreground mb-4 flex-grow">
                                     Invista <span className="text-foreground font-bold">R$ 49,94</span> e receba um cupom de 10% de cashback por cada nova assinatura indicada.
                                 </p>
-                                <div className="text-primary font-mono text-[10px] md:text-sm font-bold">
-                                    Recupere em 10 indicações!
-                                </div>
+                                <Link 
+                                    to="/checkout?plan=affiliate" 
+                                    className="w-full"
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    <button className="w-full py-2.5 rounded-xl border border-primary/30 text-primary text-[10px] font-black uppercase tracking-widest hover:bg-primary/10 transition-all">
+                                        Selecionar
+                                    </button>
+                                </Link>
                             </div>
 
                             {/* Nível 2 */}
@@ -57,12 +63,18 @@ export const VIPOpportunityModal = ({ isOpen, setIsOpen }: VIPOpportunityModalPr
                                     <TrendingUp className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                                 </div>
                                 <h3 className="font-bold text-lg md:text-xl mb-2 md:mb-3">Dropshipper</h3>
-                                <p className="text-[11px] md:text-xs text-muted-foreground mb-3 md:mb-4 flex-grow">
+                                <p className="text-[11px] md:text-xs text-muted-foreground mb-4 flex-grow">
                                     Intermedie vendas da nossa rede sem precisar comprar o carro. Lucro médio de <span className="text-foreground font-bold text-sm">R$ 1.000,00</span> por veículo.
                                 </p>
-                                <div className="text-primary font-mono text-[10px] md:text-sm font-bold">
-                                    Sem estoque, zero risco.
-                                </div>
+                                <Link 
+                                    to="/checkout?plan=dropshipper" 
+                                    className="w-full"
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    <button className="w-full py-2.5 rounded-xl bg-primary text-black text-[10px] font-black uppercase tracking-widest hover:scale-[1.02] transition-all">
+                                        Selecionar
+                                    </button>
+                                </Link>
                             </div>
 
                             {/* Nível 3 */}
@@ -71,12 +83,18 @@ export const VIPOpportunityModal = ({ isOpen, setIsOpen }: VIPOpportunityModalPr
                                     <Car className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                                 </div>
                                 <h3 className="font-bold text-lg md:text-xl mb-2 md:mb-3">Investidor</h3>
-                                <p className="text-[11px] md:text-xs text-muted-foreground mb-3 md:mb-4 flex-grow">
+                                <p className="text-[11px] md:text-xs text-muted-foreground mb-4 flex-grow">
                                     Compre e recupere veículos avariados selecionados. Ganhe até <span className="text-foreground font-bold text-sm">R$ 20.000,00</span> em ciclos de 15 dias.
                                 </p>
-                                <div className="text-primary font-mono text-[10px] md:text-sm font-bold">
-                                    Alta rentabilidade real.
-                                </div>
+                                <Link 
+                                    to="/checkout?plan=investor" 
+                                    className="w-full"
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    <button className="w-full py-2.5 rounded-xl border border-primary/30 text-primary text-[10px] font-black uppercase tracking-widest hover:bg-primary/10 transition-all">
+                                        Selecionar
+                                    </button>
+                                </Link>
                             </div>
                         </div>
 

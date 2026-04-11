@@ -33,6 +33,9 @@ const formSchema = z.object({
     message: "O telefone deve ter pelo menos 10 dígitos.",
   }),
   instagram: z.string().min(3, { message: "O @ deve ter pelo menos 3 caracteres." }).optional().or(z.literal("")),
+  plan_type: z.enum(["affiliate", "dropshipper", "investor"], {
+    required_error: "Por favor, selecione seu nível de atuação.",
+  }),
 });
 
 const Checkout = () => {
@@ -48,12 +51,22 @@ const Checkout = () => {
       email: "",
       phone: "",
       instagram: "",
+      plan_type: "dropshipper", // Default mais popular
     },
   });
 
-  const { isValid } = form.formState;
-  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+
+  // Detecta plano via URL na montagem
+  useEffect(() => {
+    const planFromUrl = searchParams.get("plan");
+    if (planFromUrl && ["affiliate", "dropshipper", "investor"].includes(planFromUrl)) {
+      form.setValue("plan_type", planFromUrl as any);
+    }
+  }, [searchParams, form]);
+
+  const { isValid } = form.formState;
 
   // Captura as UTMs da URL ou do localStorage (persistência)
   const getUtms = () => {
@@ -121,6 +134,7 @@ const Checkout = () => {
         email: values.email.toLowerCase(),
         phone: values.phone.replace(/\D/g, ''),
         instagram: values.instagram,
+        membership_level: values.plan_type,
         ...utms
       });
 
@@ -162,8 +176,8 @@ const Checkout = () => {
       }
 
     } catch (error) {
-      console.error('Erro ao salvar no Supabase:', error);
-      const errorMessage = (error as any).message || "Ocorreu um erro desconhecido.";
+      console.error('Erro detalhado Supabase:', JSON.stringify(error, null, 2));
+      const errorMessage = (error as any).message || (error as any).details || "Ocorreu um erro desconhecido.";
 
       let friendlyMessage = "Ocorreu um erro ao processar sua inscrição.";
       if (errorMessage.includes("unique_profile_email")) {
@@ -217,95 +231,145 @@ const Checkout = () => {
 
           {/* Form */}
           <div className="card-elevated shadow-xl border-border/40">
-            <h2 className="font-display font-black text-xl text-foreground mb-8 uppercase tracking-tight">
-              Informações Pessoais
-            </h2>
-
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
-                <FormField
-                  control={form.control}
-                  name="name"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-xs font-black uppercase tracking-widest text-muted-foreground mb-3 block">Nome Completo</FormLabel>
-                      <FormControl>
-                        <Input
-                          placeholder="Seu nome completo"
-                          {...field}
-                          disabled={isLoading}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-xs font-black uppercase tracking-widest text-muted-foreground mb-3 block">E-mail</FormLabel>
-                      <FormControl>
-                        <Input
-                          type="email"
-                          placeholder="seu@email.com"
-                          {...field}
-                          disabled={isLoading}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="phone"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-xs font-black uppercase tracking-widest text-muted-foreground mb-3 block">WhatsApp (com DDD)</FormLabel>
-                      <FormControl>
-                        <Input
-                          {...field}
-                          type="tel"
-                          placeholder="(00) 00000-0000"
-                          onChange={(e) => {
-                            const formatted = formatPhone(e.target.value);
-                            field.onChange(formatted);
-                          }}
-                          disabled={isLoading}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                
+                {/* PLAN SELECTION */}
+                <div className="space-y-4">
+                    <h2 className="font-display font-black text-xl text-foreground uppercase tracking-tight">
+                        Como você vai lucrar?
+                    </h2>
+                    <FormField
+                        control={form.control}
+                        name="plan_type"
+                        render={({ field }) => (
+                            <FormItem className="space-y-3">
+                                <FormControl>
+                                    <div className="grid grid-cols-1 gap-3">
+                                        {[
+                                            { id: 'affiliate', label: 'Afiliado VIP', desc: 'Indicação e Cashback' },
+                                            { id: 'dropshipper', label: 'Dropshipper', desc: 'Intermediação s/ estoque' },
+                                            { id: 'investor', label: 'Investidor', desc: 'Reparo e Revenda' }
+                                        ].map((item) => (
+                                            <button
+                                                key={item.id}
+                                                type="button"
+                                                onClick={() => field.onChange(item.id)}
+                                                className={`flex items-center justify-between p-4 rounded-xl border-2 transition-all text-left ${
+                                                    field.value === item.id 
+                                                    ? 'border-primary bg-primary/5 shadow-md' 
+                                                    : 'border-border/50 bg-secondary/20 hover:border-primary/30'
+                                                }`}
+                                            >
+                                                <div>
+                                                    <p className={`font-black uppercase text-xs tracking-widest ${field.value === item.id ? 'text-primary' : 'text-foreground'}`}>
+                                                        {item.label}
+                                                    </p>
+                                                    <p className="text-[10px] text-muted-foreground font-medium">{item.desc}</p>
+                                                </div>
+                                                <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${field.value === item.id ? 'border-primary bg-primary' : 'border-border'}`}>
+                                                    {field.value === item.id && <Check className="w-3 h-3 text-black" />}
+                                                </div>
+                                            </button>
+                                        ))}
+                                    </div>
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                </div>
 
-                <FormField
-                  control={form.control}
-                  name="instagram"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-xs font-black uppercase tracking-widest text-muted-foreground mb-3 block">Instagram (@usuario)</FormLabel>
-                      <FormControl>
-                        <div className="relative">
-                            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground font-bold">@</span>
-                            <Input
-                                placeholder="usuario"
+                <div className="space-y-6 pt-6 border-t border-border/50">
+                    <h2 className="font-display font-black text-xl text-foreground uppercase tracking-tight">
+                        Informações Pessoais
+                    </h2>
+                    <div className="space-y-5">
+                        <FormField
+                        control={form.control}
+                        name="name"
+                        render={({ field }) => (
+                            <FormItem>
+                            <FormLabel className="text-xs font-black uppercase tracking-widest text-muted-foreground mb-3 block">Nome Completo</FormLabel>
+                            <FormControl>
+                                <Input
+                                placeholder="Seu nome completo"
                                 {...field}
-                                onChange={(e) => {
-                                    const val = e.target.value.replace(/^@/, '');
-                                    field.onChange(val);
-                                }}
-                                className="pl-9"
                                 disabled={isLoading}
-                            />
-                        </div>
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                                />
+                            </FormControl>
+                            <FormMessage />
+                            </FormItem>
+                        )}
+                        />
+                        <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                            <FormItem>
+                            <FormLabel className="text-xs font-black uppercase tracking-widest text-muted-foreground mb-3 block">E-mail</FormLabel>
+                            <FormControl>
+                                <Input
+                                type="email"
+                                placeholder="seu@email.com"
+                                {...field}
+                                disabled={isLoading}
+                                />
+                            </FormControl>
+                            <FormMessage />
+                            </FormItem>
+                        )}
+                        />
+                        <FormField
+                        control={form.control}
+                        name="phone"
+                        render={({ field }) => (
+                            <FormItem>
+                            <FormLabel className="text-xs font-black uppercase tracking-widest text-muted-foreground mb-3 block">WhatsApp (com DDD)</FormLabel>
+                            <FormControl>
+                                <Input
+                                {...field}
+                                type="tel"
+                                placeholder="(00) 00000-0000"
+                                onChange={(e) => {
+                                    const formatted = formatPhone(e.target.value);
+                                    field.onChange(formatted);
+                                }}
+                                disabled={isLoading}
+                                />
+                            </FormControl>
+                            <FormMessage />
+                            </FormItem>
+                        )}
+                        />
+
+                        <FormField
+                        control={form.control}
+                        name="instagram"
+                        render={({ field }) => (
+                            <FormItem>
+                            <FormLabel className="text-xs font-black uppercase tracking-widest text-muted-foreground mb-3 block">Instagram (@usuario)</FormLabel>
+                            <FormControl>
+                                <div className="relative">
+                                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground font-bold">@</span>
+                                    <Input
+                                        placeholder="usuario"
+                                        {...field}
+                                        onChange={(e) => {
+                                            const val = e.target.value.replace(/^@/, '');
+                                            field.onChange(val);
+                                        }}
+                                        className="pl-9"
+                                        disabled={isLoading}
+                                    />
+                                </div>
+                            </FormControl>
+                            <FormMessage />
+                            </FormItem>
+                        )}
+                        />
+                    </div>
+                </div>
 
 
                 <motion.div
