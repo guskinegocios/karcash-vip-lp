@@ -7,21 +7,25 @@ import { SolutionSection } from "@/components/SolutionSection";
 import { ScarcitySection } from "@/components/ScarcitySection";
 import { FAQSection } from "@/components/FAQSection";
 import { FinalCTA } from "@/components/FinalCTA";
-import { SellerLeadModal } from "@/components/SellerLeadModal";
-import { ScrollReveal } from "@/components/ScrollReveal";
-import { useEffect } from "react";
+import { VIPOpportunityModal } from "@/components/VIPOpportunityModal";
+import { VIPSidebarWidget } from "@/components/VIPSidebarWidget";
+import { useState, useEffect } from "react";
 import { trackMetaEvent } from "@/utils/track";
 import { AdsShowcaseSection } from "@/components/AdsShowcaseSection";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 const Index = () => {
+  const [isVIPModalOpen, setIsVIPModalOpen] = useState(false);
+
   useEffect(() => {
     // Alvo focado na Landing Page principal
     trackMetaEvent({ eventName: 'ViewContent' });
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-background">
-      <SellerLeadModal />
+    <div className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-background font-inter">
+      <VIPSidebarWidget isOpen={isVIPModalOpen} onClick={() => setIsVIPModalOpen(true)} />
+      <VIPOpportunityModal isOpen={isVIPModalOpen} setIsOpen={setIsVIPModalOpen} />
 
       {/* 1. HERO SECTION (High Impact) */}
       <HeroSection />
