@@ -25,7 +25,7 @@ export const Header = () => {
         {!hideButtons && (
           <div className="hidden md:flex items-center gap-8">
             <a 
-              href="/sell" 
+              href="/#vender" 
               className="text-sm font-black text-white/70 hover:text-white uppercase tracking-widest transition-colors"
             >
               Vender um Carro
@@ -60,7 +60,7 @@ export const Header = () => {
           animate={{ opacity: 1, y: 0 }}
         >
           <a
-            href="/sell"
+            href="/#vender"
             className="block text-center text-sm font-black text-white/50 hover:text-white uppercase tracking-widest mb-6 transition-colors"
             onClick={() => setIsMenuOpen(false)}
           >
