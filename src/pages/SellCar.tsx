@@ -480,13 +480,13 @@ const SellCar = () => {
                                     </AnimatePresence>
 
                                     {/* Navigation */}
-                                    <div className="mt-8 pt-6 border-t border-slate-200 flex items-center justify-between gap-4">
+                                    <div className="mt-8 pt-6 border-t border-slate-200 flex items-center justify-between gap-3">
                                         <button
                                             type="button"
                                             onClick={prevStep}
                                             disabled={step === 1}
                                             className={cn(
-                                                "px-8 py-4 text-xs font-black uppercase tracking-widest transition-all",
+                                                "px-4 md:px-8 py-3.5 md:py-4 text-[10px] md:text-xs font-black uppercase tracking-widest transition-all",
                                                 step === 1 ? "opacity-0 pointer-events-none" : "text-slate-500 hover:text-primary"
                                             )}
                                         >
@@ -497,18 +497,18 @@ const SellCar = () => {
                                             <button
                                                 type="button"
                                                 onClick={nextStep}
-                                                className="btn-primary-cta px-10 py-5 flex items-center gap-2 group"
+                                                className="btn-primary-cta px-6 md:px-10 py-3.5 md:py-5 text-xs md:text-base flex items-center gap-2 group"
                                             >
                                                 Próximo Passo
-                                                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                                <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
                                             </button>
                                         ) : (
                                             <button
                                                 type="submit"
                                                 disabled={isSubmitting}
-                                                className="btn-primary-cta px-10 py-5 bg-[#ff6b00] hover:bg-[#ff802b] border-none flex items-center gap-2"
+                                                className="btn-primary-cta px-6 md:px-10 py-3.5 md:py-5 text-xs md:text-base bg-[#ff6b00] hover:bg-[#ff802b] border-none flex items-center gap-2"
                                             >
-                                                {isSubmitting ? <><Loader2 className="w-5 h-5 animate-spin" /> Enviando...</> : "Finalizar Proposta"}
+                                                {isSubmitting ? <><Loader2 className="w-4 h-4 md:w-5 md:h-5 animate-spin" /> Enviando...</> : "Finalizar Proposta"}
                                             </button>
                                         )}
                                     </div>
