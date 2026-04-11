@@ -4,19 +4,19 @@ import { Check, ShieldCheck, TrendingUp, Gem } from "lucide-react";
 
 const benefits = [
     {
-        icon: <Gem className="w-8 h-8" />,
-        title: "Acesso Privilegiado",
-        description: "Acesse o mercado invisível: carros que as concessionárias negociam antes de chegarem ao público comum."
+        icon: <TrendingUp className="w-8 h-8" />,
+        title: "VENDA POR 100% DA FIPE",
+        description: "Nossos veículos têm valor de revenda de 100% da Tabela FIPE. Você vende pelo valor justo porque não há depreciação de mercado."
     },
     {
         icon: <ShieldCheck className="w-8 h-8" />,
-        title: "100% Elegível FIPE",
-        description: "Sem histórico de leilão, sem sinistro ou média monta. Veículos prontos para venda pelo valor máximo de mercado."
+        title: "ZERO LEILÃO E SINISTRO",
+        description: "Na consulta cautelar: nenhum tem passagem por leilão, não foram indenizados por seguradoras e não têm sinistro (pequena ou média monta)!"
     },
     {
-        icon: <TrendingUp className="w-8 h-8" />,
-        title: "Margem Preservada",
-        description: "Não aceite perder 30% do lucro. Opere com carros raros que garantem a maior liquidez do mercado."
+        icon: <Gem className="w-8 h-8" />,
+        title: "100% FINANCIAMENTO E SEGURO",
+        description: "Veículos totalmente limpos, podendo ser financiados facilmente pelos bancos e com aceitação para fazer seguro 100%."
     }
 ];
 
