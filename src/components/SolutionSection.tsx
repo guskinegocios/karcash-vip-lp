@@ -56,46 +56,56 @@ export const SolutionSection = () => {
                             <div className="absolute top-0 right-0 p-8 opacity-5">
                                 <TrendingUp className="w-32 h-32 text-foreground" />
                             </div>
-                            
-                            <h3 className="text-2xl md:text-3xl font-black uppercase mb-8 flex items-center gap-3 text-foreground">
-                                <span className="w-10 h-px bg-primary" />
-                                Exemplo Real de Operação
-                            </h3>
+                                             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10">
+                                <h3 className="text-2xl md:text-3xl font-black uppercase flex items-center gap-3 text-foreground">
+                                    <span className="w-10 h-px bg-primary" />
+                                    Exemplo Real de Operação
+                                </h3>
+                                <div className="px-4 py-1.5 bg-primary/10 border border-primary/20 rounded-full">
+                                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">Polo Track 1.0 2026</span>
+                                </div>
+                            </div>
 
                             <div className="grid md:grid-cols-2 gap-12 items-center">
                                 <div className="space-y-6">
                                     <div className="flex justify-between items-center border-b border-border pb-4">
-                                        <span className="text-foreground/60 uppercase font-black text-xs tracking-widest">Compra</span>
-                                        <span className="text-xl font-black text-foreground">R$ 42.000</span>
+                                        <span className="text-foreground/60 uppercase font-black text-xs tracking-widest">Compra (Venda KarCash)</span>
+                                        <span className="text-xl font-black text-foreground">R$ 50.890,00</span>
                                     </div>
                                     <div className="flex justify-between items-center border-b border-border pb-4">
-                                        <span className="text-foreground/60 uppercase font-black text-xs tracking-widest">Recuperação</span>
-                                        <span className="text-xl font-black text-foreground">R$ 6.500</span>
+                                        <span className="text-foreground/60 uppercase font-black text-xs tracking-widest">Custo de Recuperação</span>
+                                        <span className="text-xl font-black text-foreground">R$ 9.926,03</span>
                                     </div>
                                     <div className="flex justify-between items-center border-b border-border pb-4">
                                         <span className="text-primary uppercase font-black text-xs tracking-widest">Venda (FIPE 100%)</span>
-                                        <span className="text-xl font-black text-primary">R$ 64.900</span>
+                                        <span className="text-xl font-black text-primary">R$ 80.663,00</span>
                                     </div>
                                     <div className="flex justify-between items-center pt-2">
-                                        <span className="text-foreground font-black uppercase text-base tracking-tight">Lucro Líquido</span>
-                                        <span className="text-3xl font-black text-primary">R$ 16.400</span>
+                                        <div>
+                                            <span className="text-foreground font-black uppercase text-base tracking-tight block">Lucro Líquido</span>
+                                            <span className="text-[10px] font-black uppercase tracking-widest text-primary">Em apenas 10 dias</span>
+                                        </div>
+                                        <span className="text-3xl font-black text-primary">R$ 20.736,97</span>
                                     </div>
                                 </div>
 
                                 <div className="space-y-4">
                                     <div className="flex items-center gap-3 text-foreground/80 font-black text-sm uppercase tracking-tight">
-                                        <Check className="text-primary w-5 h-5 flex-shrink-0" />
-                                        <span>Sem restrição documental</span>
+                                        <TrendingUp className="text-primary w-5 h-5 flex-shrink-0" />
+                                        <span>Giro em 10 dias (Recorde)</span>
                                     </div>
                                     <div className="flex items-center gap-3 text-foreground/80 font-black text-sm uppercase tracking-tight">
                                         <Check className="text-primary w-5 h-5 flex-shrink-0" />
-                                        <span>Venda facilitada (Giro Rápido)</span>
+                                        <span>Sem histórico de leilão</span>
                                     </div>
                                     <div className="flex items-center gap-3 text-foreground/80 font-black text-sm uppercase tracking-tight">
                                         <Check className="text-primary w-5 h-5 flex-shrink-0" />
-                                        <span>Margem 100% preservada</span>
+                                        <span>Pronto para Revenda Direta</span>
                                     </div>
-
+                                    <div className="flex items-center gap-3 text-foreground/80 font-black text-sm uppercase tracking-tight">
+                                        <Check className="text-primary w-5 h-5 flex-shrink-0" />
+                                        <span>Margem Segura de Investimento</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>

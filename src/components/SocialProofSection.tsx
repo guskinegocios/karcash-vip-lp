@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ScrollReveal } from "./ScrollReveal";
 import { AnimatedCounter } from "./AnimatedCounter";
 import { TrendingUp, Clock, ShieldCheck, Zap, Quote, CheckCircle2 } from "lucide-react";
+import { CtaButton } from "./CtaButton";
 
 export const SocialProofSection = () => {
     const stats = [
@@ -196,6 +197,13 @@ export const SocialProofSection = () => {
                         ))}
                     </div>
                 </div>
+
+                {/* Bottom CTA */}
+                <ScrollReveal delay={0.3}>
+                    <div className="mt-20 lg:mt-32">
+                        <CtaButton />
+                    </div>
+                </ScrollReveal>
             </div>
         </section>
     );

@@ -96,7 +96,7 @@ export const ScarcitySection = () => {
                                 
                                 <div className="pt-4">
                                     <a 
-                                        href="#checkout"
+                                        href="/checkout"
                                         className="btn-primary-cta w-full py-4 text-center block text-lg font-black"
                                     >
                                         GARANTIR MEU ACESSO AGORA
