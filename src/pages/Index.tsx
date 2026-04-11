@@ -5,6 +5,7 @@ import { SocialProofSection } from "@/components/SocialProofSection";
 import { PainSection } from "@/components/PainSection";
 import { SolutionSection } from "@/components/SolutionSection";
 import { ScarcitySection } from "@/components/ScarcitySection";
+import { SellerSection } from "@/components/SellerSection";
 import { FAQSection } from "@/components/FAQSection";
 import { FinalCTA } from "@/components/FinalCTA";
 import { VIPOpportunityModal } from "@/components/VIPOpportunityModal";
@@ -52,6 +53,9 @@ const Index = () => {
 
       {/* 5. SEÇÃO DE ESCASSEZ (Bloco de Destaque) */}
       <ScarcitySection />
+
+      {/* 5.1 SEÇÃO DE COMPRA DE VEÍCULOS (Público Vendedor) */}
+      <SellerSection />
 
       {/* 6. FAQ ESTRATÉGICO */}
       <section className="py-[120px] bg-background" id="faq">

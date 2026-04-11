@@ -23,14 +23,22 @@ export const Header = () => {
 
         {/* Desktop CTA - Conditional Rendering */}
         {!hideButtons && (
-          <motion.a
-            href="/checkout"
-            className="hidden md:block btn-primary-cta text-sm py-3 px-8 shadow-none hover:shadow-primary/40 bg-primary border-none text-white"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            QUERO ACESSO AGORA
-          </motion.a>
+          <div className="hidden md:flex items-center gap-8">
+            <a 
+              href="/sell" 
+              className="text-sm font-black text-white/70 hover:text-white uppercase tracking-widest transition-colors"
+            >
+              Vender um Carro
+            </a>
+            <motion.a
+              href="/checkout"
+              className="btn-primary-cta text-sm py-3 px-8 shadow-none hover:shadow-primary/40 bg-primary border-none text-white"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              QUERO ACESSO AGORA
+            </motion.a>
+          </div>
         )}
 
         {/* Mobile menu button - Conditional Rendering */}
@@ -51,6 +59,13 @@ export const Header = () => {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
         >
+          <a
+            href="/sell"
+            className="block text-center text-sm font-black text-white/50 hover:text-white uppercase tracking-widest mb-6 transition-colors"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Vender um Carro
+          </a>
           <a
             href="/checkout"
             className="btn-primary-cta block text-center text-base py-4"
