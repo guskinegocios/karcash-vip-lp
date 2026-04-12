@@ -1,5 +1,34 @@
 # Histórico de Progresso - KarCash VIP
 
+## 📅 12/04/2026 - Status Final do Projeto (99Freelas — R$1.400)
+
+### Escopo Acordado vs. Entregue
+
+| Item do Escopo | Status |
+|---|---|
+| ✅ Landing Page de Alta Conversão (React, mobile-first) | **Entregue** |
+| ✅ Checkout de Recorrência (integração gateway Cakto) | **Entregue** |
+| ✅ Validação automática de pagamento via Webhook | **Entregue** (`api/webhook-cakto.ts`) |
+| ✅ Liberação de acesso ao pagar (/congratulations) | **Entregue** |
+| ✅ Gestão de inadimplência (refund/chargeback cancela acesso) | **Entregue** |
+| ✅ Domínio + deploy no ambiente preview | **Entregue** (`preview.karcash.com.br`) |
+| ✅ Integração Supabase (profiles + subscriptions) | **Entregue** |
+| ✅ E-mails transacionais (Resend) | **Entregue** |
+| ✅ Google Tag Manager + Meta Pixel (CAPI) | **Entregue** |
+
+### ⏳ Pendências — Decisão do Cliente
+
+| Item | Observação |
+|---|---|
+| 🎥 Vídeo da Landing Page | Conteúdo a ser fornecido pelo cliente |
+| 📲 Canal de entrega do acesso: Instagram ou WhatsApp? | Impacta o link na página /congratulations |
+| 🚀 Deploy em produção (`karcash.com.br`) | Aguarda aprovação do cliente na versão preview |
+
+### ⛔ Fora do Escopo (acordado desde o início)
+- Gestão de tráfego pago — especialidade de gestor de tráfego, não de dev fullstack
+
+---
+
 ## 📅 13/03/2026 - Otimização de E-mails & Refinamento Premium
 ### Foco: Deliverabilidade, Branding e UX
 
