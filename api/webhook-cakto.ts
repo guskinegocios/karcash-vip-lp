@@ -113,18 +113,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         ];
 
         if (successEvents.includes(eventType)) {
-            // 1. Atualizar status na tabela SUBSCRIPTIONS usando o profile_id ou email
-            let updateQuery = supabase.from('subscriptions').update({ status: 'active', updated_at: new Date().toISOString() });
-            
-            if (profileId) {
-                updateQuery = updateQuery.eq('profile_id', profileId);
+            // 1. Atualizar status na tabela SUBSCRIPTIONS usando SEMPRE o profile_id
+            if (!profileId) {
+                console.error(`[CAKTO WEBHOOK] ❌ Não foi possível atualizar subscription: profile não encontrado para o e-mail "${customerEmail}". Nenhuma atualização realizada.`);
             } else {
-                updateQuery = updateQuery.ilike('email', customerEmail);
-            }
+                const { error: updateError } = await supabase
+                    .from('subscriptions')
+                    .update({ status: 'active', updated_at: new Date().toISOString() })
+                    .eq('profile_id', profileId);
 
-            const { error: updateError } = await updateQuery;
-            
-            if (updateError) console.error('[CAKTO WEBHOOK] Erro ao atualizar status para Active:', updateError);
+                if (updateError) console.error('[CAKTO WEBHOOK] Erro ao atualizar status para Active:', updateError);
+                else console.log(`[CAKTO WEBHOOK] ✅ Subscription atualizada para ACTIVE. Profile ID: ${profileId}`);
+            }
 
             console.log(`[DEBUG LOG] Disparando e-mails para: ${customerEmail} e admin. Insta: ${instaHandle}`);
 
@@ -198,11 +198,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
         // [B] NEGATIVO: REEMBOLSO / ESTORNO
         else if (['chargeback', 'refund'].includes(eventType)) {
-            const { error: cancelError } = profileId 
-                ? await supabase.from('subscriptions').update({ status: 'cancelado' }).eq('profile_id', profileId)
-                : await supabase.from('subscriptions').update({ status: 'cancelado' }).ilike('email', customerEmail);
+            if (!profileId) {
+                console.error(`[CAKTO WEBHOOK] ❌ Não foi possível cancelar subscription: profile não encontrado para "${customerEmail}".`);
+            } else {
+                const { error: cancelError } = await supabase
+                    .from('subscriptions')
+                    .update({ status: 'cancelado' })
+                    .eq('profile_id', profileId);
 
-            if (cancelError) console.error('[CAKTO WEBHOOK] Erro ao cancelar (refund) no DB:', cancelError);
+                if (cancelError) console.error('[CAKTO WEBHOOK] Erro ao cancelar (refund) no DB:', cancelError);
+                else console.log(`[CAKTO WEBHOOK] ✅ Subscription cancelada (refund). Profile ID: ${profileId}`);
+            }
             
             await resend.emails.send({
                 from: defaultSender,
@@ -249,11 +255,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         
         // [C] OUTROS: CANCELAMENTO / PAGAMENTO ATRASADO
         else if (['subscription_canceled', 'subscription_renewal_refused', 'payment_refused', 'payment_expired', 'subscription_late'].includes(eventType)) {
-            const { error: cancelError } = profileId 
-                ? await supabase.from('subscriptions').update({ status: 'cancelado' }).eq('profile_id', profileId)
-                : await supabase.from('subscriptions').update({ status: 'cancelado' }).ilike('email', customerEmail);
+            if (!profileId) {
+                console.error(`[CAKTO WEBHOOK] ❌ Não foi possível cancelar subscription: profile não encontrado para "${customerEmail}".`);
+            } else {
+                const { error: cancelError } = await supabase
+                    .from('subscriptions')
+                    .update({ status: 'cancelado' })
+                    .eq('profile_id', profileId);
 
-            if (cancelError) console.error('[CAKTO WEBHOOK] Erro ao cancelar (other) no DB:', cancelError);
+                if (cancelError) console.error('[CAKTO WEBHOOK] Erro ao cancelar (other) no DB:', cancelError);
+                else console.log(`[CAKTO WEBHOOK] ✅ Subscription cancelada (other). Profile ID: ${profileId}`);
+            }
 
             const isCancel = eventType === 'subscription_canceled';
             await resend.emails.send({
