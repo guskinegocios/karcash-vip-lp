@@ -108,4 +108,4 @@ A Landing Page foi otimizada com gatilhos mentais para alta conversão:
 -   **Cards de Ofertas:** Utiliza *Ancoragem de Preço* e *Especifidade* (Lucro Exato).
 
 ---
-*Atualizado em 13/03/2026 por Antigravity (IA Coding Expert & Partner).*
+*Atualizado em 16/04/2026 por Antigravity (IA Coding Expert & Partner).*
