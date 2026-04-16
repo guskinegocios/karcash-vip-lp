@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { Outlet, useLocation, useSearchParams } from "react-router-dom";
 import { Header } from "@/components/Header";
-import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { Footer } from "@/components/Footer";
 import { trackMetaEvent } from "@/utils/track";
 
@@ -31,7 +30,6 @@ const MainLayout = () => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
-      <AnnouncementBar />
       <Header />
       <main className="flex-1">
         <Outlet />

@@ -5,6 +5,7 @@ interface CreateSubscriptionParams {
     email: string;
     phone: string;
     instagram?: string;
+    membership_level?: string;
     utm_source?: string;
     utm_medium?: string;
     utm_campaign?: string;
@@ -19,20 +20,23 @@ const subscriptionRepository = {
      * @param params Dados do usuário (nome, email, telefone + UTMs)
      */
     createSubscription: async ({ 
-        name, email, phone, instagram,
+        name, email, phone, instagram, membership_level,
         utm_source, utm_medium, utm_campaign, utm_content, utm_term, referrer 
     }: CreateSubscriptionParams) => {
+        // Sanitização: Garante que valores undefined sejam passados como null para a RPC, 
+        // evitando erros de Bad Request (400) no PostgREST.
         const { data, error } = await supabase.rpc('create_profile_and_subscription', {
-            user_name: name,
-            user_email: email,
-            user_phone: phone,
-            user_instagram: instagram,
-            u_source: utm_source,
-            u_medium: utm_medium,
-            u_campaign: utm_campaign,
-            u_content: utm_content,
-            u_term: utm_term,
-            u_referrer: referrer
+            user_name: (name || '').toString(),
+            user_email: (email || '').toString(),
+            user_phone: (phone || '').toString(),
+            user_instagram: instagram ? instagram.toString() : null,
+            u_source: utm_source ? utm_source.toString() : null,
+            u_medium: utm_medium ? utm_medium.toString() : null,
+            u_campaign: utm_campaign ? utm_campaign.toString() : null,
+            u_content: utm_content ? utm_content.toString() : null,
+            u_term: utm_term ? utm_term.toString() : null,
+            u_referrer: referrer ? referrer.toString() : null,
+            u_membership_level: membership_level ? membership_level.toString() : 'not_selected'
         });
 
         if (error) {

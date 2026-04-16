@@ -79,11 +79,8 @@ export const trackMetaEvent = async ({ eventName, userData = {}, customData = {}
       },
       body: JSON.stringify(payload)
     }).catch(err => {
-      if (err.status === 'fulfilled' && (err.value as any).error) {
-       console.error('Meta API Rejection:', (err.value as any).error);
-       return { success: false, error: (err.value as any).error };
-      }
-      console.error('[Tracking API] Erro invisível:', err);
+      // Ignora erros de tracking local para não poluir o console ou interromper fluxo
+      if (err.name === 'AbortError' || err.message?.includes('404')) return;
     });
   } catch (error) {
     console.error('Erro ao chamar API de rastreamento:', error);

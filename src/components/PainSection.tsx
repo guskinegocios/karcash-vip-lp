@@ -45,10 +45,10 @@ export const PainSection = () => {
                         <div className="relative group">
                             {/* Decorative Outer Glow */}
                             <div className="absolute inset-0 bg-destructive/20 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                            
-                            <div className="relative bg-[#0A0C0B] border border-white/5 rounded-2xl overflow-hidden shadow-2xl">
+
+                            <div className="relative bg-card border border-border rounded-2xl overflow-hidden shadow-xl">
                                 {/* Header of the Report */}
-                                <div className="bg-white/5 px-6 py-4 border-b border-white/10 flex items-center justify-between">
+                                <div className="bg-muted px-6 py-4 border-b border-border flex items-center justify-between">
                                     <div className="flex items-center gap-2">
                                         <FileText className="w-4 h-4 text-foreground/40" />
                                         <span className="text-[10px] font-bold tracking-widest text-foreground/40 uppercase">Relatório de Auditoria v4.2</span>
@@ -63,13 +63,13 @@ export const PainSection = () => {
                                 {/* Body of the Report */}
                                 <div className="p-8 space-y-6">
                                     <div className="space-y-4">
-                                        <div className="flex justify-between items-end border-b border-white/5 pb-2">
+                                        <div className="flex justify-between items-end border-b border-border pb-2">
                                             <span className="text-xs text-foreground/40 uppercase font-bold">Identificação</span>
-                                            <span className="text-sm font-mono text-foreground/80">SUV PREMIUM 2024</span>
+                                            <span className="text-sm font-mono text-foreground/80">BMW 320 M SPORT 2023</span>
                                         </div>
-                                        <div className="flex justify-between items-end border-b border-white/5 pb-2">
+                                        <div className="flex justify-between items-end border-b border-border pb-2">
                                             <span className="text-xs text-foreground/40 uppercase font-bold">Valor Fipe</span>
-                                            <span className="text-sm font-mono text-foreground/80">R$ 184.500,00</span>
+                                            <span className="text-sm font-mono text-foreground/80">R$ 281.700,00</span>
                                         </div>
                                     </div>
 
@@ -86,11 +86,11 @@ export const PainSection = () => {
                                         </div>
                                         <div className="mt-4 flex items-center justify-between relative z-10">
                                             <span className="text-xs text-foreground/60 uppercase">Impacto no Lucro:</span>
-                                            <span className="text-xl font-bold text-destructive">- R$ 55.350,00</span>
+                                            <span className="text-xl font-bold text-destructive">- R$ 84.510,00</span>
                                         </div>
-                                        
+
                                         {/* Background Scanline animation */}
-                                        <motion.div 
+                                        <motion.div
                                             className="absolute inset-0 bg-destructive/5"
                                             animate={{ opacity: [0.3, 0.6, 0.3] }}
                                             transition={{ duration: 2, repeat: Infinity }}
@@ -102,7 +102,7 @@ export const PainSection = () => {
                                         <motion.div
                                             initial={{ scale: 2, opacity: 0, rotate: -15 }}
                                             animate={{ scale: 1, opacity: 1, rotate: -15 }}
-                                            transition={{ 
+                                            transition={{
                                                 type: "spring",
                                                 stiffness: 260,
                                                 damping: 20,
@@ -117,21 +117,21 @@ export const PainSection = () => {
                                 </div>
 
                                 {/* Footer details */}
-                                <div className="bg-white/5 px-6 py-3 text-[9px] font-mono text-foreground/30 flex justify-between">
+                                <div className="bg-muted px-6 py-3 text-[9px] font-mono text-foreground/30 flex justify-between">
                                     <span>HASH: 8f2a9c...1e4b</span>
                                     <span>MARKET_CONFIDENCE: 22%</span>
                                 </div>
                             </div>
 
                             {/* Floating Tooltip */}
-                            <motion.div 
-                                className="absolute -right-4 -bottom-4 bg-primary text-primary-foreground p-4 rounded-xl shadow-2xl max-w-[180px] z-20"
+                            <motion.div
+                                className="absolute -right-4 lg:right-6 -bottom-4 bg-primary text-primary-foreground p-4 rounded-xl shadow-2xl max-w-[180px] z-20"
                                 animate={{ y: [0, -10, 0] }}
                                 transition={{ duration: 4, repeat: Infinity }}
                             >
                                 <div className="flex items-start gap-3">
                                     <XCircle className="w-5 h-5 flex-shrink-0" />
-                                    <p className="text-xs font-bold leading-tight">OCULTAR ISSO NÃO É MAIS POSSÍVEL NO MERCADO RARO.</p>
+                                    <p className="text-[10px] font-bold leading-tight">OCULTAR ISSO NÃO É MAIS POSSÍVEL NO MERCADO RARO.</p>
                                 </div>
                             </motion.div>
                         </div>

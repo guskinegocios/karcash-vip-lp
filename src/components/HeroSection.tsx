@@ -1,77 +1,60 @@
 import { motion } from "framer-motion";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Award } from "lucide-react";
+import { CtaButton } from "./CtaButton";
 
 export const HeroSection = () => {
     return (
-        <section className="min-h-screen md:min-h-[90vh] flex items-center justify-center pt-28 md:pt-32 pb-16 md:pb-16 overflow-hidden bg-background relative uppercase">
-            {/* Background Gradient elements */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
+        <section className="relative min-h-0 flex items-start pt-16 md:pt-24 pb-12 overflow-hidden bg-background">
+            {/* Very Subtle Institutional Gradient */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary/5 blur-[160px] rounded-full -translate-y-1/2 opacity-30" />
             
             <div className="container mx-auto px-4 relative z-10">
-                <div className="max-w-5xl mx-auto text-center">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                    >
-                        <span className="inline-flex items-center gap-2 px-3 md:px-4 py-1 md:py-2 mb-4 md:mb-8 text-[10px] md:text-sm font-bold tracking-widest text-primary bg-primary/10 rounded-full border border-primary/20">
-                            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                            EXCLUSIVO PARA INVESTIDORES PREMIUM
-                        </span>
-                    </motion.div>
-
+                <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
                     <motion.h1
-                        className="mb-4 md:mb-8 text-[32px] md:text-[72px] leading-[1.05] font-black tracking-tight"
+                        className="mb-6 text-[32px] md:text-[48px] leading-[1.1] font-black tracking-tighter text-foreground uppercase"
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
-                        OS MELHORES CARROS <br className="hidden md:block" />
-                        <span className="text-primary italic">NÃO ESTÃO</span> NO LEILÃO.
+                        QUER GANHAR <span className="text-primary italic">R$20.000,00</span> EM 10 DIAS? <br />
+                        AQUI NÓS TE <span className="text-primary italic">PROVAMOS</span> COMO ISSO É POSSÍVEL!
                     </motion.h1>
 
                     <motion.p
-                        className="text-base md:text-2xl text-foreground/90 mb-6 md:mb-12 max-w-3xl mx-auto normal-case leading-relaxed px-2 md:px-0 font-medium"
+                        className="text-base md:text-lg text-foreground/60 mb-6 max-w-2xl leading-relaxed font-medium"
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.4 }}
                     >
-                        Eles são negociados antes. <strong>Sem histórico, sem sinistro</strong> — e com margem cheia de FIPE. 
-                        Tenha acesso a veículos que não aparecem para o público comum e lucre como quem já entende o jogo.
+                        Se você é uma pessoa inteligente, que dá valor para o seu dinheiro, e está procurando um negócio com <span className="text-foreground font-bold">lucros reais e sem enganação?</span><br />
+                        Finalmente encontrou a oportunidade da sua vida!
                     </motion.p>
 
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
+                        initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.8, delay: 0.6 }}
-                        className="flex flex-col items-center gap-4 md:gap-6"
+                        className="flex flex-col items-center gap-6 w-full"
                     >
-                        <a href="/checkout" className="w-full md:w-auto">
-                            <motion.button
-                                className="btn-primary-cta w-full md:w-auto px-10 py-4 md:py-6 text-xl md:text-2xl group flex items-center justify-center gap-3 pulse-glow"
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                            >
-                                QUERO ACESSAR OPORTUNIDADES REAIS AGORA
-                                <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-                            </motion.button>
-                        </a>
-                        
-                        <p className="text-primary text-sm md:text-base font-bold italic tracking-wide">
-                            🚀 Disponibilizamos em média 10 veículos por dia para toda a base
-                        </p>
+                        <CtaButton />
+                    </motion.div>
+                    
+                    {/* Institutional Badge */}
+                    <motion.div 
+                        className="mt-12 pt-6 border-t border-border/50 flex justify-center gap-10 w-full max-w-lg"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 1, delay: 0.8 }}
+                    >
+                        <div className="flex items-center gap-3 text-primary transition-all duration-700">
+                            <Award className="w-5 h-5" />
+                            <span className="text-[10px] font-black tracking-[0.4em] uppercase">Security Level Protocol</span>
+                        </div>
                     </motion.div>
                 </div>
             </div>
             
-            {/* Scroll Indicator */}
-            <motion.div 
-                className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30"
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
-            >
-                <div className="w-[2px] h-12 bg-gradient-to-b from-primary to-transparent" />
-            </motion.div>
+
         </section>
     );
 };

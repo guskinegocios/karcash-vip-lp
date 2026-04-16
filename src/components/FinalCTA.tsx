@@ -17,7 +17,7 @@ export const FinalCTA = () => {
             
             <div className="flex flex-col items-center gap-8">
               <motion.a
-                href="#checkout"
+                href="/checkout"
                 className="btn-primary-cta w-full md:w-auto px-12 py-6 text-xl md:text-2xl text-center shadow-[0_0_50px_rgba(219,252,29,0.2)]"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

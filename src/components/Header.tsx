@@ -10,32 +10,44 @@ export const Header = () => {
   const hideButtons = location.pathname === '/checkout' || location.pathname === '/congratulations';
 
   return (
-    <header className="sticky top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
-      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+    <header className="sticky top-0 left-0 right-0 z-50 bg-[#05100B] border-b border-white/5 shadow-2xl">
+      <div className="container mx-auto px-4 h-20 flex items-center justify-between">
         {/* Logo */}
         <a href="/" className="flex items-center">
-          <img src="https://yrgtjzgwuzyupvrtefwo.supabase.co/storage/v1/object/public/storageImagens/logo_karcash-removebg_1.webp" alt="KarCash Logo" className="h-10 w-auto" />
+          <img 
+            src="/logo_karcash.webp" 
+            alt="KarCash Logo" 
+            className="h-10 w-auto" 
+          />
         </a>
 
         {/* Desktop CTA - Conditional Rendering */}
         {!hideButtons && (
-          <motion.a
-            href="/checkout"
-            className="hidden md:block btn-primary-cta text-sm py-3 px-6"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            QUERO ACESSO AGORA
-          </motion.a>
+          <div className="hidden md:flex items-center gap-8">
+            <a 
+              href="/#vender" 
+              className="text-sm font-black text-white/70 hover:text-white uppercase tracking-widest transition-colors"
+            >
+              Vender um Carro
+            </a>
+            <motion.a
+              href="/checkout"
+              className="btn-primary-cta text-sm py-3 px-8 shadow-none hover:shadow-primary/40 bg-primary border-none text-white"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              QUERO ACESSO AGORA
+            </motion.a>
+          </div>
         )}
 
         {/* Mobile menu button - Conditional Rendering */}
         {!hideButtons && (
           <button
-            className="md:hidden text-foreground p-2"
+            className="md:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
           </button>
         )}
       </div>
@@ -43,13 +55,20 @@ export const Header = () => {
       {/* Mobile menu - Conditional Rendering */}
       {isMenuOpen && !hideButtons && (
         <motion.div
-          className="md:hidden bg-card border-t border-border p-4"
+          className="md:hidden bg-[#05100B] border-t border-white/5 p-6 shadow-2xl"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
         >
           <a
+            href="/#vender"
+            className="block text-center text-sm font-black text-white/50 hover:text-white uppercase tracking-widest mb-6 transition-colors"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Vender um Carro
+          </a>
+          <a
             href="/checkout"
-            className="btn-primary-cta block text-center text-sm py-3"
+            className="btn-primary-cta block text-center text-base py-4"
             onClick={() => setIsMenuOpen(false)}
           >
             QUERO ACESSO AGORA

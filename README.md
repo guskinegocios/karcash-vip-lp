@@ -2,7 +2,38 @@
 
 Bem-vindo ao repositório da Landing Page de Acesso VIP do KarCash. Este projeto é a porta de entrada para a comunidade exclusiva de revendedores e investidores de automóveis que buscam as melhores oportunidades do mercado.
 
-O objetivo principal é converter visitantes em assinantes da comunidade VIP, oferecendo acesso privilegiado a carros "limpos" (sem sinistro/leilão) com margens reais de 20% a 50% abaixo da tabela FIPE, além de múltiplas formas de geração de renda.
+O objetivo principal é converter visitantes em assinantes da comunidade VIP, oferecendo acesso privilegiado a carros com margens reais de 20% a 50% abaixo da tabela FIPE, além de múltiplas formas de geração de renda.
+
+---
+
+## 📋 Status do Projeto — Abril/2026
+
+> **Contrato:** 99Freelas · Valor: R$1.400 · Cliente: Gustavo S. (KarCash)
+
+| Item do Escopo | Status |
+|---|---|
+| Landing Page de Alta Conversão (React, mobile-first) | ✅ Entregue |
+| Checkout de Recorrência (gateway Cakto) | ✅ Entregue |
+| Validação automática de pagamento via Webhook | ✅ Entregue |
+| Liberação de acesso ao pagar (/congratulations) | ✅ Entregue |
+| Gestão de inadimplência (refund/chargeback) | ✅ Entregue |
+| Domínio + deploy preview (`preview.karcash.com.br`) | ✅ Entregue |
+| Integração Supabase (profiles + subscriptions) | ✅ Entregue |
+| E-mails transacionais (Resend) | ✅ Entregue |
+| Google Tag Manager + Meta Pixel (CAPI) | ✅ Entregue |
+
+### ⏳ Pendências — Aguardando decisão do cliente
+
+| Item | Observação |
+|---|---|
+| 🎥 Vídeo da Landing Page | Conteúdo a ser fornecido pelo cliente |
+| 📲 Canal de entrega: Instagram ou WhatsApp? | Impacta o link na página /congratulations |
+| 🚀 Deploy em produção (`karcash.com.br`) | Aguarda aprovação da versão preview |
+
+### ⛔ Fora do Escopo
+- Gestão de tráfego pago (acordado desde o início das negociações)
+
+---
 
 ## 🛠️ Tecnologias Utilizadas
 
@@ -77,4 +108,4 @@ A Landing Page foi otimizada com gatilhos mentais para alta conversão:
 -   **Cards de Ofertas:** Utiliza *Ancoragem de Preço* e *Especifidade* (Lucro Exato).
 
 ---
-*Atualizado em 13/03/2026 por Antigravity (IA Coding Expert & Partner).*
+*Atualizado em 16/04/2026 por Antigravity (IA Coding Expert & Partner).*
