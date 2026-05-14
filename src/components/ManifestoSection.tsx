@@ -6,7 +6,7 @@ import { CtaButton } from "./CtaButton";
 
 export const ManifestoSection = () => {
     return (
-        <section id="manifesto" className="pt-8 pb-10 bg-secondary/10 border-t border-border/20 relative overflow-hidden">
+        <section id="manifesto" className="pt-8 pb-10 bg-background border-t border-border/20 relative overflow-hidden">
             {/* Background Accent */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2 opacity-20" />
             
@@ -36,7 +36,7 @@ export const ManifestoSection = () => {
                                     Você sabia que é possível ganhar <span className="text-foreground font-black">R$ 20.000,00 em 10 dias</span> reparando um veículo avariado? Não acredita? Eu mesmo já fiz isso várias vezes e te provo como isso é possível. 
                                 </p>
 
-                                <div className="bg-secondary/30 p-6 rounded-2xl border border-border shadow-sm italic text-foreground text-sm md:text-base border-l-4 border-l-primary">
+                                <div className="bg-secondary/20 p-6 rounded-2xl border border-border shadow-sm italic text-foreground text-sm md:text-base border-l-4 border-l-primary">
                                     "Sem métodos milagrosos, chega de mentiras e de enganação. Quando você tiver acesso à informação certa, vai abrir a sua mente e você vai ter este resultado."
                                 </div>
 
@@ -69,26 +69,26 @@ export const ManifestoSection = () => {
                                 <div className="absolute -inset-4 bg-gradient-to-tr from-primary/20 via-transparent to-primary/10 rounded-[40px] blur-2xl opacity-50 group-hover:opacity-80 transition-opacity duration-700" />
                                 
                                 {/* Video Container */}
-                                <div className="relative rounded-[32px] overflow-hidden border border-white/10 shadow-2xl bg-[#05100B] aspect-[4/5] lg:aspect-video">
+                                <div className="relative rounded-[32px] overflow-hidden border border-white/10 shadow-2xl bg-black aspect-[4/5] lg:aspect-video">
                                     {/* Mockup Overlay / Play Button */}
                                     <div className="absolute inset-0 flex flex-col items-center justify-center z-20 group-hover:bg-black/20 transition-colors duration-500">
                                         <motion.div
                                             whileHover={{ scale: 1.1 }}
                                             whileTap={{ scale: 0.9 }}
-                                            className="w-16 h-16 md:w-20 md:h-20 bg-primary rounded-full flex items-center justify-center text-white shadow-[0_0_40px_rgba(11,115,71,0.5)] cursor-pointer"
+                                            className="w-16 h-16 md:w-20 md:h-20 bg-primary rounded-full flex items-center justify-center text-primary-foreground shadow-[0_0_40px_rgba(0,255,0,0.3)] cursor-pointer"
                                         >
                                             <Play className="w-6 h-6 md:w-8 md:h-8 fill-current ml-1" />
                                         </motion.div>
-                                        <p className="mt-4 md:mt-6 text-white font-black text-[10px] md:text-xs uppercase tracking-[0.3em] bg-black/40 backdrop-blur-md px-5 py-2 md:px-6 md:py-2.5 rounded-full border border-white/10">
+                                        <p className="mt-4 md:mt-6 text-white font-black text-[10px] md:text-xs uppercase tracking-[0.3em] bg-black/60 backdrop-blur-md px-5 py-2 md:px-6 md:py-2.5 rounded-full border border-white/10">
                                             Assistir Processo na Prática
                                         </p>
                                     </div>
 
-                                    {/* Placeholder Image (Gustavo in action mockup) */}
+                                    {/* Placeholder Image */}
                                     <img 
                                         src="https://images.unsplash.com/photo-1487754180451-c456f719c141?auto=format&fit=crop&q=80&w=1000" 
                                         alt="Processo KarCash VIP" 
-                                        className="w-full h-full object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
+                                        className="w-full h-full object-cover opacity-40 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
                                     />
 
                                     {/* Authority Badge inside Video */}

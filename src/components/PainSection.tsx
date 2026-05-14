@@ -46,12 +46,12 @@ export const PainSection = () => {
                             {/* Decorative Outer Glow */}
                             <div className="absolute inset-0 bg-destructive/20 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
-                            <div className="relative bg-card border border-border rounded-2xl overflow-hidden shadow-xl">
+                            <div className="relative bg-[#0d0d0f] border border-white/5 rounded-2xl overflow-hidden shadow-2xl">
                                 {/* Header of the Report */}
-                                <div className="bg-muted px-6 py-4 border-b border-border flex items-center justify-between">
+                                <div className="bg-black/40 px-6 py-4 border-b border-white/5 flex items-center justify-between">
                                     <div className="flex items-center gap-2">
-                                        <FileText className="w-4 h-4 text-foreground/40" />
-                                        <span className="text-[10px] font-bold tracking-widest text-foreground/40 uppercase">Relatório de Auditoria v4.2</span>
+                                        <FileText className="w-4 h-4 text-white/20" />
+                                        <span className="text-[10px] font-bold tracking-widest text-white/20 uppercase">Relatório de Auditoria v4.2</span>
                                     </div>
                                     <div className="flex gap-1">
                                         <div className="w-2 h-2 rounded-full bg-destructive/40" />
@@ -63,13 +63,13 @@ export const PainSection = () => {
                                 {/* Body of the Report */}
                                 <div className="p-8 space-y-6">
                                     <div className="space-y-4">
-                                        <div className="flex justify-between items-end border-b border-border pb-2">
-                                            <span className="text-xs text-foreground/40 uppercase font-bold">Identificação</span>
-                                            <span className="text-sm font-mono text-foreground/80">BMW 320 M SPORT 2023</span>
+                                        <div className="flex justify-between items-end border-b border-white/5 pb-2">
+                                            <span className="text-xs text-white/20 uppercase font-bold">Identificação</span>
+                                            <span className="text-sm font-mono text-white/80">BMW 320 M SPORT 2023</span>
                                         </div>
-                                        <div className="flex justify-between items-end border-b border-border pb-2">
-                                            <span className="text-xs text-foreground/40 uppercase font-bold">Valor Fipe</span>
-                                            <span className="text-sm font-mono text-foreground/80">R$ 281.700,00</span>
+                                        <div className="flex justify-between items-end border-b border-white/5 pb-2">
+                                            <span className="text-xs text-white/20 uppercase font-bold">Valor Fipe</span>
+                                            <span className="text-sm font-mono text-white/80">R$ 281.700,00</span>
                                         </div>
                                     </div>
 
@@ -81,11 +81,11 @@ export const PainSection = () => {
                                             </div>
                                             <div>
                                                 <p className="text-[10px] font-bold text-destructive uppercase tracking-widest mb-1">Anomalia de Mercado Detectada</p>
-                                                <p className="text-base font-bold text-foreground italic">HISTÓRICO DE LEILÃO (SINISTRO)</p>
+                                                <p className="text-base font-bold text-white italic">HISTÓRICO DE LEILÃO (SINISTRO)</p>
                                             </div>
                                         </div>
                                         <div className="mt-4 flex items-center justify-between relative z-10">
-                                            <span className="text-xs text-foreground/60 uppercase">Impacto no Lucro:</span>
+                                            <span className="text-xs text-white/60 uppercase">Impacto no Lucro:</span>
                                             <span className="text-xl font-bold text-destructive">- R$ 84.510,00</span>
                                         </div>
 
@@ -117,7 +117,7 @@ export const PainSection = () => {
                                 </div>
 
                                 {/* Footer details */}
-                                <div className="bg-muted px-6 py-3 text-[9px] font-mono text-foreground/30 flex justify-between">
+                                <div className="bg-black/40 px-6 py-3 text-[9px] font-mono text-white/20 flex justify-between">
                                     <span>HASH: 8f2a9c...1e4b</span>
                                     <span>MARKET_CONFIDENCE: 22%</span>
                                 </div>
@@ -131,7 +131,7 @@ export const PainSection = () => {
                             >
                                 <div className="flex items-start gap-3">
                                     <XCircle className="w-5 h-5 flex-shrink-0" />
-                                    <p className="text-[10px] font-bold leading-tight">OCULTAR ISSO NÃO É MAIS POSSÍVEL NO MERCADO RARO.</p>
+                                    <p className="text-[10px] font-bold leading-tight uppercase">OCULTAR ISSO NÃO É MAIS POSSÍVEL NO MERCADO RARO.</p>
                                 </div>
                             </motion.div>
                         </div>

@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Logo } from './Logo';
 
 const adsData = [
   {
@@ -58,40 +57,40 @@ const adsData = [
 const AdCard = ({ data }: { data: typeof adsData[0] }) => {
   return (
     <div
-      className="flex-shrink-0 w-[280px] md:w-[320px] aspect-[3/4] md:aspect-[4/5] rounded-[2rem] overflow-hidden relative flex flex-col group transition-all duration-500 shadow-[0_15px_35px_rgba(0,0,0,0.1)] border border-black/5 hover:border-black/10 hover:shadow-[0_25px_45px_rgba(0,0,0,0.15)] bg-[#F8FAFC]"
+      className="flex-shrink-0 w-[280px] md:w-[320px] aspect-[3/4] md:aspect-[4/5] rounded-[2rem] overflow-hidden relative flex flex-col group transition-all duration-500 shadow-[0_15px_35px_rgba(0,0,0,0.3)] border border-white/5 hover:border-white/10 hover:shadow-[0_25px_45px_rgba(0,0,0,0.5)] bg-[#121214]"
     >
       {/* Header - Logo */}
       <div className="pt-3 pb-0 px-5 flex justify-center relative z-10 drop-shadow-sm">
-        <img src="/logo_karcash.webp" alt="Karcash Logo" className="h-[18px] object-contain brightness-0 opacity-70" />
+        <img src="/logo_karcash-removebg_1.webp" alt="Karcash Logo" className="h-[18px] object-contain brightness-0 invert opacity-70" />
       </div>
 
       {/* Glassmorphic Information Plate */}
-      <div className="mx-4 mt-1 p-4 rounded-2xl bg-black/[0.04] backdrop-blur-xl border border-black/10 shadow-sm relative z-20 flex flex-col gap-3 transition-colors duration-300 group-hover:bg-black/[0.08]">
+      <div className="mx-4 mt-1 p-4 rounded-2xl bg-white/[0.03] backdrop-blur-xl border border-white/10 shadow-sm relative z-20 flex flex-col gap-3 transition-colors duration-300 group-hover:bg-white/[0.06]">
 
         {/* Car Name & Year */}
         <div className="flex flex-col">
-          <span className="text-black/50 font-bold text-[10px] tracking-widest uppercase mb-0.5">{data.brand} • {data.year}</span>
-          <span className="text-black/80 font-black text-xl md:text-2xl uppercase leading-none drop-shadow-sm">{data.model}</span>
-          <span className="text-black/40 font-medium text-[9px] uppercase mt-1 tracking-wider">{data.details}</span>
+          <span className="text-white/40 font-bold text-[10px] tracking-widest uppercase mb-0.5">{data.brand} • {data.year}</span>
+          <span className="text-white font-black text-xl md:text-2xl uppercase leading-none drop-shadow-sm">{data.model}</span>
+          <span className="text-white/30 font-medium text-[9px] uppercase mt-1 tracking-wider">{data.details}</span>
         </div>
 
         {/* Financials Grid */}
-        <div className="grid grid-cols-[1.2fr_1fr] gap-3 mt-1 pt-3 border-t border-black/5">
+        <div className="grid grid-cols-[1.2fr_1fr] gap-3 mt-1 pt-3 border-t border-white/5">
           {/* FIPE & Karcash */}
-          <div className="flex flex-col gap-1.5 border-r border-black/5 pr-3">
+          <div className="flex flex-col gap-1.5 border-r border-white/5 pr-3">
             <div className="flex justify-between items-end">
-              <span className="text-[9px] text-black/50 font-bold tracking-wider">FIPE</span>
-              <span className="text-[10px] text-black/40 line-through font-bold">R$ {data.fipe}</span>
+              <span className="text-[9px] text-white/40 font-bold tracking-wider">FIPE</span>
+              <span className="text-[10px] text-white/30 line-through font-bold">R$ {data.fipe}</span>
             </div>
             <div className="flex justify-between items-end">
-              <span className="text-[9px] text-black/80 font-bold tracking-wider">VIP</span>
-              <span className="text-[13px] text-black/90 font-black drop-shadow-sm">R$ {data.karcash}</span>
+              <span className="text-[9px] text-white/70 font-bold tracking-wider">VIP</span>
+              <span className="text-[13px] text-white/90 font-black drop-shadow-sm">R$ {data.karcash}</span>
             </div>
           </div>
 
           {/* Profit Margin */}
           <div className="flex flex-col justify-center">
-            <span className="text-[9px] text-primary/90 font-bold tracking-wider uppercase mb-0.5">Lucro na Revenda</span>
+            <span className="text-[9px] text-primary/80 font-bold tracking-wider uppercase mb-0.5">Lucro na Revenda</span>
             <span className="text-lg md:text-xl text-primary font-black leading-none drop-shadow-sm">+{data.profit}</span>
           </div>
         </div>
@@ -102,7 +101,7 @@ const AdCard = ({ data }: { data: typeof adsData[0] }) => {
         <img
           src={data.image}
           alt={`${data.brand} ${data.model}`}
-          className="w-[115%] max-h-[170px] md:max-h-[200px] object-contain object-bottom -translate-y-2 drop-shadow-xl"
+          className="w-[115%] max-h-[170px] md:max-h-[200px] object-contain object-bottom -translate-y-2 drop-shadow-2xl"
         />
       </div>
     </div>
@@ -110,7 +109,6 @@ const AdCard = ({ data }: { data: typeof adsData[0] }) => {
 };
 
 export const AdsShowcaseSection = () => {
-  // Duplicate data to create seamless infinite loop
   const doubledData = [...adsData, ...adsData, ...adsData];
 
   return (
@@ -123,10 +121,8 @@ export const AdsShowcaseSection = () => {
         </h2>
       </div>
 
-      {/* Marquee Container */}
       <div className="w-full relative z-20">
         <motion.div
-
           className="flex gap-4 md:gap-6 w-max"
           animate={{ x: ["0%", "-33.33%"] }}
           transition={{
@@ -134,7 +130,6 @@ export const AdsShowcaseSection = () => {
             ease: "linear",
             duration: 35
           }}
-          whileHover={{ animationPlayState: 'paused' }} // CSS property override won't perfectly pause framer this way, but works as intent. For React we'll just let it flow.
         >
           {doubledData.map((ad, i) => (
             <AdCard key={`${i}-${ad.model}`} data={ad} />
