@@ -70,31 +70,31 @@ export const VIPSidebarWidget = ({ onClick, isOpen }: VIPSidebarWidgetProps) => 
                         </button>
                     </motion.div>
 
-                    {/* Mobile Version (Exclusivo e Customizado) */}
+                    {/* Mobile Version (Exclusivo e Customizado) - Moved higher to avoid overlapping content */}
                     <motion.div
                         initial={{ scale: 0, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         exit={{ scale: 0, opacity: 0 }}
                         transition={{ duration: 0.4, type: "spring", stiffness: 260, damping: 20 }}
-                        className="fixed bottom-6 right-6 z-[100] md:hidden"
+                        className="fixed bottom-24 right-4 z-[100] md:hidden"
                     >
                         <button
                             onClick={onClick}
-                            className="relative w-16 h-16 flex flex-col items-center justify-center group"
+                            className="relative w-14 h-14 flex flex-col items-center justify-center group"
                         >
                             {/* Floating Glow Effects */}
-                            <div className="absolute inset-0 bg-primary/30 blur-2xl rounded-full animate-pulse" />
+                            <div className="absolute inset-0 bg-primary/30 blur-xl rounded-full animate-pulse" />
                             
-                            <div className="relative w-full h-full bg-gradient-to-br from-primary via-primary/90 to-primary/70 rounded-full flex flex-col items-center justify-center text-black shadow-[0_0_20px_rgba(var(--primary-rgb),0.5)] border-2 border-white/30 overflow-hidden">
+                            <div className="relative w-full h-full bg-gradient-to-br from-primary via-primary/90 to-primary/70 rounded-full flex flex-col items-center justify-center text-black shadow-[0_0_20px_rgba(0,255,0,0.4)] border-2 border-white/30 overflow-hidden">
                                 {/* Custom VIP Icon - Sized down */}
-                                <div className="scale-75">
+                                <div className="scale-[0.65]">
                                     <VIPCustomIcon />
                                 </div>
                                 
                                 {/* Animated Sweep Shine */}
                                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/40 to-transparent -translate-x-full group-active:translate-x-full transition-transform duration-1000" />
                                 
-                                <span className="relative z-10 text-[8px] font-black uppercase tracking-[0.1em] mt-0.5">Lucrar</span>
+                                <span className="relative z-10 text-[7px] font-black uppercase tracking-[0.1em] -mt-1">Lucrar</span>
                             </div>
                             
                             {/* External Pulsing Ring */}

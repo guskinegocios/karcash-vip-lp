@@ -6,7 +6,7 @@ import { CtaButton } from "./CtaButton";
 
 export const ManifestoSection = () => {
     return (
-        <section id="manifesto" className="pt-8 pb-10 bg-background border-t border-border/20 relative overflow-hidden">
+        <section id="manifesto" className="pt-8 pb-10 bg-background border-t border-white/5 relative overflow-hidden">
             {/* Background Accent */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2 opacity-20" />
             
@@ -24,19 +24,19 @@ export const ManifestoSection = () => {
                         </ScrollReveal>
 
                         <ScrollReveal>
-                            <div className="space-y-6 text-lg md:text-xl text-foreground/80 leading-[1.8] font-medium">
+                            <div className="space-y-6 text-lg md:text-xl text-white/70 leading-[1.8] font-medium">
                                 <p>
-                                    <span className="text-foreground font-black text-2xl block mb-2 uppercase tracking-tight">
+                                    <span className="text-white font-black text-2xl block mb-2 uppercase tracking-tight">
                                         Se você é uma pessoa inteligente...
                                     </span>
                                     Que dá valor para o seu dinheiro e está procurando um negócio com <span className="text-primary italic font-bold">lucros reais</span>, finalmente encontrou a oportunidade da sua vida.
                                 </p>
 
                                 <p>
-                                    Você sabia que é possível ganhar <span className="text-foreground font-black">R$ 20.000,00 em 10 dias</span> reparando um veículo avariado? Não acredita? Eu mesmo já fiz isso várias vezes e te provo como isso é possível. 
+                                    Você sabia que é possível ganhar <span className="text-white font-black">R$ 20.000,00 em 10 dias</span> reparando um veículo avariado? Não acredita? Eu mesmo já fiz isso várias vezes e te provo como isso é possível. 
                                 </p>
 
-                                <div className="bg-secondary/20 p-6 rounded-2xl border border-border shadow-sm italic text-foreground text-sm md:text-base border-l-4 border-l-primary">
+                                <div className="bg-white/5 p-6 rounded-2xl border border-white/10 shadow-sm italic text-white/90 text-sm md:text-base border-l-4 border-l-primary">
                                     "Sem métodos milagrosos, chega de mentiras e de enganação. Quando você tiver acesso à informação certa, vai abrir a sua mente e você vai ter este resultado."
                                 </div>
 
@@ -45,15 +45,22 @@ export const ManifestoSection = () => {
                                 </p>
 
                                 <div className="space-y-2 pt-4">
-                                    <p className="text-2xl md:text-3xl font-black text-foreground uppercase leading-tight tracking-tighter">
+                                    <p className="text-2xl md:text-3xl font-black text-white uppercase leading-tight tracking-tighter">
                                         Nós <span className="text-primary italic">compramos, reparamos e revendemos.</span>
                                     </p>
-                                    <p className="text-sm font-black text-foreground/40 uppercase tracking-[0.2em]">
+                                    <p className="text-sm font-black text-white/30 uppercase tracking-[0.2em]">
                                         Processo 100% Validado pelo KarCash VIP
                                     </p>
                                 </div>
                             </div>
                         </ScrollReveal>
+                        
+                        {/* Desktop CTA */}
+                        <div className="mt-10 hidden lg:block">
+                            <ScrollReveal delay={0.4}>
+                                <CtaButton text="QUERO MEU ACESSO VIP AGORA" href="/checkout" />
+                            </ScrollReveal>
+                        </div>
                     </div>
 
                     {/* Mobile Only: Ads Carousel inserted between Text and Video */}
@@ -110,12 +117,12 @@ export const ManifestoSection = () => {
 
                                 {/* Floating Stats Card */}
                                 <motion.div 
-                                    className="absolute -bottom-6 -left-6 bg-card border border-border p-5 rounded-2xl shadow-xl z-30 hidden md:block"
+                                    className="absolute -bottom-6 -left-6 bg-card border border-white/5 p-5 rounded-2xl shadow-xl z-30 hidden md:block"
                                     initial={{ opacity: 0, x: -20 }}
                                     whileInView={{ opacity: 1, x: 0 }}
                                     transition={{ delay: 0.5 }}
                                 >
-                                    <p className="text-xs text-muted-foreground uppercase font-black tracking-widest mb-1">Lucro Médio</p>
+                                    <p className="text-xs text-white/30 uppercase font-black tracking-widest mb-1">Lucro Médio</p>
                                     <p className="text-2xl font-black text-primary">R$ 20.400,00</p>
                                 </motion.div>
                             </div>
@@ -124,10 +131,10 @@ export const ManifestoSection = () => {
 
                 </div>
 
-                {/* Secondary CTA */}
-                <div className="mt-8">
+                {/* Mobile CTA */}
+                <div className="mt-12 lg:hidden flex justify-center">
                     <ScrollReveal delay={0.4}>
-                        <CtaButton />
+                        <CtaButton text="QUERO MEU ACESSO VIP AGORA" href="/checkout" />
                     </ScrollReveal>
                 </div>
             </div>

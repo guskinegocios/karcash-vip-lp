@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { ScrollReveal } from "./ScrollReveal";
 import { AnimatedCounter } from "./AnimatedCounter";
 import { TrendingUp, Clock, ShieldCheck, Zap, Quote, CheckCircle2 } from "lucide-react";
-import { CtaButton } from "./CtaButton";
 
 export const SocialProofSection = () => {
     const stats = [
@@ -81,7 +80,7 @@ export const SocialProofSection = () => {
                             <Zap className="w-3 h-3" />
                             Acesso Premium: Informação Privilegiada
                         </div>
-                        <h2 className="text-foreground mb-6 leading-tight max-w-4xl mx-auto uppercase text-3xl md:text-5xl font-black">
+                        <h2 className="text-foreground mb-6 leading-tight max-w-4xl mx-auto uppercase text-3xl md:text-5xl font-black tracking-tighter">
                             Domine o mercado com <span className="text-primary italic">Vantagem Real.</span>
                         </h2>
                         <p className="text-foreground/60 text-lg max-w-2xl mx-auto normal-case leading-relaxed font-medium">
@@ -95,14 +94,14 @@ export const SocialProofSection = () => {
                     {stats.map((stat, index) => (
                         <ScrollReveal key={index} delay={index * 0.1}>
                             <motion.div 
-                                className="group relative p-8 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all duration-500 overflow-hidden shadow-sm hover:shadow-xl"
+                                className="group relative p-8 rounded-2xl bg-card border border-white/5 hover:border-primary/30 transition-all duration-500 overflow-hidden shadow-sm hover:shadow-2xl"
                                 whileHover={{ y: -5 }}
                             >
                                 {/* Stat Icon & Trend */}
                                 <div className="flex justify-between items-start mb-6">
                                     <div className="relative">
-                                        <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center group-hover:bg-primary/10 transition-colors duration-500 border border-border/50">
-                                            <stat.icon className="w-6 h-6 text-foreground/30 group-hover:text-primary transition-colors" />
+                                        <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-primary/10 transition-colors duration-500 border border-white/10">
+                                            <stat.icon className="w-6 h-6 text-white/20 group-hover:text-primary transition-colors" />
                                         </div>
                                         {stat.live && (
                                             <div className="absolute -top-1 -right-1 flex h-3 w-3">
@@ -121,7 +120,7 @@ export const SocialProofSection = () => {
 
                                 {/* Main Value */}
                                 <div className="mb-2">
-                                    <span className="font-display font-bold text-4xl md:text-5xl text-foreground">
+                                    <span className="font-display font-bold text-4xl md:text-5xl text-white">
                                         <AnimatedCounter
                                             end={stat.value}
                                             decimals={stat.value % 1 !== 0 ? 1 : 0}
@@ -132,8 +131,8 @@ export const SocialProofSection = () => {
 
                                 {/* Label & Description */}
                                 <div className="space-y-2">
-                                    <p className="text-xs font-bold text-foreground/90 uppercase tracking-widest">{stat.label}</p>
-                                    <p className="text-[10px] text-foreground/40 font-medium leading-relaxed uppercase">{stat.description}</p>
+                                    <p className="text-xs font-bold text-white/90 uppercase tracking-widest">{stat.label}</p>
+                                    <p className="text-[10px] text-white/40 font-medium leading-relaxed uppercase">{stat.description}</p>
                                 </div>
 
                                 {/* Bottom Glow Effect */}
@@ -147,21 +146,21 @@ export const SocialProofSection = () => {
                 <div className="grid lg:grid-cols-3 gap-12 items-center">
                     <ScrollReveal>
                         <div className="lg:pr-12">
-                            <h3 className="text-3xl md:text-4xl text-foreground mb-6 leading-tight uppercase">
+                            <h3 className="text-3xl md:text-4xl text-white mb-6 leading-tight uppercase font-black italic">
                                 Relatos da <span className="text-primary italic">Comunidade.</span>
                             </h3>
-                            <p className="text-foreground/50 text-base mb-8 normal-case leading-relaxed italic">
+                            <p className="text-white/50 text-base mb-8 normal-case leading-relaxed italic font-medium">
                                 "O sucesso no mercado de repasse não é sobre quem grita mais alto, mas sobre quem tem acesso às informações certas antes de todo mundo."
                             </p>
-                            <div className="flex items-center gap-4 py-6 border-t border-border">
+                            <div className="flex items-center gap-4 py-6 border-t border-white/5">
                                 <div className="flex -space-x-3">
                                     {[1, 2, 3, 4].map(i => (
                                         <div key={i} className="w-10 h-10 rounded-full border-2 border-background bg-card flex items-center justify-center overflow-hidden">
-                                            <div className="w-full h-full bg-primary/5 flex items-center justify-center text-[10px] font-bold text-primary">{i}</div>
+                                            <div className="w-full h-full bg-white/5 flex items-center justify-center text-[10px] font-bold text-primary">{i}</div>
                                         </div>
                                     ))}
                                 </div>
-                                <p className="text-[10px] font-bold text-foreground/40 uppercase tracking-widest">
+                                <p className="text-[10px] font-bold text-white/20 uppercase tracking-widest">
                                     +5.200 MEMBROS ATIVOS
                                 </p>
                             </div>
@@ -170,26 +169,26 @@ export const SocialProofSection = () => {
 
                     <div className="lg:col-span-2 grid md:grid-cols-2 gap-6 relative">
                         {/* Decorative Quote Icon behind */}
-                        <Quote className="absolute -top-12 -left-12 w-48 h-48 text-foreground/[0.03] -rotate-12 pointer-events-none" />
+                        <Quote className="absolute -top-12 -left-12 w-48 h-48 text-white/[0.02] -rotate-12 pointer-events-none" />
                         
                         {testimonials.map((item, idx) => (
                             <ScrollReveal key={idx} delay={idx * 0.15}>
-                                <div className={`p-8 rounded-2xl bg-card border border-border hover:border-primary/10 transition-all shadow-sm ${idx === 1 ? 'md:translate-y-8' : ''}`}>
+                                <div className={`p-8 rounded-2xl bg-card border border-white/5 hover:border-primary/10 transition-all shadow-2xl ${idx === 1 ? 'md:translate-y-8' : ''}`}>
                                     <div className="flex items-center gap-4 mb-6">
                                         <div className="w-12 h-12 rounded-full bg-primary/5 border border-primary/10 flex items-center justify-center text-primary font-bold">
                                             {item.initial}
                                         </div>
                                         <div>
                                             <div className="flex items-center gap-2">
-                                                <p className="font-bold text-sm text-foreground uppercase tracking-wider">{item.name}</p>
+                                                <p className="font-bold text-sm text-white uppercase tracking-wider">{item.name}</p>
                                                 <CheckCircle2 className="w-3 h-3 text-primary" />
                                             </div>
-                                            <p className="text-[10px] text-foreground/40 italic leading-relaxed pt-4 font-medium uppercase tracking-[0.2em]">
+                                            <p className="text-[10px] text-white/30 italic leading-relaxed pt-4 font-medium uppercase tracking-[0.2em]">
                                                 {item.role} • {item.time}
                                             </p>
                                         </div>
                                     </div>
-                                    <p className="text-foreground/70 text-sm leading-relaxed italic normal-case border-l-2 border-primary/20 pl-4">
+                                    <p className="text-white/60 text-sm leading-relaxed italic normal-case border-l-2 border-primary/20 pl-4 font-medium">
                                         "{item.content}"
                                     </p>
                                 </div>
@@ -197,13 +196,6 @@ export const SocialProofSection = () => {
                         ))}
                     </div>
                 </div>
-
-                {/* Bottom CTA */}
-                <ScrollReveal delay={0.3}>
-                    <div className="mt-20 lg:mt-32">
-                        <CtaButton />
-                    </div>
-                </ScrollReveal>
             </div>
         </section>
     );

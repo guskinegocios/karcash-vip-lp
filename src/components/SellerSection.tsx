@@ -37,40 +37,42 @@ const TrafficSignCrashedCarIcon = () => (
 
 export const SellerSection = () => {
     return (
-        <section id="vender" className="py-24 relative overflow-hidden bg-background">
+        <section id="vender" className="py-16 md:py-24 relative overflow-hidden bg-background">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full pointer-events-none opacity-20" />
             
             <div className="container mx-auto px-4 relative z-10">
                 <ScrollReveal>
-                    <div className="max-w-5xl mx-auto rounded-[2.5rem] bg-card border border-white/5 p-8 md:p-16 shadow-2xl relative overflow-hidden group">
+                    <div className="max-w-5xl mx-auto rounded-[2rem] md:rounded-[2.5rem] bg-card border border-white/5 p-6 md:p-16 shadow-2xl relative overflow-hidden group">
                         <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 blur-[80px] pointer-events-none group-hover:bg-primary/10 transition-colors duration-700" />
                         
-                        <div className="grid md:grid-cols-[1fr_auto] gap-12 items-center">
-                            <div className="space-y-8">
-                                <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full">
+                        <div className="grid md:grid-cols-[1fr_auto] gap-8 md:gap-12 items-center">
+                            <div className="space-y-6 md:space-y-8">
+                                <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-primary/10 border border-primary/20 rounded-full">
                                     <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary">Venda seu veículo rápido</span>
+                                    <span className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] text-primary">Venda seu veículo rápido</span>
                                 </div>
                                 
-                                <div className="space-y-6">
-                                    <h2 className="text-3xl md:text-5xl font-display font-black text-white leading-tight">
-                                        TEM UM CARRO <span className="text-primary italic">AVARIADO</span> <br/>
+                                <div className="space-y-4 md:space-y-6">
+                                    <h2 className="text-2xl md:text-5xl font-display font-black text-white leading-tight uppercase italic tracking-tighter">
+                                        TEM UM CARRO <span className="text-primary">AVARIADO</span> <br className="hidden md:block" />
                                         E QUER VENDER AGORA? 🚗
                                     </h2>
                                     
-                                    <p className="text-white/60 text-lg md:text-xl leading-relaxed max-w-2xl font-medium">
+                                    <p className="text-white/60 text-base md:text-xl leading-relaxed max-w-2xl font-medium">
                                         Nossa rede exclusiva de investidores compra seu veículo à vista. 
                                         Acesse nossa página de avaliação e receba uma oferta em até 24h.
                                     </p>
                                 </div>
                                 
-                                <div className="pt-4">
+                                <div className="pt-2 md:pt-4">
                                     <CtaButton 
                                         text="QUERO VENDER MEU CARRO" 
                                         href="/sell" 
                                         variant="accent" 
                                         size="lg" 
+                                        fullWidth={true}
                                         showArrow={true}
+                                        className="md:w-fit"
                                     />
                                 </div>
                             </div>
