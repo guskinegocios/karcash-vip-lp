@@ -61,7 +61,7 @@ const AdCard = ({ data }: { data: typeof adsData[0] }) => {
     >
       {/* Header - Logo */}
       <div className="pt-3 pb-0 px-5 flex justify-center relative z-10 drop-shadow-sm">
-        <img src="/logo_karcash-removebg_1.webp" alt="Karcash Logo" className="h-[18px] object-contain brightness-0 invert opacity-70" />
+        <img src="/logo_karcash.webp" alt="Karcash Logo" className="h-[18px] object-contain brightness-0 invert opacity-70" />
       </div>
 
       {/* Glassmorphic Information Plate */}

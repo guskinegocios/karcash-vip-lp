@@ -1,30 +1,80 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, LucideIcon } from 'lucide-react';
 
 interface CtaButtonProps {
-    text?: string;
+    text: string;
     href?: string;
-    className?: string; // For wrapper styling (e.g. margin, alignment)
+    onClick?: () => void;
+    variant?: 'primary' | 'secondary' | 'accent' | 'outline' | 'ghost';
+    size?: 'sm' | 'md' | 'lg' | 'xl';
+    fullWidth?: boolean;
+    icon?: LucideIcon;
+    showArrow?: boolean;
+    className?: string;
 }
 
 export const CtaButton: React.FC<CtaButtonProps> = ({ 
-    text = "QUERO ACESSO AGORA", 
-    href = "/checkout", 
+    text, 
+    href, 
+    onClick,
+    variant = 'primary', 
+    size = 'md',
+    fullWidth = false,
+    icon: Icon,
+    showArrow = true,
     className = "" 
 }) => {
-    return (
-        <div className={`flex justify-center w-full ${className}`}>
-            <a href={href} className="w-full sm:w-auto inline-block">
-                <motion.button
-                    className="btn-primary-cta w-full sm:w-auto px-10 py-4 text-xl group flex items-center justify-center gap-4 rounded-2xl shadow-[0_20px_50px_rgba(11,115,71,0.2)] hover:shadow-primary/30 transition-all font-black uppercase tracking-wider"
-                    whileHover={{ scale: 1.02, y: -4 }}
-                    whileTap={{ scale: 0.98 }}
-                >
-                    {text}
-                    <ChevronRight className="w-6 h-6 group-hover:translate-x-1.5 transition-transform duration-300" />
+    // Basic variant styles
+    const variants = {
+        primary: "btn-primary-cta", // Neon Green
+        secondary: "bg-white/5 hover:bg-white/10 text-white border border-white/10",
+        accent: "bg-[#ff6b00] hover:bg-[#ff8533] text-white shadow-[0_10px_30px_rgba(255,107,0,0.3)] border-none",
+        outline: "bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground",
+        ghost: "bg-transparent text-white/70 hover:text-white hover:bg-white/5 border-none shadow-none"
+    };
+
+    // Sizes
+    const sizes = {
+        sm: "px-6 py-2 text-xs",
+        md: "px-8 py-3 text-sm",
+        lg: "px-10 py-4 text-base",
+        xl: "px-12 py-5 text-xl"
+    };
+
+    const content = (
+        <>
+            {Icon && <Icon className={`${size === 'sm' ? 'w-4 h-4' : 'w-5 h-5'}`} />}
+            {text}
+            {showArrow && <ChevronRight className={`${size === 'sm' ? 'w-4 h-4' : 'w-6 h-6'} group-hover:translate-x-1.5 transition-transform duration-300`} />}
+        </>
+    );
+
+    const buttonProps = {
+        className: `
+            ${variants[variant]} 
+            ${sizes[size]} 
+            ${fullWidth ? 'w-full' : 'w-max'} 
+            group flex items-center justify-center gap-3 rounded-2xl transition-all font-black uppercase tracking-wider
+            ${className}
+        `,
+        whileHover: { scale: 1.02, y: -4 },
+        whileTap: { scale: 0.98 }
+    };
+
+    if (href) {
+        return (
+            <a href={href} className={`${fullWidth ? 'w-full' : 'w-max'} inline-block`}>
+                <motion.button {...buttonProps}>
+                    {content}
                 </motion.button>
             </a>
-        </div>
+        );
+    }
+
+    return (
+        <motion.button onClick={onClick} {...buttonProps}>
+            {content}
+        </motion.button>
     );
 };

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ScrollReveal } from "./ScrollReveal";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { CtaButton } from "./CtaButton";
 
 const TrafficSignCrashedCarIcon = () => (
   <div className="relative w-28 h-28 md:w-36 md:h-36 flex items-center justify-center drop-shadow-[0_10px_30px_rgba(204,255,0,0.3)]">
@@ -63,16 +64,15 @@ export const SellerSection = () => {
                                     </p>
                                 </div>
                                 
-                                <Link to="/sell" className="inline-block pt-4">
-                                    <motion.button
-                                        whileHover={{ scale: 1.05, x: 5 }}
-                                        whileTap={{ scale: 0.95 }}
-                                        className="btn-primary-cta px-10 py-5 bg-[#ff6b00] hover:bg-[#ff8533] text-white border-none shadow-[0_10px_30px_rgba(255,107,0,0.3)] flex items-center gap-3 font-black text-lg group"
-                                    >
-                                        QUERO VENDER MEU CARRO
-                                        <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-                                    </motion.button>
-                                </Link>
+                                <div className="pt-4">
+                                    <CtaButton 
+                                        text="QUERO VENDER MEU CARRO" 
+                                        href="/sell" 
+                                        variant="accent" 
+                                        size="lg" 
+                                        showArrow={true}
+                                    />
+                                </div>
                             </div>
                             
                             <div className="hidden md:flex flex-col items-center justify-center p-12 bg-white/5 border border-white/10 rounded-3xl relative">

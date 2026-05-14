@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
+import { CtaButton } from "./CtaButton";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,7 +11,7 @@ export const Header = () => {
   const hideButtons = location.pathname === '/checkout' || location.pathname === '/congratulations';
 
   return (
-    <header className="sticky top-0 left-0 right-0 z-50 bg-[#05100B] border-b border-white/5 shadow-2xl">
+    <header className="sticky top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-white/5 shadow-2xl">
       <div className="container mx-auto px-4 h-20 flex items-center justify-between">
         {/* Logo */}
         <a href="/" className="flex items-center">
@@ -26,18 +27,16 @@ export const Header = () => {
           <div className="hidden md:flex items-center gap-8">
             <a 
               href="/#vender" 
-              className="text-sm font-black text-white/70 hover:text-white uppercase tracking-widest transition-colors"
+              className="text-sm font-black text-white/50 hover:text-white uppercase tracking-widest transition-colors"
             >
               Vender um Carro
             </a>
-            <motion.a
-              href="/checkout"
-              className="btn-primary-cta text-sm py-3 px-8 shadow-none hover:shadow-primary/40 bg-primary border-none text-white"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              QUERO ACESSO AGORA
-            </motion.a>
+            <CtaButton 
+                text="QUERO ACESSO AGORA" 
+                href="/checkout" 
+                variant="primary" 
+                size="sm" 
+            />
           </div>
         )}
 
@@ -55,7 +54,7 @@ export const Header = () => {
       {/* Mobile menu - Conditional Rendering */}
       {isMenuOpen && !hideButtons && (
         <motion.div
-          className="md:hidden bg-[#05100B] border-t border-white/5 p-6 shadow-2xl"
+          className="md:hidden bg-background border-t border-white/5 p-6 shadow-2xl"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
         >
@@ -66,13 +65,14 @@ export const Header = () => {
           >
             Vender um Carro
           </a>
-          <a
-            href="/checkout"
-            className="btn-primary-cta block text-center text-base py-4"
+          <CtaButton 
+            text="QUERO ACESSO AGORA" 
+            href="/checkout" 
+            variant="primary" 
+            size="lg" 
+            fullWidth={true}
             onClick={() => setIsMenuOpen(false)}
-          >
-            QUERO ACESSO AGORA
-          </a>
+          />
         </motion.div>
       )}
     </header>

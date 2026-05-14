@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
-import { ChevronRight, Award } from "lucide-react";
+import { Award } from "lucide-react";
 import { CtaButton } from "./CtaButton";
 
 export const HeroSection = () => {
     return (
         <section className="relative min-h-0 flex items-start pt-16 md:pt-24 pb-12 overflow-hidden bg-background">
             {/* Very Subtle Institutional Gradient */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary/5 blur-[160px] rounded-full -translate-y-1/2 opacity-30" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary/10 blur-[160px] rounded-full -translate-y-1/2 opacity-50" />
             
             <div className="container mx-auto px-4 relative z-10">
                 <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
@@ -36,12 +36,12 @@ export const HeroSection = () => {
                         transition={{ duration: 0.8, delay: 0.6 }}
                         className="flex flex-col items-center gap-6 w-full"
                     >
-                        <CtaButton />
+                        <CtaButton text="QUERO ACESSO AGORA" href="/checkout" size="lg" />
                     </motion.div>
                     
                     {/* Institutional Badge */}
                     <motion.div 
-                        className="mt-12 pt-6 border-t border-border/50 flex justify-center gap-10 w-full max-w-lg"
+                        className="mt-12 pt-6 border-t border-white/5 flex justify-center gap-10 w-full max-w-lg"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 1, delay: 0.8 }}
@@ -53,8 +53,6 @@ export const HeroSection = () => {
                     </motion.div>
                 </div>
             </div>
-            
-
         </section>
     );
 };
